@@ -1,0 +1,47 @@
+/*
+ *Pseudocódigos feitos em sala aula 09.
+ *Lucas Pessoa Oliveira Alves 
+*/
+
+Exemplo slide 6
+algoritmo
+    declare A numerico
+    leia A 
+    repita
+        se A < 0
+            então interrompa
+        escreva A 
+        A <- A - 1
+    fim-repita
+    escreva "fim da repetição"
+fim-algoritmo
+---------------------------------------------------------------------------
+
+Exemplo slide 8
+algoritmo
+    declare A numerico
+    leia A 
+    repita
+        escreva A
+        se A < 0
+            então interrompa
+        fim-se
+        A <- A - 1
+    fim-repita
+    escreva "fim da repetição"
+fim-algoritmo
+-------------------------------------------------------------------------------
+
+Exemplo slide 10
+algoritmo
+    declare A numerico
+    leia A
+    repita
+        escreva A
+        A <- A - 1
+        se A < 0
+            então interrompa
+        fim-se
+    fim-repita
+    escreva "Fim da repetição"
+fim-algoritmo

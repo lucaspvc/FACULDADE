@@ -1,0 +1,16 @@
+/*
+ *Resolução do exemplo do slide 14/aula 07.
+ *Lucas Pessoa Oliveira Alves 
+*/
+
+Resolução Ex (slide 14)
+algoritmo
+    declare NOME1, NOME2, NOME3 literal
+    declare NOTA1, NOTA2, NOTA3 numérica
+    leia NOME1, NOTA1
+    leia NOME2, NOTA2
+    leia NOME3, NOTA3
+    escreva NOME1, "tirou a nota", NOTA1
+    escreva NOME2, "tirou a nota", NOTA2    
+    escreva NOME3, "tirou a nota", NOTA3    
+fim-algoritmo

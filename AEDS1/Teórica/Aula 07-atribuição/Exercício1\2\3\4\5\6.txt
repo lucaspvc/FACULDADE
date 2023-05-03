@@ -1,0 +1,101 @@
+/*
+ *Pseudocódigos dos exercício da aula 07.
+ *Lucas Pessoa Oliveira Alves 
+*/
+
+Exercício 1
+area do quadrado area=l*l
+
+algoritmo
+    declare LADO, AREA numerico
+    leia LADO
+    AREA <- LADO * LADO
+    escreva AREA
+fim-algoritmo
+---------------------------------------------------------------------------------
+
+Exercício 2
+Desenvolva um algoritmo para calcular a área de um círculo que é dado pela fórmula:
+AREA = 3.14 * RAIO² 
+
+MINHA RESOLUÇÃO:
+
+algoritmo
+    declare AREA, RAIO numérica
+    leia RAIO
+    AREA <- 3.14 * RAIO²
+    escreva AREA
+fim-algoritmo
+--------------------------------------------------------------------------------
+
+Exercício 3
+42/hora
+variação de inss 7,5% a 22%
+aulas dadas max 8hr/dia 160hr por mes
+
+algoritmo
+    declare INSS, VALOR, AULAS, SALARIO numerico
+    leia INSS, VALOR, AULAS
+    SALARIO <- VALOR * AULAS * ((100 - INSS)/100)
+    escreva SALARIO
+fim-algoritmo 
+RESOLUÇÃO LUISIN
+algoritmo
+    declare HORA, QTDADE, BRUTO, TAXA, LIQUIDO numerico
+    leia HORA, QTDADE, TAXA
+    BRUTO <- HORA*QTDADE
+    LIQUIDO <- BRUTO - (TAXA*BRUTO)
+    escreva BRUTO, LIQUIDO
+fim-algoritmo
+-----------------------------------------------------------------------------------
+
+Exercício 4
+carro 12km/l
+usuario fornece: tempo gasto, velocidade média
+DISTANCIA = TEMPO * VELOCIDADEMEDIA
+LITROSUSADOS= DISTANCIA/12
+
+algoritmo
+    declare DISTANCIA, TEMPO, VELOCIDADEMEDIA, LITROSUSADOS numerico
+    leia VELOCIDADEMEDIA, TEMPO
+    DISTANCIA <- VELOCIDADEMEDIA * TEMPO
+    LITROSUSADOS <- DISTANCIA/12
+    escreva LITROSUSADOS, DISTANCIA
+fim-algoritmo
+---------------------------------------------------------------------------------
+
+Exercício 5
+A e B
+A recebe B e B recebe A
+
+algoritmo
+    declare A, B, AUX numerico
+    leia A, B
+    AUX <- A 
+    A <- B
+    B <- AUX
+    escreva A 
+    escreva B
+fim-algoritmo
+---------------------------------------------------------------------------------
+
+Exercício 6
+A+B
+A-B
+A*B
+A/B
+
+algoritmo
+    declare A, B, C numerico
+    leia A 
+    leia B
+    C <- A + B
+    escreva C 
+    C <- A - B
+    escreva C 
+    C <- A / B
+    escreva C 
+    C <- A * B
+    escreva C 
+fim-algoritmo
+---------------------------------------------------------------------------------

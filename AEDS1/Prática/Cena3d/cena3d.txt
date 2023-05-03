@@ -1,0 +1,4 @@
+cubo 3
+esfera 5
+cilindro 2 7
+fim

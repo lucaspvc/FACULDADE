@@ -1,0 +1,27 @@
+/*
+ *Pseudocódigos feitos em sala aula 08.
+ *Lucas Pessoa Oliveira Alves 
+*/
+
+algoritmo
+    declare A,B,C numerico
+    leia A,B,C
+    se A+B < C
+        então escreva "Mensagem"
+    fim-se
+    escreva "Fim"
+fim-algoritmo
+============================================================================================
+
+algoritmo
+    declare A,B,C numerico
+    leia A,B,C 
+    se A < B e A < carro
+        então escreva A 
+        senão se B < C 
+            então escreva B
+            então escreva C 
+        fim-senão
+    fim-se
+fim-algoritmo
+============================================================================================

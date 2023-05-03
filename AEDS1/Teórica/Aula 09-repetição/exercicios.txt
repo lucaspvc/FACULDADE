@@ -1,0 +1,86 @@
+/**
+* Pseudocódigos dos exercícios dos slides da aula 09
+* Lucas Pessoa Oliveira Alves
+*/
+
+Exercício 1
+calculo de uma fatorial
+
+algoritmo
+    declare N, FAT numerico
+    leia N
+    FAT <- 1
+    repita
+        se N < 1
+            então interrompa
+        fim-se
+        FAT <- FAT * N 
+        N <- N-1
+    fim-repita
+    escreva "Fatorial é: FAT"
+fim-algoritmo
+--------------------------------------------------------------------------------
+
+Exercício 2 
+
+algoritmo
+    declare PESO, MAIOR, MENOR, ID, IDMAIOR, IDMENOR, I numerico
+    leia PESO, ID
+    MAIOR <- PESO
+    MENOR <- PESO
+    I = 1
+    repita
+        se I > 90
+            então interrompa
+        fim-se
+        senão
+            leia PESO, ID
+            I <- I + 1
+            se MAIOR < PESO
+                então MAIOR <- PESO 
+                    IDMAIOR <- ID
+            fim-se
+
+            
+        senão 
+            se MENOR > PESO
+                então MENOR <- PESO
+                    IDMENOR <- ID
+            fim-se
+        fim-senão
+        fim-senão
+    escreva IDMAIOR, MAIOR
+    escreva IDMENOR, MENOR
+fim-algoritmo  
+------------------------------------------------------------------------------------
+
+
+Exercício 3
+algoritmo
+    declare OLHOS, CABELOS, SEXO literal
+    declare IDADE, MAIOR, CONTADOR, PORCENTAGEM, I numerico
+    CONTADOR <- 0
+    I <- 1
+    leia OLHOS, CABELOS, SEXO, IDADE
+    MAIOR <- IDADE
+    se OLHOS = Verde e CABELOS = Loiro e SEXO = Feminino e IDADE >= 18 e IDADE <= 35
+        então CONTADOR <- CONTADOR + 1
+    fim-se
+    repita
+        se IDADE = -1
+            então interrompa
+        fim-se
+        senão
+        leia OLHOS, CABELOS, SEXO, IDADE
+        I <- I + 1
+        se MAIOR < IDADE
+            então MAIOR <- IDADE
+        fim-se
+        se OLHOS = Verde e CABELOS = Loiro e SEXO = Feminino e IDADE >= 18 e IDADE <= 35
+            então CONTADOR <- CONTADOR + 1
+        fim-se
+        fim-senão
+escreva MAIOR
+PORCENTAGEM <- CONTADOR/I
+escreva PORCENTAGEM
+fim-algoritmo

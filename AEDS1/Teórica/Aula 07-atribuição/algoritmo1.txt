@@ -1,0 +1,11 @@
+/*
+ *Algoritmo de exemplo feito em sala.
+ *Lucas Pessoa Oliveira Alves 
+*/
+
+algoritmo
+    declare A, B, C  numérico
+    leia A, B
+    C <- (A+B)/B
+    escreva A, B, C
+fim-algoritmo

@@ -1,0 +1,49 @@
+/*
+ *Pseudocódigos dos exercício da aula 08.
+ *Lucas Pessoa Oliveira Alves 
+*/
+
+Exercício 1
+algoritmo
+    declare A,B,C numerico
+    leia A,B,C
+    se A < B e A < C
+        então escreva A 
+    fim-se
+    se B < A e B < C
+        então escreva B
+    fim-se
+    se C < A e C < B
+        então escreva C
+    fim-se
+fim-algoritmo
+===============================================================================
+
+Exercício 2 
+FEITO NA AULA PRÁTICA
+================================================================================
+
+Exercício 3
+algoritmo
+    declare NOTA numerico
+    leita NOTA
+    se NOTA >= 6
+        então escreva "aprovado"
+        senão se NOTA >= 4
+            então escreva "Prova final"
+            senão escreva "reprovado"
+        fim-se
+    fim-se
+fim
+================================================================================
+
+Exercício 4
+algoritmo
+    declare A, B, C, DELTA numerico
+    leia A, B, C 
+    DELTA <- B * B - 4 * A + C
+    se DELTA >=0
+        então escreva "A equação tem raízes reais"
+        senão escreva "A equação não tem raízes reais"
+    fim-se
+fim-algoritmo
