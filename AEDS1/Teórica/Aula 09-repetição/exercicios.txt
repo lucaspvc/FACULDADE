@@ -82,3 +82,29 @@ escreva MAIOR
 PORCENTAGEM <- CONTADOR/I
 escreva PORCENTAGEM
 fim-algoritmo
+
+RESOLUÇÃO DO LUIZIN
+algoritmo
+    1-declaração das variáveis
+    MAIOR <- -1
+    CONTAHAB <- 0
+    CONTAMULHER <- 0
+    repita
+        leia SEXO, OLHOS, CABELOS, IDADE
+        se IDADE = -1
+            então interrompa
+        fim-se
+        CONTAHAB <- CONTAHAB + 1
+        se SEXO = 'F' e IDADE >= 18 e IDADE <= 35 e OLHOS = 'V' e CABELOS = 'L'
+            então CONTAMULHER <- CONTAMULHER + 1
+        fim-se
+        se IDADE > MAIORIDADE
+            então MAIORIDADE <- IDADE
+        fim-se
+    fim-repita
+escreva "Maior Idade = ", MAIORIDADE
+escreva "Percentual = ", CONTAMULHER/CONTAHAB
+fim-algoritmo
+----------------------------------------------------------------------------------------------
+
+Exercício 4

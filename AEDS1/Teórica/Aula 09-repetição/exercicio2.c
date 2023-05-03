@@ -26,7 +26,7 @@ int main(int argc, char const *argv[]) {
   printf("O maior boi tem peso %d e id %d\n", maior, idmaior);
   printf("O menor boi tem peso %d e id %d\n", menor, idmenor);
 
-  /**
+  /** RESOLUÇÃO DO LUIZIN
    * int id, peso, conta, idgordo, pesomaior, idmagro, pesomenor;
    * pesomaior = -1;
    * pesomenor = 1000000000;
