@@ -1,0 +1,96 @@
+função chr
+
+chr:: Int->Char
+chr 0 = 
+.
+.
+.
+.
+chr 65 = 'A'
+.
+.
+
+função ord tem o mesmo custo que a função chr, visto que ambas percorrem todos os caracteres no pior caso
+
+ord::Char->Int
+.
+.
+ordT::Int->Char->Int
+//ordT -1 _ = -1
+ordT x  y
+    |char x == y = x
+    |otherwise = ordT(x-1) y
+
+TUPLAS
+permite quantos valores quiser
+(Int, Int)              (3, 4)
+(Int, String)           (3, "casa")
+(Char, Bool, Int)       ('3', true, 3)
+
+==================================================
+f:: (Char, Bool, Int)->Bool
+f:: x = true
+x é a TUPLA
+==================================================
+f::(Char, Bool, Int) -> Bool
+fb::(_,y,_)-> y
+fa::(x,_,_)-> x
+fc::(_,_,z)-> z
+=========================================
+Exercicios
+
+f::(Int, Int, Bool)->(Int, Int, Bool)->Bool->(Int, Int, Bool)
+f::x y z
+    |z == true = x
+    |otherwise = y
+
+=====================================================
+Pode fazer uma lista de tuplas ou uma tupla de lista
+
+tuplas de lista
+(Int, Float, Char, String)
+
+
+(3, 3.9, 'a', "bala")
+
+lista de tupla
+[Int]
+construtor de lista  ":"-> insere elemento na lista
+concatenador "++"-> concatena duas listas
+
+3:[4,5] = [3,4,5]
+[3]++[4,5] = [3,4,5]
+
+1:2:3:[4,5] = [1,2,3,4,5]
+ele insere por partes, primeiro o 3 depois o 2 e assim por diante
+
+[[Int]] = [[1,2],[3,4],[]]
+a partir disso é possivel fazer:
+[9,10]:[[1,2],[3,4],[]] = [[9,10],[1,2],[3,4],[]]
+[Int]:[[Int]]
+nesse caso [Int] é um elemento
+
+(z:x)
+é de se esperar que seja
+z=3
+x=[5,9]
+(z:x) = [3,5,9]
+
+mapeamento da função reverse
+reverse [3,4,5]
+z=3
+x=[4,5]
+
+reverse [4,5]++[3]
+z=4
+x=[5]
+
+reverse [5]++ [4,3]
+z=5
+x=[]
+
+reverse []++[5,4,3]
+
+cuidado
+[]++[x]=[x]
+[]:[[x],[a,b]]=[[],[x],[a,b]]

@@ -37,17 +37,19 @@ mult x y = soma x (mult x (y-1))
 
 
 -- Exercício 4
-invertInt :: Int -> Int
-invertInt x = multL (intLista x) [1,10,100,1000,10000,100000,1000000,10000000]
-  
-intLista :: Int -> [Int]
-intLista 0 = []
-intLista x = intLista(div x 10) ++ [mod x 10]
 
-multL::[Int] -> [Int] -> Int
-multL [] _ = 0
-multL _ [] = 0
-multL (a:b) (c:d) = (a*c) + multL b d
+--Código já feito
+--invertInt :: Int -> Int
+--invertInt x = multL (intLista x) [1,10,100,1000,10000,100000,1000000,10000000]
+  
+--intLista :: Int -> [Int]
+--intLista 0 = []
+--intLista x = intLista(div x 10) ++ [mod x 10]
+
+--multL::[Int] -> [Int] -> Int
+--multL [] _ = 0
+--multL _ [] = 0
+--multL (a:b) (c:d) = (a*c) + multL b d
 
 -- Exercício 5
 square :: Int -> Int
