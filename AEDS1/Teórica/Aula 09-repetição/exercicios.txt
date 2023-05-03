@@ -39,9 +39,7 @@ algoritmo
             se MAIOR < PESO
                 então MAIOR <- PESO 
                     IDMAIOR <- ID
-            fim-se
-
-            
+            fim-se   
         senão 
             se MENOR > PESO
                 então MENOR <- PESO
