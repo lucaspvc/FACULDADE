@@ -25,5 +25,30 @@ int main(int argc, char const *argv[]) {
   }
   printf("O maior boi tem peso %d e id %d\n", maior, idmaior);
   printf("O menor boi tem peso %d e id %d\n", menor, idmenor);
+
+  /**
+   * int id, peso, conta, idgordo, pesomaior, idmagro, pesomenor;
+   * pesomaior = -1;
+   * pesomenor = 1000000000;
+   * conta = 0;
+   * while(1){
+   * conta = conta + 1;
+   * scanf ("%d %d", &id, &peso);
+   *    if (peso > pesomaior){
+   *      pesomaior = peso;
+   *      idgordo = id;
+   *    }
+   *    if (peso < pesomenor){
+   *      pesomenor = peso;
+   *      idmagro = id;
+   *    }
+   *    if (conta >= 9)
+   *      break;
+   * }
+   * printf("Mais gordo, id = %d, peso = %d\n", idgordo, pesomaior);
+   * printf("Mais magro, id = %d, peso = %d\n", idmagro, pesomenor);
+   * 
+   * //Para fazer o redirecionamento de arquivo txt para leitura a partir do scanf basta fazer [executável < .txt]
+  */
   return 0;
 }
