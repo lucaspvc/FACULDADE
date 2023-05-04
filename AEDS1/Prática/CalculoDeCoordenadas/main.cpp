@@ -27,8 +27,8 @@ int main(int argc, char** argv) {
         cout << "Distância: "<< total << endl;
         dx1 = dx2;
         dy1 = dy2;
-        distancia >> dx1;
-        distancia >> dy1;
+        distancia >> dx2;
+        distancia >> dy2;
     }
     return 0;
 }
