@@ -108,3 +108,75 @@ fim-algoritmo
 ----------------------------------------------------------------------------------------------
 
 Exercício 4
+algoritmo
+    declare IDADE, IDADETOTAL, CONTADOR numerico
+    CONTADOR <- 0
+    IDADETOTAL <- 0
+    repita 
+        leia IDADE
+        se IDADE = 0
+            então interrompa
+        fim-se
+        senão
+        CONTADOR <- CONTADOR + 1
+        IDADETOTAL <- IDADE + IDADETOTAL
+        fim-senão
+    fim-repita
+    escreva "A média de idade é:", IDADETOTAL/CONTADOR
+fim-algoritmo
+
+RESOLUÇÃO DO LUIZIN
+algoritmo
+    declare IDADE, CONTA, SOMA, MEDIA numerico
+    CONTA <- 0
+    SOMA <- 0
+    repita
+        leia IDADE
+        se IDADE = 0
+            então interrompa
+        fim-se
+        SOMA <- SOMA + IDADE
+        CONTA <- CONTA + 1
+    fim-repita
+    MEDIA <- SOMA/CONTA
+    escreva "Média =", MEDIA
+fim-algoritmo
+-----------------------------------------------------------------------------------------------
+
+Exercício 5
+algoritmo
+    declare C, F numerico
+    F <- 50
+    repita
+        se F > 150
+            então interrompa
+        fim-se
+        senão
+        escreva F
+        C <- 5/9*(F-32)
+        escreva C
+        F <- F + 1
+        fim-senão
+    fim-repita
+--------------------------------------------------------------------------------------------------
+
+Exercício 6 
+algoritmo
+    declare TERMO, NUM, DEN, SOMA, SINAL numerico
+    SOMA <- 0
+    TERMO <- 1
+    NUM <- 1
+    DEN <- 1
+    SINAL <- 1
+    repita
+        SOMA->SOMA+SINAL+NUM/DEN
+        SINAL <- (-1)*SINAL
+        TERMO <- TERMO+1
+        NUM <- TERMO * NUM
+        DEN <- DEN*2+1
+        se TERMO > 50
+            então interrompa
+        fim-se
+    fim-repita
+    escreva "O somatório é: ", SOMA
+fim-algoritmo

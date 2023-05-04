@@ -1,0 +1,15 @@
+/**
+* Pseudocódigos dos exercícios da primeira lista de exercício
+* Lucas Pessoa Oliveira Alves
+*/
+
+Exercıcio 1. A empresa XYZ fez uma pesquisa de mercado para saber se seus clientes gostaram 
+ou nao de um novo produto que foi lan ̧cado pela empresa recentemente. Para isto, perguntou
+a idade e se o cliente gostou ou n ̃ao do produto. Sabendo-se que foram feitas 200 entrevistas,
+fazer um algoritmo que calcule e escreva:
+     O n ́umero de pessoas que responderam sim.
+     O n ́umero de pessoas que responderam n ̃ao.
+     a m ́edia de idade das pessoas que responderam sim.
+     o mais velho e o mais novo que respondeu sim.
+
+Resolução
