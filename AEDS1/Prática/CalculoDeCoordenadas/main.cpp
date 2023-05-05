@@ -1,7 +1,6 @@
-#include <cstdlib>
-#include <math.h>
+#include <bits/stdc++.h>
 #include <iostream>
-#include <fstream>
+#include <math.h>
 using namespace std;
 
 
@@ -13,7 +12,7 @@ int main(int argc, char** argv) {
     ifstream distancia ("coordenadas.txt");
     if (!distancia.is_open()){
         cout << "\nErro: Arquivo não encontrado. \n";
-        return 1;
+        return 0;
     }
     
     distancia >> dx1;
@@ -32,4 +31,3 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-

@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
             cout << "O volume do paralelepípedo é: " << volume << endl;
             cout << "----------------------------------------------" << endl;
             volumetotal = volume + volumetotal;
-        }else if(figura == "cone"){
+        }/*else if(figura == "cone"){
             cena >> lado;
             
             
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
             
         }else if(figura == "pirâmide_quadrangular"){
 
-        }
+        }*/
         
     }
     cout << "O volume total da cena é: " << volumetotal<< endl;

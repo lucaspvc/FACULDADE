@@ -17,5 +17,5 @@ int main(){
     area = 2* pi * raio *(raio + altura);
     
     printf ("\nValor do volume: %.2f", volume);
-    printf ("\nValor da área: %.2f", area);
+    printf ("\nValor da área: %.2f\n", area);
 }

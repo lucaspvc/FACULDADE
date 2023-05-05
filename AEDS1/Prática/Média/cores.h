@@ -25,4 +25,3 @@
 #define bmagenta printf("\e[1;35m")
 
 #endif /* CORES_H */
-
