@@ -37,19 +37,17 @@ mult x y = soma x (mult x (y-1))
 
 
 -- Exercício 4
-
---Código já feito 
---invertInt :: Int -> Int
---invertInt x = multL (intLista x) [1,10,100,1000,10000,100000,1000000,10000000]
+invertInt :: Int -> Int
+invertInt x = multL (intLista x) [1,10,100,1000,10000,100000,1000000,10000000]
   
---intLista :: Int -> [Int]
---intLista 0 = []
---intLista x = intLista(div x 10) ++ [mod x 10]
+intLista :: Int -> [Int]
+intLista 0 = []
+intLista x = intLista(div x 10) ++ [mod x 10]
 
---multL::[Int] -> [Int] -> Int
---multL [] _ = 0
---multL _ [] = 0
---multL (a:b) (c:d) = (a*c) + multL b d
+multL::[Int] -> [Int] -> Int
+multL [] _ = 0
+multL _ [] = 0
+multL (a:b) (c:d) = (a*c) + multL b d
 
 -- Exercício 5
 square :: Int -> Int
@@ -63,5 +61,4 @@ sqr6::Float->Float
 sqr6 1 = sqrt 6
 sqr6 x = sqrt(6 + sqr6(x-1))
 
--- Exercício 7
-    
+--Exercício 7 
