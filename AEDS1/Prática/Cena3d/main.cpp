@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
         }else if(figura == "pirâmide_quadrangular"){
 
         }*/
-        
+        cena >> figura;
     }
     cout << "O volume total da cena é: " << volumetotal<< endl;
     cout << "A área total da cena é: " << areatotal << endl;

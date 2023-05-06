@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char** argv) {
     float valor;
-    ifstream coordenada("coordena.txt");
+    ifstream coordenada("coordenada.txt");
     float soma, media, maior, menor;
     int contador = 0;
     soma = 0;

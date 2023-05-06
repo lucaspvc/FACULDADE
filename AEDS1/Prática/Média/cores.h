@@ -1,15 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/cppFiles/file.h to edit this template
- */
-
-/* 
- * File:   cores.h
- * Author: 2022.1.08.044
- *
- * Created on 25 de abril de 2023, 18:22
- */
-
 #ifndef CORES_H
 #define CORES_H
 
