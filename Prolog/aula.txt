@@ -1,0 +1,59 @@
+Como realizar isso?
+F. ap([], X, X).
+R. ap([A|B], C, [A|B]):-ap(B,C,D).
+
+ap(lista,lista,lista)
+
+?-ap([1,2], [3], L).
+
+Casamento 
+[A|B]
+[1,2,3]
+A= 1
+B= [2,3]
+
+[A|B]
+[1,3]
+A=1
+B= [3]
+
+[A|B]
+[[1,2],[3,4]]
+A=[1,2]
+B=[[3,4]]
+
+[A|B]
+[p(0,0), p(1,2)]
+A= p(0,0)
+B= [p(1,2)]
+
+[A|B]
+[1]
+A=1
+B=[]
+
+[A|B]
+A=cabeça
+B= cauda
+
+[A,B|C]
+[3,10,20,50]
+A=3
+B=10
+C=[20,50]
+fim Casamento
+
+?-      ap([1,2],[3],L)
+F(fato) ap ([],X,X) fail
+        ap([1,2],[3],L)
+R(regra)ap([A|B],C,[A|D]):-ap(B,C,D)
+            A=1  C=[3] L=[A|D]
+            B=[2]      L=[1|D]
+para descobrir D faça a regra recursivamente
+?-      ap([1,2],[3],L)
+F(fato) ap ([],X,X) fail
+?-      ap([2],[3],D)
+R(regra)ap([A'|B'],C',[A'|D']):-ap(B',C',D')
+            A=2  C=[3] L=[A'|D']
+            B=[]      L=[2|D']
+Restante na foto
