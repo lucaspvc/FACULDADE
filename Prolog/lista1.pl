@@ -83,3 +83,6 @@ media(L,X):-
     somatorio(Soma,L),
     comprimento(Comp, L),
     X is Soma/Comp.
+
+%Exercício 10
+minimo(List,R).
