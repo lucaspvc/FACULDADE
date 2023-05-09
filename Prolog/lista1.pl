@@ -23,12 +23,10 @@ troca([A|B],X,Y,[Y|Rlist]):-
 troca([A|B],X,Y,[A|Rlist]):-
     troca(B,X,Y,Rlist).
 
-
 %Resolução do Chat GePeTo.
 trocaGPT([], _, _, []).
 trocaGPT([X|Xs], X, Y, [Y|Ys]) :-
         trocaGPT(Xs, X, Y, Ys).
-
 trocaGPT([X|Xs], X1, Y1, [X|Ys]) :- 
         trocaGPT(Xs, X1, Y1, Ys).
 
@@ -39,22 +37,13 @@ trocaGPT([X|Xs], X1, Y1, [X|Ys]) :-
 mais_longa([],_).
 mais_longa([_|R],[_|R1]):-mais_longa(R,R1).
 
+
 %Exercício 6
-somatorio([],0).
-somatorio([A|B],Y):- %função para fazer o somatório da lista
-    Y is Y1+A,
-    somatorio(B,Y1). 
-
-comprimento(0,[]).
-comprimento(A,[_|Y]):- %função para achar o comprimento da lista
-    comprimento(A1,Y),
-    A is A1+1. 
-
 distancia((X1,Y1),(X2,Y2),R):-
     R is sqrt((X2-X1)**2+(Y2-Y1)**2). %resolução da fórmula do cálculo da distância
 
-%Exercício 7
 
+%Exercício 7
 escreva(0,_). %caso base da escrita
 escreva(A,Caracter):- %função para escrever uma linha
     write(Caracter),
@@ -69,3 +58,28 @@ quadrado(A, L, Caracter):-
     nl,
     A1 is A-1,
     quadrado(A1, L, Caracter).
+
+
+%Exercício 8
+elemento_n(List,N,X):-elemento_n(List,N,1,X).%passa a função para 4 parametros
+elemento_n([A|_],N,N,A):-!.
+elemento_n([_|B],N,I,X):-
+    I1 is I+1,
+    elemento_n(B,N,I1,X).
+
+
+%Exercício 9
+comprimento(0,[]).
+comprimento(A,[_|Y]):- %função para achar o comprimento da lista
+    comprimento(A1,Y),
+    A is A1+1. 
+
+somatorio(0,[]).
+somatorio(Y,[A|B]):- %função para fazer o somatório da lista
+    somatorio(Y1,B),
+    Y is Y1+A. 
+
+media(L,X):- 
+    somatorio(Soma,L),
+    comprimento(Comp, L),
+    X is Soma/Comp.
