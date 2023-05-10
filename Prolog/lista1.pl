@@ -33,6 +33,9 @@ trocaGPT([X|Xs], X1, Y1, [X|Ys]) :-
 %Exercício 4
 
 
+
+
+
 %Exercício 5
 mais_longa([],_).
 mais_longa([_|R],[_|R1]):-mais_longa(R,R1).
@@ -76,13 +79,54 @@ comprimento(A,[_|Y]):- %função para achar o comprimento da lista
 
 somatorio(0,[]).
 somatorio(Y,[A|B]):- %função para fazer o somatório da lista
-    somatorio(Y1,B),
-    Y is Y1+A. 
+    somatorio(Y1,B), Y is Y1+A. 
 
 media(L,X):- 
     somatorio(Soma,L),
     comprimento(Comp, L),
     X is Soma/Comp.
 
+
 %Exercício 10
-minimo(List,R).
+minimo([X],X).
+minimo([A|T],B):- minimo(T,B), B =< A.
+minimo([A|T],A):- minimo(T,B), B > A.
+
+
+%Exercício 11
+
+
+%Exercício 12
+mdc(X,X,X).
+mdc(X,Y,D) :- X < Y, Y1 is Y - X, mdc(X,Y1,D).
+mdc(X,Y,D) :- Y < X, mdc(Y,X,D).
+
+
+%Exercício 13
+ocorrencias(_, [], 0).
+
+ocorrencias(Palavra, [Palavra|Xs], N1) :-
+    ocorrencias(Palavra, Xs, N),
+    N1 is N + 1.
+
+ocorrencias(Palavra, [_|Xs], N) :-
+    ocorrencias(Palavra, Xs, N).
+
+
+%Exercício 14
+divisores(Numero, List):-
+    divisores(Numero, 1, List).
+
+divisores(Numero, D, [D|Divisores]) :-
+    D =< Numero, 
+    Numero mod D =:= 0, 
+    D1 is D + 1,
+    divisores(Numero, D1, Divisores).
+
+divisores(Numero, D, Divisores) :-
+    D =< Numero,
+    D1 is D+1,
+    divisores(Numero, D1, Divisores).
+
+divisores(N, D, []) :-
+    D > N.
