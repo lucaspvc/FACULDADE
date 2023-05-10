@@ -63,3 +63,4 @@ Foi feita uma pesquisa para determinar o ́ındice de mortalidade infantil num c
 
 Resolução
 algoritmo
+declare 
