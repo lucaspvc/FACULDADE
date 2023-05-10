@@ -13,23 +13,25 @@ fazer um algoritmo que calcule e escreva:
      o mais velho e o mais novo que respondeu sim.
 
 Resolução
-declare IDADE, MAIOR, MENOR,IDADESIM, CONTADOR, CSIM numerico
-declare RESPOSTA literal
-CONTADOR <- 1
-CSIM <- 0
-IDADESIM <- 0
-leia IDADE, RESPOSTA
-MAIOR <- IDADE
-MENOR <- IDADE
-repita
-    se CONTADOR > 200
-        então interrompa
-    fim-se
-    senão
-    se RESPOSTA = sim
-        então CSIM <- CSIM + 1
-        IDADESIM <- IDADESIM+IDADE
-        se MAIOR < IDADE
+
+algoritmo
+    declare IDADE, MAIOR, MENOR,IDADESIM, CONTADOR, CSIM numerico
+    declare RESPOSTA literal
+    CONTADOR <- 1
+    CSIM <- 0
+    IDADESIM <- 0
+    leia IDADE, RESPOSTA
+    MAIOR <- IDADE
+    MENOR <- IDADE
+    repita
+        se CONTADOR > 200
+            então interrompa
+        fim-se
+        senão
+        se RESPOSTA = sim
+            então CSIM <- CSIM + 1
+            IDADESIM <- IDADESIM+IDADE
+            se MAIOR < IDADE
                 então MAIOR <- IDADE
             fim-se   
         senão 
@@ -37,23 +39,27 @@ repita
                 então MENOR <- IDADE
             fim-se
         fim-senão
-    fim-se
-leia IDADE, RESPOSTA
-CONTADOR <- CONTADOR + 1
-fim-repita
-escreva "O número de pessoas que responderam SIM é: " CSIM
-escreva "O número de pessoas que responderam NÃO é: " CONTADOR-CSIM
-escreva "A média de idade das pessoas que responderam SIM é: " IDADESIM/CSIM
-escreva "O mais velho que respondeu SIM é: " MAIOR
-escreva "O mais novo que respondeu NÃO é: " MENOR
+        fim-se
+        leia IDADE, RESPOSTA
+        CONTADOR <- CONTADOR + 1
+    fim-repita
+    escreva "O número de pessoas que responderam SIM é: " CSIM
+    escreva "O número de pessoas que responderam NÃO é: " CONTADOR-CSIM
+    escreva "A média de idade das pessoas que responderam SIM é: " IDADESIM/CSIM
+    escreva "O mais velho que respondeu SIM é: " MAIOR
+    escreva "O mais novo que respondeu NÃO é: " MENOR
+fim-algoritmo
+
 
 Exercıcio 2
-Foi feita uma pesquisa para determinar o ́ındice de mortalidade infantil num
-certo per ́ıodo. Fazer um algoritmo que:
-       Leia o n ́umero de crian ̧cas nascidas no per ́ıodo investigado.
-     Leia um n ́umero indeterminado com o sexo da crian ̧ca morta(masculino ou feminino) e o n
-        número de meses de vida da crian ̧ca. O  ́ultimo valor lido cont ́em a palavra ”FIM”para o sexo.
-     O algoritmo deve ent ̃ao determinar e imprimir:
-    – A percentagem de crian ̧cas mortas no per ́ıodo.
-    – A percentagem de crian ̧cas do sexo masculino mortas no per ́ıodo.
-    – A percentagem de crian ̧cas que viveram 24 meses ou menos no per ́ıodo
+Foi feita uma pesquisa para determinar o ́ındice de mortalidade infantil num certo perıodo. Fazer um algoritmo que:
+     Leia o numero de crianças nascidas no período investigado.
+     Leia um numero indeterminado com o sexo da crian ̧ca morta(masculino ou feminino) e o 
+        número de meses de vida da crianca. O ́ultimo valor lido contem a palavra ”FIM” para o sexo.
+     O algoritmo deve então determinar e imprimir:
+    – A percentagem de crianças mortas no perıodo.
+    – A percentagem de crianças do sexo masculino mortas no perıodo.
+    – A percentagem de crianças que viveram 24 meses ou menos no perıodo.
+
+Resolução
+algoritmo
