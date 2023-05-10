@@ -29,3 +29,21 @@ reverse1 (z:x) = reverse (x)++[z]
 r[]=[]
 r(a:b:x)=r x ++[b,a]
 r(a:x)=r x ++ [a]
+
+-----------------------------------------------------------------------
+
+-- função que insere um elemento em uma lista ordenada
+
+insere1::Int->[Int]->[Int]
+insere1 a [] = [a]
+insere1 a (b:x)
+    |a<=b = a:(b:x)
+    |otherwise = b:(insere1 a x)
+
+ordenaL::[Int]->[Int]
+ordenaL [] = []
+ordenaL (a:x) = insere1 a (ordenaL x)
+
+ordenaLL::[[Int]]->[[Int]]
+ordenaLL [] = [] --Lista vazia casa com qualquer tipo de lista
+ordenaLL (a:x) = ordenaL a : (ordenaLL x)
