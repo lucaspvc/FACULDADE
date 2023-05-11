@@ -47,3 +47,6 @@ ordenaL (a:x) = insere1 a (ordenaL x)
 ordenaLL::[[Int]]->[[Int]]
 ordenaLL [] = [] --Lista vazia casa com qualquer tipo de lista
 ordenaLL (a:x) = ordenaL a : (ordenaLL x)
+
+-----------------------------------------------------------------------
+--função que ordena uma lista de duplas(Int,String)
