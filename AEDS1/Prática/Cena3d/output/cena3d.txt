@@ -1,4 +1,3 @@
-cubo 3
-esfera 5
-cilindro 2 7
+semiesfera 0.4
+cilindro 0.4 8.06
 fim
