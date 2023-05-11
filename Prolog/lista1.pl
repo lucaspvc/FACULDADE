@@ -94,7 +94,9 @@ minimo([A|T],A):- minimo(T,B), B > A.
 
 
 %Exercício 11
-
+intervalo(X,X,[X]).
+intervalo(X,Y,[]):- X > Y.
+intervalo(X,Y,[X|R]):- Y =\= X, X1 is X+1, intervalo(X1, Y, R).
 
 %Exercício 12
 mdc(X,X,X).
