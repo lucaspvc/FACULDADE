@@ -41,10 +41,10 @@ int main(int argc, char** argv) {
         }else if(figura == "cilindro"){
             cena >> raio;
             cena >> altura;
-            area = 2*3.14*raio*(raio+altura);
+            area = 2*3*raio*(raio+altura);
             cout << "A área do cilindro é: "<< area << endl;
             areatotal = area + areatotal;
-            volume = pow(raio, 2) *3.14*altura;
+            volume = pow(raio, 2) *3*altura;
             cout << "O volume do cilindro é: "<< area << endl;
             cout << "----------------------------------------------" << endl;
             volumetotal = volume + volumetotal;
@@ -59,19 +59,16 @@ int main(int argc, char** argv) {
             cout << "O volume do paralelepípedo é: " << volume << endl;
             cout << "----------------------------------------------" << endl;
             volumetotal = volume + volumetotal;
-        }/*else if(figura == "cone"){
-            cena >> lado;
-            
-            
-            
-            area = areaB + areaL;
-            
-            volume = areaB*alturaP;
-            
-            
-        }else if(figura == "pirâmide_quadrangular"){
-
-        }*/
+        }else if (figura == "semiesfera"){
+            cena >> raio;
+            area = (pow(raio,2) *4* 3)/2;
+            cout << "A área da semiesfera é: " << area << endl;
+            areatotal = area + areatotal;
+            volume = (pow(raio,3) *(4/3)* 3)/2;
+            cout << "O volume do semiesfera é: "<< volume << endl;
+            cout << "----------------------------------------------" << endl;
+            volumetotal = volume + volumetotal;
+        }
         cena >> figura;
     }
     cout << "O volume total da cena é: " << volumetotal<< endl;
