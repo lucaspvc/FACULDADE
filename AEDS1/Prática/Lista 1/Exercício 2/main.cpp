@@ -13,8 +13,8 @@ int main(int argc, char const *argv[]){
     float idade, pmax, pmin;
     cout << "Insira o tipo saguíneo da pessoa: " << endl;
     cin >> tipo;
-    while (tipo != 'x' || 'X'){
-        while (tipo != 'O', 'A', 'B', 'AB') {
+    while (tipo != "x" || tipo != "X"){
+        while (tipo != "O" && tipo != "A" && tipo != "B" && tipo != "AB") {
            cout << "Tipo sanguíneo inválido" << endl;
            cout << "Insira um tipo válido: ([O], [A], [B], [AB])" << endl;
           cin >> tipo;
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[]){
 
         cout << "Insira RH da pessoa: " << endl;
         cin >> rh;
-        while (rh != '+', '-') {
+        while (rh != '+' && rh != '-') {
             cout << "RH inválido" << endl;
             cout << "Insira um RH válido: ( [+], [-] )" << endl;
             cin >> rh;
@@ -46,8 +46,8 @@ int main(int argc, char const *argv[]){
 
         cout << "Insira a idade da pessoa: " << endl;
         cin >> idade;
-        while (idade < 18 || idade 130) {
-            cout << "Idade inválida" << endl;o a
+        while (idade < 18 || idade > 130) {
+            cout << "Idade inválida" << endl;
             cout << "Insira uma idade válida: (entre 18 e 130 anos)" << endl;
             cin >> idade;
         }
