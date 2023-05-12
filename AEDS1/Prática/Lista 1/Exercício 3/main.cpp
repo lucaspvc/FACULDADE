@@ -14,7 +14,7 @@ int main(int argc, char const *argv[]){
     cout << "-------------------------------------------------------------" << endl;
     reset;
     while(x <= 10){
-        blue;
+        bgreen;
         h = pow(x,2)-16;
         if(h >= 0){
             f = h;
