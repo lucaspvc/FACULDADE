@@ -1,0 +1,6 @@
+arroz 5 10 
+feijao 10 14
+café 15 25
+leite 4 5
+pao 6 10
+fim
