@@ -186,9 +186,7 @@ noZeroInPeriod x = not (zeroInPeriod x)
     -}
 
 isZeroDay :: Int -> Bool
-isZeroDay x
-  | sales(x) == 0 = True
-  | otherwise = False
+isZeroDay x = sales x == 0
 
 zeroInPeriod :: Int -> Bool
 zeroInPeriod x
