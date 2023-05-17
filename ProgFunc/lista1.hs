@@ -5,7 +5,6 @@
 
 module Lista where
 import Data.Char
-import Data.Char(isAlpha)
 
 {- Cabeçalho
 show y -> Resulta em uma string do conteúdo de y
@@ -50,7 +49,7 @@ ex: read "12" :: Int = 12
 
 isAlpha -> compara o parametro passado para ver se faz parte do alfabeto retornando True/False
 ex: isAlpha 'A' = True
-    isAlpah '1' = False
+    isAlpha '1' = False
 -}
 
 -- Exercício 1
@@ -132,6 +131,7 @@ lastDigit :: Int -> Int
 lastDigit x = x `mod` 10
 
 --Exercício 11
+
 anyDigit :: Int -> Int -> Int
 anyDigit x y 
     | length (show y) > x = digitToInt (show y !! x)
@@ -193,3 +193,161 @@ zeroInPeriod x
   | x < 0 = False
   | isZeroDay(x) = True
   | otherwise = zeroInPeriod(x-1)
+
+--Exercício 15
+
+fib :: Int -> Int
+fib 0 = 1
+fib 1 = 1
+fib x = fib (x-1) + fib (x-2)
+
+antFibAux :: Int -> Int -> Int
+antFibAux num index
+    | fib index == num = index+1
+    | fib index >= num = -1
+    | otherwise = antFibAux num (index+1)
+
+antFib :: Int -> Int
+antFib x = antFibAux x 0
+
+--Exercício 16
+
+funny :: Int -> Int -> Int -> Bool
+funny x y _ = y < x
+
+--Exercício 17
+
+maiuscula :: Char->Char
+maiuscula x = toUpper x 
+
+
+--Exercício 18 
+charToNum :: Char->Int
+charToNum x
+    | isDigit x = digitToInt x
+    | otherwise = (-1)
+
+--Exercício 19
+
+duplicate :: String -> Int -> String
+duplicate _ 0 = ""
+duplicate s n = (duplicate s (n-1)) ++ s
+
+--Exercício 20
+
+pushRightConc :: Int -> String
+pushRightConc x 
+    | x /= 0 = pushRightConc (x-1) ++ ">"
+    | otherwise = ""
+
+pushRight :: String -> Int -> String
+pushRight string tamanho
+    | (length string) - tamanho < 0 =  (pushRightConc (tamanho - (length string))) ++ string
+    | otherwise = string
+
+{- Exercício 21
+-> operador binário de nome &- com a semântica: x &- y = x - 2*y
+10 &- 3 &- 2
+a) operador definido como infixl 6 &-
+(10 - 2*3) - 2*2 = 0
+o resultado é 0 pois a precedência é da esquerda para a direita
+10 - 2*(3 - 2*2) = 12
+o resultado é 12 pois a precedência é da direita para a esquerda
+
+c) operador definido como infix 6 &-
+10 - 2*3 - 2*2 = erro
+pois a precedência não tem definição de direita ou esquerda, então a função não tem pra onde ir
+
+->operador binário de nome &- com a semântica: x &- y = x - 2*y
+10 &- 3 * 2
+
+a) 10 - ((2*3) * 2) = -2
+é possível resolver tendo a multiplicação com maior precedência que a operção definida
+
+b) (10 - 2*3) *2
+a resolução é feita pela operação antes da multiplicação
+-}
+infix 6 &-
+(&-) :: Int -> Int -> Int
+x &- y = x - 2*y
+
+--Exercício 22
+inverte :: [Int] -> [Int]
+inverte [] = []
+inverte (a:b) = inverte b ++ [a]
+
+inverte2 x = reverse x
+
+--Exercício 23
+
+separaImpar :: [Int] -> [Int]
+separaImpar [] = []
+separaImpar (a:b)
+    | a `mod` 2 /= 0 = a : separaImpar b
+    | otherwise = separaImpar b
+
+separaPar :: [Int] -> [Int]
+separaPar [] = []
+separaPar (a:b)
+    | a `mod` 2 == 0 = a : separaPar b
+    | otherwise = separaPar b
+
+
+separa :: [Int] -> ([Int],[Int])
+separa [] = ([],[])
+separa x = (separaImpar x, separaPar x)
+
+--Exercício 24
+converteAlf :: [Int] -> String
+converteAlf [] = ""
+converteAlf (a:b) = [(chr (a+64))] ++ converteAlf b
+
+--Exercício 25
+{-
+(a) ['a'..'g'] =['a','b','c','d','e','f','g']
+(b) [0.1 ..0.9] = [0.1,0.9] (pelo hugs [0.1,1.1])
+(c) [0.1,0.3 .. 0.9] = [0.1,0.3,0.5,0.7,0.9]
+(d) [0.1,0.3 ..1.8] = [0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9]
+(e) [0.4,0.2 ..0.8] = []
+(f) [1,4..15] = [1,4,7,10,13] (pelo menos [1,4,7,10,13,16])
+-}
+
+--Exercício 26
+conta :: String -> String -> Int
+conta [] _ = 0
+conta (a:b)(c:_)
+    | a == c = 1 + conta b [c]
+    | otherwise = conta b [c]
+
+--Exercício 27
+inside :: [Int] -> Int -> Bool
+inside [] _ = False
+inside (a:b) c
+    | a == c = True
+    | otherwise = inside b c
+
+purifica :: [Int] -> [Int]
+purifica [] = []
+purifica (a:b)
+    | (inside b a) = purifica b
+    | otherwise = a : purifica b
+
+--Exercício 28
+copy_and_paste_Int :: Int -> Int -> [Int] -> [Int]
+copy_and_paste_Int x y z 
+    | x < y = (copy_and_paste_Int (x+1) y z) ++ [y]
+    | otherwise = []
+
+proliferaInt :: [Int] -> [Int]
+proliferaInt [] = []
+proliferaInt (a:b) = copy_and_paste_Int 0 a [] ++ proliferaInt b
+
+--Exercício 29
+copy_and_paste_Char :: Int -> Char -> [Char] -> String
+copy_and_paste_Char x y z 
+    | x < (ord y-64) = (copy_and_paste_Char (x+1) y z) ++ [y]
+    | otherwise = []
+
+proliferaChar :: String -> String
+proliferaChar [] = []
+proliferaChar (a:b) = copy_and_paste_Char 0 a [] ++ proliferaChar b
