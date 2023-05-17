@@ -343,11 +343,11 @@ proliferaInt [] = []
 proliferaInt (a:b) = copy_and_paste_Int 0 a [] ++ proliferaInt b
 
 --Exercício 29
-copy_and_paste_Char :: Int -> Char -> [Char] -> String
+copy_and_paste_Char :: Int -> Char -> [Char] -> [Char]
 copy_and_paste_Char x y z 
     | x < (ord y-64) = (copy_and_paste_Char (x+1) y z) ++ [y]
     | otherwise = []
 
-proliferaChar :: String -> String
+proliferaChar :: [Char] -> String
 proliferaChar [] = []
 proliferaChar (a:b) = copy_and_paste_Char 0 a [] ++ proliferaChar b
