@@ -50,6 +50,10 @@ ex: read "12" :: Int = 12
 isAlpha -> compara o parametro passado para ver se faz parte do alfabeto retornando True/False
 ex: isAlpha 'A' = True
     isAlpha '1' = False
+
+isDigit -> compara o parametro passado para ver se é um digito
+ex: isDigit 1 = True
+    isDigit 'M' = False
 -}
 
 -- Exercício 1
