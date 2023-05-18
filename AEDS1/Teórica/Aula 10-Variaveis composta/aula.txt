@@ -1,0 +1,69 @@
+/*
+ *Pseudocódigos feitos em sala aula 10.
+ *Lucas Pessoa Oliveira Alves 
+*/
+
+Exemplo do slide 4
+
+algoritmo
+    declare NOTA[1:10] numerico //declara o vetor NOTA com limite inferior em 1 e superior em 10
+    declare I,SOMA, MEDIA, QTD numerico
+    SOMA <- 0
+    I <- 1
+    repita
+        se I > 10
+            então interrompa
+        fim-se
+        leia NOTA[I]
+        SOMA <- SOMA + NOTA[I]
+        I <- I + 1
+    fim-repita
+    MEDIA <- SOMA /10
+    QTD <- 0
+    I <- 0
+    repita
+        se I > 10
+            então interrompa
+        fim-se
+        se NOTA [I] > MEDIA
+            então QTD <- QTD + 1
+        fim-se
+        I <- I + 1
+    fim-repita
+    escreva MEDIA, QTD
+fim-algoritmo
+
+=======================================================
+
+Exemplo do slide 14
+
+algoritmo
+    declare NUMERO[1:100], 
+    declare TEM30 
+    TEM30 <- False
+    I <- 1
+    repita
+        se I > 100
+            então interrompa
+        fim-se
+        leia NUMERO[I]
+        se NUMERO[I] = 30
+            então TEM30 <- True
+        fim-se
+        I <- I + 1
+    fim-repita
+    se não TEM30
+        então escreva "não tem valor igual a 30"
+        senão
+        I <- 1
+        repita
+            se I > 100
+                então interrompa
+            fim-se
+            se NUMERO[I] = 30
+                então escreva "Tem 30 na posição ", I 
+            fim-se
+            I <- I + 1
+        fim-repita
+    fim-se
+fim-algoritmo
