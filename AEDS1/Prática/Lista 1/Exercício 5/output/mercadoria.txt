@@ -3,4 +3,6 @@ feijao 10 14
 café 15 25
 leite 4 5
 pao 6 10
+mouse 45 48
+refrigerante 6 7
 fim
