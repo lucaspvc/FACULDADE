@@ -13,14 +13,15 @@ int main(int argc, char const *argv[]){
         massa = (massa/2);
         segundos = segundos + 50;
     }
+    cout << segundos << endl;
     massaF = massa;
     seg = segundos%60;
     min = (segundos/60)%60;
-    horas = (((segundos/60)/60)/60)%60;
+    horas = segundos/3600;
 
-    cout << "A massa inicial é: " << massaI << endl;
-    cout << "A massa final é: " << massaF << endl;
-    cout << "O tempo é: " << horas << " horas " << min << " minutos " << seg <<  " segundos "<< endl;
+    cout << "A massa inicial é: " << massaI << " g" << endl;
+    cout << "A massa final é: " << massaF << " g" << endl;
+    cout << "O tempo até que a massa seja menor que 0,5 g é: " << horas << " horas " << min << " minutos " << seg <<  " segundos "<< endl;
 
 
     
