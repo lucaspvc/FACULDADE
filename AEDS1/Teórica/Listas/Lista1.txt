@@ -54,7 +54,7 @@ fim-algoritmo
 Exercıcio 2
 Foi feita uma pesquisa para determinar o ́ındice de mortalidade infantil num certo perıodo. Fazer um algoritmo que:
      Leia o numero de crianças nascidas no período investigado.
-     Leia um numero indeterminado com o sexo da crian ̧ca morta(masculino ou feminino) e o 
+     Leia um numero indeterminado com o sexo da criança morta(masculino ou feminino) e o 
         número de meses de vida da crianca. O ́ultimo valor lido contem a palavra ”FIM” para o sexo.
      O algoritmo deve então determinar e imprimir:
     – A percentagem de crianças mortas no perıodo.
@@ -63,4 +63,28 @@ Foi feita uma pesquisa para determinar o ́ındice de mortalidade infantil num c
 
 Resolução
 algoritmo
-declare 
+    declare NASCIDAS, MORTES, MORTES24, MORTESMASC numerico
+    declare SEXO literal
+    leia NASCIDAS
+    MORTES <- 0
+    MORTESMASC <- 0
+    MORTES24 <- 0
+    repita
+        leia SEXO 
+        se SEXO = "FIM"
+            então interrompa
+        senão
+        leia MESES 
+        MORTES <- MORTES + 1
+        se SEXO = "masculino"
+            então MORTESMASC <- MORTESMASC + 1
+        fim-se
+        se MESES <= 24
+            então MORTES24 <- MORTES24 + 1
+        fim-se
+    fim-repita
+    escreva "A porcentagem de crianças mortas no período é: " (MORTES/NASCIDAS)*100
+    escreva "A porcentagem de crianças do sexo masculino mortas no período é: " (MORTESMASC/NASCIDAS)*100
+    escreva "A porcentagem de crianças mortas que viveram 24 meses ou menos no período é: " (MORTES24/NASCIDAS)*100
+fim-algoritmo
+
