@@ -14,42 +14,50 @@ fazer um algoritmo que calcule e escreva:
 
 Resolução
 
-algoritmo
+algoritmo¹
     declare IDADE, MAIOR, MENOR,IDADESIM, CONTADOR, CSIM numerico
     declare RESPOSTA literal
+
     CONTADOR <- 1
     CSIM <- 0
     IDADESIM <- 0
+
     leia IDADE, RESPOSTA
     MAIOR <- IDADE
     MENOR <- IDADE
-    repita
-        se CONTADOR > 200
+
+    repita²
+
+        se³ CONTADOR > 200
             então interrompa
-        fim-se
-        senão
-        se RESPOSTA = sim
-            então CSIM <- CSIM + 1
-            IDADESIM <- IDADESIM+IDADE
-            se MAIOR < IDADE
-                então MAIOR <- IDADE
-            fim-se   
-        senão 
-            se MENOR > IDADE
-                então MENOR <- IDADE
-            fim-se
-        fim-senão
-        fim-se
+        fim-se³
+
+        senão⁴
+            se⁵ RESPOSTA = sim
+                então CSIM <- CSIM + 1
+                IDADESIM <- IDADESIM+IDADE
+                se⁶ MAIOR < IDADE
+                    então MAIOR <- IDADE
+                fim-se⁶
+
+                se⁷ MENOR > IDADE
+                    então MENOR <- IDADE
+                fim-se⁷
+
+            fim-se⁵
+        fim-senão⁴
+
         leia IDADE, RESPOSTA
         CONTADOR <- CONTADOR + 1
-    fim-repita
+    fim-repita²
+
     escreva "O número de pessoas que responderam SIM é: " CSIM
     escreva "O número de pessoas que responderam NÃO é: " CONTADOR-CSIM
     escreva "A média de idade das pessoas que responderam SIM é: " IDADESIM/CSIM
     escreva "O mais velho que respondeu SIM é: " MAIOR
     escreva "O mais novo que respondeu NÃO é: " MENOR
-fim-algoritmo
-
+fim-algoritmo¹
+================================================================================================================
 
 Exercıcio 2
 Foi feita uma pesquisa para determinar o ́ındice de mortalidade infantil num certo perıodo. Fazer um algoritmo que:
@@ -62,29 +70,147 @@ Foi feita uma pesquisa para determinar o ́ındice de mortalidade infantil num c
     – A percentagem de crianças que viveram 24 meses ou menos no perıodo.
 
 Resolução
-algoritmo
+
+algoritmo¹
+
     declare NASCIDAS, MORTES, MORTES24, MORTESMASC numerico
     declare SEXO literal
+
     leia NASCIDAS
+
     MORTES <- 0
     MORTESMASC <- 0
     MORTES24 <- 0
-    repita
+    
+    repita²
         leia SEXO 
-        se SEXO = "FIM"
+
+        se³ SEXO = "FIM"
             então interrompa
-        senão
-        leia MESES 
+        fim-se³
+
+        leia MESES
         MORTES <- MORTES + 1
-        se SEXO = "masculino"
+
+        se⁴ SEXO = "masculino"
             então MORTESMASC <- MORTESMASC + 1
-        fim-se
-        se MESES <= 24
+        fim-se⁴
+
+        se⁵ MESES <= 24
             então MORTES24 <- MORTES24 + 1
-        fim-se
-    fim-repita
+        fim-se⁵
+
+    fim-repita²
+
     escreva "A porcentagem de crianças mortas no período é: " (MORTES/NASCIDAS)*100
     escreva "A porcentagem de crianças do sexo masculino mortas no período é: " (MORTESMASC/NASCIDAS)*100
     escreva "A porcentagem de crianças mortas que viveram 24 meses ou menos no período é: " (MORTES24/NASCIDAS)*100
-fim-algoritmo
 
+fim-algoritmo¹
+=================================================================================================================
+
+Exercıcio 3: O sistema de avaliação da disciplina de Teoria de Linguagens segue os seguintes critérios:
+ Serão aplicadas três provas no semestre.
+ A nota final será a média das provas aplicadas.
+ É considerado aprovado o aluno que obtiver nota igual ou superior a 60 pontos e que tiver comparecido em pelo 
+menos 40 aulas.
+ Fazer um algoritmo que leia os dados contendo a matrícula, a nota das 3 provas e o número de aulas 
+frequentadas por 100 alunos.
+ Calcule e imprima:
+– A nota final de cada aluno.
+– A maior e menor nota da turma.
+– A nota média da turma.
+– O total de alunos reprovados.
+– O total de alunos reprovados por frequência.
+
+Resolução
+
+algoritmo¹
+
+    declare ALUNOS, FREQUENCIA, MATRICULA, MAIOR, MENOR, FREQUENCIA, TOTALNOTAS, NOTAFINAL,
+        NOTAP1, NOTAP2, NOTAP3, REPROVFREQ numerico
+
+    ALUNOS <- 0
+
+    repita²
+        se³ ALUNOS >= 100
+            então interrompa
+        fim-se³
+
+        leia MATRICULA, NOTAP1, NOTAP2, NOTAP3, FREQUENCIA
+        ALUNOS <- ALUNOS + 1
+        NOTAFINAL <- (NOTAP1 + NOTAP2 + NOTAP3)/3
+        escreva "Matrícula: " , MATRICULA, "Média: ", NOTAFINAL
+
+        se⁴ NOTAFINAL < MENOR
+            então MENOR <- NOTAFINAL
+        fim-se⁴
+
+        se⁵ NOTAFINAL > MAIOR
+            então MAIOR <- NOTAFINAL
+        fim-se⁵
+        
+        se⁶ MEDIA < 60 ou FREQUENCIA < 40
+            então REPROV <- REPROV + 1
+                se⁷ FREQUENCIA < 40
+                    REPROVFREQ <- REPROVFREQ + 1
+                fim-se⁷
+        fim-se⁶
+
+        TOTALNOTAS <- TOTALNOTAS + MEDIA
+
+    fim-repita²
+
+    escreva "A maior média da turma é: ", MAIOR
+    escreva "A menor média da turma é: ", MENOR
+    escreva "A média da turma é: ", NOTAFINAL
+    escreva "O total de alunos reprovados é: ", REPROV
+    escreva "O total de alunos reprovados pro frequência é: ", REPROVFREQ
+
+fim-algoritmo¹
+==========================================================================================================================
+
+Exercício 4. Foi feita uma pesquisa de audiência de alguns canais de TV em várias casa, numa cidade, durante um dia.
+Para cada casa visitada ́e fornecido o número do canal (4, 5, 7, 12) e o número de pessoas que estavam assistindo 
+esse canal naquele dia. Se a televisão estava desligada, nada era anotado, ou seja, a casa não entrava na pesquisa.
+Fazer um algoritmo que:
+ Leia um número indeterminado de dados, sedo que o flag, corresponde ao número do canal igual a zero.
+ Calcule a percentagem de audiência de cada canal de TV.
+ Escreva o número do canal e sua respectiva percentagem de audiência.
+
+algoritmo¹
+
+    repita²
+        
+        leia CANAL
+
+        se³ CANAL = 0 
+            então interrompa
+        fim-se³
+
+        CONTADOR <- CONTADOR + 1
+
+        se⁴ CANAL = 4
+            C4 <- C4 + 1
+        fim-se⁴
+    
+        se⁵ CANAL = 5
+            C5 <- C5 + 1
+        fim-se⁵
+    
+        se⁶ CANAL = 7
+            C7 <- C7 + 1
+        fim-se⁶
+    
+        se⁷ CANAL = 12
+            C12 <- C12 + 1
+        fim-se⁷
+    
+    fim-repita²
+
+    escreva "O canal 4 tem " (C4/CONTADOR)*100 "% de audiência"
+    escreva "O canal 5 tem " (C5/CONTADOR)*100 "% de audiência"
+    escreva "O canal 7 tem " (C7/CONTADOR)*100 "% de audiência"
+    escreva "O canal 12 tem " (C12/CONTADOR)*100 "% de audiência"
+
+fim-algoritmo¹
