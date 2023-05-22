@@ -240,3 +240,62 @@ algoritmo¹
     escreva "O valor de S é: " S
 
 fim-algoritmo¹
+==========================================================================================================================
+
+Exercı́cio 6. Fazer um algoritmo de calcule e escreva a seguinte soma
+2¹/50 + 2²/49 + 2³/48 + ... +2⁵⁰/1
+
+algoritmo¹
+    declare EXP, DEN, S numerico
+    EXP <- 1
+    DEN <- 50
+    repita²
+
+        se³ DEN < 1
+            então interrompa
+        fim-se³
+
+        S <- (2^EXP)/DEN + S 
+        EXP <- EXP + 1
+        DEN <- DEN - 1
+
+    fim-repita²
+
+    escreva "O resultado da soma é: " S
+
+fim-algoritmo¹
+==========================================================================================================================
+
+Exercı́cio 7. Elaborar um algoritmo que:
+    a) calcule e escreva o valor da série abaixo com precisão menor que um décimo de milionésimo (0,0000001).
+    b) indique quantos termos foram usados.
+        S = 63 + 61/1! + 59/2! + 57/3! + ...
+
+algoritmo¹
+
+    S <- 63
+    DEN <- 1
+    NUM <- 63
+    TERMO <- 1
+    PRECISAO <- 1
+
+    repita²
+
+        se³ PRECISAO < 0,0000001
+            então interrompa
+        fim-se³
+
+        NUM <- NUM - 2
+        DEN <- DEN * TERMO
+        ANTERIOR <- S
+        S <- NUM/DEN + S
+        TERMO <- TERMO + 1
+
+        PRECISAO <- S - ANTERIOR
+
+    fim-repita²
+
+    escreva "O valor da série nessa precisão é: " S
+    escreva "A quantidade de termos utilizado foi: " TERMO
+
+fim-algoritmo¹
