@@ -107,12 +107,12 @@ int main(int argc, char const *argv[]){
     cout << "Placa: " << placamaisbarato << endl;
     cout << "Valor: " << valormaisbarato << endl;
     juros = valormaisbarato;
-    while (i < 4){
-        juros = juros + (juros * 0.1414);
+    while (i < 48){
+        juros = juros + (juros * 0.00111);
         i++;
     }
     cout << "Valor da prestação do financiamento em 48 vezes: " << (juros/48) << endl;
-    cout << "Juros do financiamento à [14,14 a.a.]/[1,11 a.m.]" << endl;
+    cout << "Juros do financiamento à [1,11 a.m.]" << endl;
     cout << "-------------------------------------------------------------------------------------" << endl;
 
     cout << "Informações do veículo mais caro" << endl;
