@@ -368,10 +368,11 @@ algoritmo¹
             então interrompa
         fim-se³
 
-        COS <- COS + SINAL((X*XINIC)/FAT)
-
         FAT <- FAT * TERMO
         TERMO <- TERMO + 1
+
+        COS <- COS + SINAL((X*XINIC)/FAT)
+
         FAT <- FAT * TERMO
         TERMO <- TERMO + 1
         SINAL <- SINAL * (-1)
