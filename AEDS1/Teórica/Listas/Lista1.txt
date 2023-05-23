@@ -208,10 +208,10 @@ algoritmo¹
     
     fim-repita²
 
-    escreva "O canal 4 tem " (C4/CONTADOR)*100 "% de audiência"
-    escreva "O canal 5 tem " (C5/CONTADOR)*100 "% de audiência"
-    escreva "O canal 7 tem " (C7/CONTADOR)*100 "% de audiência"
-    escreva "O canal 12 tem " (C12/CONTADOR)*100 "% de audiência"
+    escreva "O canal 4 tem ", (C4/CONTADOR)*100, "% de audiência"
+    escreva "O canal 5 tem ", (C5/CONTADOR)*100, "% de audiência"
+    escreva "O canal 7 tem ", (C7/CONTADOR)*100, "% de audiência"
+    escreva "O canal 12 tem ", (C12/CONTADOR)*100, "% de audiênci   a"
 
 fim-algoritmo¹
 
@@ -237,7 +237,7 @@ algoritmo¹
     
     fim-repita²
 
-    escreva "O valor de S é: " S
+    escreva "O valor de S é: ", S
 
 fim-algoritmo¹
 ==========================================================================================================================
@@ -261,7 +261,7 @@ algoritmo¹
 
     fim-repita²
 
-    escreva "O resultado da soma é: " S
+    escreva "O resultado da soma é: ", S
 
 fim-algoritmo¹
 ==========================================================================================================================
@@ -295,7 +295,115 @@ algoritmo¹
 
     fim-repita²
 
-    escreva "O valor da série nessa precisão é: " S
-    escreva "A quantidade de termos utilizado foi: " TERMO
+    escreva "O valor da série nessa precisão é: ", S
+    escreva "A quantidade de termos utilizado foi: ", TERMO
 
+fim-algoritmo¹
+==========================================================================================================================
+
+Exercı́cio 8. Fazer um algoritmo de calcule e escreva o valor de e^x através da série
+    e^x = x⁰+ x¹/1! + x²/2! + x³/3! + ...
+ O algoritmo deverá ler o número n de casas depois da vı́rgula da precisão dos cálculos. Por exemplo, ser n = 5, 
+a precisão deverá ser menor do que 0,00001, ou seja, 5 casas depois da vı́rgula.
+ O algoritmo deverá escrever o valor calculado de e^X , com a precisão informada e o número de termos usadas
+para alcançar essa precisão.
+
+algoritmo¹
+    declare SOMA, TERMO, NUM, DEN, PRECISAO, X, N numerico
+    SOMA <- 1
+    TERMO <- 1
+    NUM <- 1
+    DEN <- 1
+    PRECISAO <- 1
+
+    leia X, N
+
+    repita²
+        
+        se³ N < 0
+            então interrompa
+        fim-se³
+
+        PRECISAO <- PRECISAO/10
+        N <- N - 1
+    
+    fim-repita²
+    
+    repita⁴
+
+        NUM <- NUM * X
+        DEN <- DEN * TERMO
+        PROXTERMO <- NUM/DEN
+        SOMA <- SOMA + PROXTERMO
+        TERMO <- TERMO + 1
+
+        se⁵ PROXTERMO < PRECISAO
+            então interrompa
+        fim-se⁵
+    
+    fim-repita⁴
+
+    escreva "e^x = ", SOMA, "Nº termos " , TERMO
+fim-algoritmo¹
+==========================================================================================================================
+
+Exercı́cio 9. Fazer um algoritmo que:
+a) calcule o valor do cosseno de x através de 20 termos da série
+    cosseno(x) = 1 - x²/2! + x⁴/4! + x⁶/6 + x⁸/8 ...
+
+algoritmo¹
+    declare COS, FAT, TERMO, SINAL, X , XINIC, SINAL numerico
+
+    COS <- 1
+    FAT <- 2
+    TERMO <- 1
+    SINAL <- (-1)
+
+    leia X
+    XINIC <- X
+
+    repita²
+
+        se³ TERMO > 20
+            então interrompa
+        fim-se³
+
+        COS <- COS + SINAL((X*XINIC)/FAT)
+
+        FAT <- FAT * TERMO
+        TERMO <- TERMO + 1
+        FAT <- FAT * TERMO
+        TERMO <- TERMO + 1
+        SINAL <- SINAL * (-1)
+        X <- X * XINIC
+
+    fim-repita²
+
+    escreva "O valor de cosseno(x) é: ", COS
+
+fim-algoritmo¹
+==========================================================================================================================
+
+Exercı́cio 10. Fazer um algoritmo que calcule e escreva o número de grãos de milho que se
+pode colocar num tabuleiro de xadrez, colocando 1 na primeira casa e nas casas seguintes o
+dobro da casa anterior.
+
+algoritmo¹
+    declare GRAOS, TOTAL, CASAS numerico
+    GRAOS <- 1
+    TOTAL <- 0
+    CASAS <- 1
+
+    repita²
+
+        se³ CASAS > 64
+            então interrompa
+        fim-se³
+
+        TOTAL <- TOTAL + GRAOS
+        GRAOS <- GRAOS*2
+        CASAS <- CASAS + 1
+
+    fim-repita²
+    escreva "O total de grãos é: ", TOTAL
 fim-algoritmo¹
