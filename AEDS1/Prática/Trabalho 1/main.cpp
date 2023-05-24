@@ -13,13 +13,13 @@ int main(int argc, char const *argv[]) {
   cout << fixed << setprecision(2);
   string modelo, marca, tipo, combustivel, cambio, direcao, cor, placa,
       placamaisbarato, placamaiscaro;
-  float prestacao, potencia, juros, valor, valormaiscaro, valormaisbarato,
+  float prestacao, potencia, valor, valormaiscaro, valormaisbarato, 
       hatch, suv, pickup, sedan, passeio, van, var, kmtotal, qtd2018, total;
-  int i, ano, km, portas;
+  int ano, km, portas;
 
   ifstream arquivo("BD_veiculos.txt");
   if (!arquivo.is_open()) {
-    cout << "\nErro: Arquivo não encontrado.\n";
+    cout << vermelho_G "\nErro: Arquivo não encontrado." reset << endl;
     return 1;
   }
 
@@ -36,7 +36,6 @@ int main(int argc, char const *argv[]) {
   kmtotal = 0;
   qtd2018 = 0;
   total = 0;
-  i = 0;
 
   valormaisbarato = MAXFLOAT;
   arquivo >> modelo;
@@ -107,56 +106,44 @@ int main(int argc, char const *argv[]) {
     arquivo >> modelo;
   }
 
-  cout << "--------------------------------------------------------------------"
-          "-----------------"
-       << endl;
-  cout << "Porcentagem dos tipos de veículos" << endl;
-  cout << "Hatch: " << (hatch / total) * 100 << "%" << endl;
-  cout << "Sedã: " << (sedan / total) * 100 << "%" << endl;
-  cout << "Passeio: " << (passeio / total) * 100 << "%" << endl;
-  cout << "Pick-up: " << (pickup / total) * 100 << "%" << endl;
-  cout << "SUV: " << (suv / total) * 100 << "%" << endl;
-  cout << "Van: " << (van / total) * 100 << "%" << endl;
-  cout << "De um total de " << (int)total << " veículos" << endl;
-  cout << "--------------------------------------------------------------------"
-          "-----------------"
-       << endl;
+  cout << azul_N "-------------------------------------------------------------------------------------" reset << endl;
+  cout << "Porcentagem dos " magenta_S "tipos" reset " de veículos" << endl;
+  cout << "Hatch: " << verde_N << (hatch / total) * 100 << "%" << reset << endl;
+  cout << "Sedã: " << verde_N << (sedan / total) * 100 << "%" << reset << endl;
+  cout << "Passeio: " << verde_N << (passeio / total) * 100 << "%" << reset << endl;
+  cout << "Pick-up: " << verde_N << (pickup / total) * 100 << "%" << reset << endl;
+  cout << "SUV: " << verde_N << (suv / total) * 100 << "%" << reset << endl;
+  cout << "Van: " << verde_N << (van / total) * 100 << "%" << reset << endl;
+  cout << "De um total de " << magenta_S << (int)total << reset << " veículos" << endl;
+  cout << azul_N "-------------------------------------------------------------------------------------" reset << endl;
 
-  cout << "Porcentagem de veículos com câmbio automático e com direção "
-          "hidráulica"
-       << endl;
-  cout << (var / total) * 100 << "%" << endl;
-  cout << "De um total de " << (int)total << " veículos" << endl;
-  cout << "--------------------------------------------------------------------"
-          "-----------------"
-       << endl;
 
-  cout << "Informações do veículo mais barato" << endl;
-  cout << "Placa: " << placamaisbarato << endl;
-  cout << "Valor: R$" << valormaisbarato << endl;
+  cout << "Porcentagem de veículos com câmbio " magenta_S "automático" reset " e direção " magenta_S "hidráulica" reset << endl;
+  cout << verde_N << (var / total) * 100 << "%" << reset << endl;
+  cout << "De um total de " << magenta_S << (int)total << reset << " veículos" << endl;
+  cout << azul_N "-------------------------------------------------------------------------------------" reset << endl;
+  
+
+cout << "Informações do veículo mais barato, com " magenta_S "1.0" reset " de potência de motor" << endl;
+  cout << "Placa: " << verde_N << placamaisbarato << reset << endl;
+  cout << "Valor: " verde_N "R$" << valormaisbarato << reset << endl;
   prestacao = valormaisbarato * (pow((1 + 0.0111), 48));
-  cout << "Juros do financiamento à [1,11 a.m.]" << endl;
-  cout << "Valor da prestação do financiamento em 48 vezes: R$"
-       << (prestacao / 48) << endl;
-  cout << "--------------------------------------------------------------------"
-          "-----------------"
-       << endl;
+  cout << "Juros do financiamento à " magenta_S "[1,11 a.m.]" reset << endl;
+  cout << "Valor da prestação do financiamento em 48 vezes: " verde_N "R$ "<< (prestacao / 48) << endl;
+  cout << azul_N "-------------------------------------------------------------------------------------" reset << endl;
 
-  cout << "Informações do veículo mais caro" << endl;
-  cout << "Placa: " << placamaiscaro << endl;
-  cout << "Valor: R$" << valormaiscaro <<  endl;
-  cout << "Taxa de 6% sobre o valor do veículo" << endl;
-  cout << "Valor estimado do seguro: R$" << (0.06 * valormaiscaro) << endl;
-  cout << "--------------------------------------------------------------------"
-          "-----------------"
-       << endl;
+  cout << "Informações do veículo mais caro, com direção " magenta_S "hidráulica" reset 
+        " e combustível " magenta_S "flex" reset << endl;
+  cout << "Placa: " << verde_N << placamaiscaro  << reset << endl;
+  cout << "Valor:" verde_N " R$ " << valormaiscaro << reset << endl;
+  cout << "Valor estimado do seguro: " verde_N "R$ " << (0.06 * valormaiscaro) << endl;
+  cout << "Taxa de " magenta_S "6%" reset " sobre o valor do veículo" << endl;
+  cout << azul_N "-------------------------------------------------------------------------------------" reset << endl;
 
-  cout << "Veículos com 5 anos ou mais (2018)" << endl;
-  cout << "Quantidade: " << (int)qtd2018 << endl;
-  cout << "Média de quilometragem: " << (kmtotal / qtd2018) << endl;
-  cout << "--------------------------------------------------------------------"
-          "-----------------"
-       << endl;
+  cout << "Veículos com " magenta_S "5" reset" anos ou mais (2018)" << endl;
+  cout << "Quantidade: " << verde_N <<  (int)qtd2018  << reset << endl;
+  cout << "Média de quilometragem: " << verde_N << (kmtotal / qtd2018) << endl;
+  cout << azul_N "-------------------------------------------------------------------------------------" reset << endl;
 
   arquivo.close();
   return 0;
