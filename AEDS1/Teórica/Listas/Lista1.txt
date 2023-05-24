@@ -179,7 +179,8 @@ Fazer um algoritmo que:
  Escreva o número do canal e sua respectiva percentagem de audiência.
 
 algoritmo¹
-
+    declare CANAL, CONTADOR, C4, C5, C7, C12 numerico 
+    
     repita²
         
         leia CANAL
@@ -272,7 +273,7 @@ Exercı́cio 7. Elaborar um algoritmo que:
         S = 63 + 61/1! + 59/2! + 57/3! + ...
 
 algoritmo¹
-
+    declare S, NUM, DEN, TERMO, PRECISAO, ANTERIOR numerico
     S <- 63
     DEN <- 1
     NUM <- 63
