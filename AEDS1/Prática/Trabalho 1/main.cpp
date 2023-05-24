@@ -136,7 +136,7 @@ cout << "Informações do veículo mais barato, com " magenta_S "1.0" reset " de
         " e combustível " magenta_S "flex" reset << endl;
   cout << "Placa: " << verde_N << placamaiscaro  << reset << endl;
   cout << "Valor:" verde_N " R$ " << valormaiscaro << reset << endl;
-  cout << "Valor estimado do seguro: " verde_N "R$ " << (0.06 * valormaiscaro) << endl;
+  cout << "Valor estimado do seguro: " verde_N "R$ " << (0.06 * valormaiscaro) << reset << endl;
   cout << "Taxa de " magenta_S "6%" reset " sobre o valor do veículo" << endl;
   cout << azul_N "-------------------------------------------------------------------------------------" reset << endl;
 
