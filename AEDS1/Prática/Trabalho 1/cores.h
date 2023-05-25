@@ -1,3 +1,10 @@
+/* Universidade Federal de Alfenas (UNIFAL) - 2023
+ * Discentes: Lucas Pessoa Oliveira Alves 2022.1.08.044
+ *
+ * Docente: Paulo Alexandre Bressan - Algoritimo e Estrutura de Dados I
+ * 
+ * Header file utilizado para definir cores para os textos
+ */
 #ifndef CORES_H
 #define CORES_H
 
