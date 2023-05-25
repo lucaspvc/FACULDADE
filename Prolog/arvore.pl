@@ -21,14 +21,14 @@ mae(marta,moises).
 mae(heloisa,tany).
 mae(heloisa,taty).
 mae(heloisa,alberoneJr).
-
-avoP(X,Y):- pai(X,Z),pai(Z,Y).
-avoM(X,Y):- pai(X,Z),mae(Z,Y).
-avos(X,Y):- pai(X,Z),(mae(Z,Y);pai(Z,Y)).
-avohP(X,Y):- mae(X,Z),pai(Z,Y).
-avohM(X,Y):- mae(X,Z),mae(Z,Y).
-avohs(X,Y):- mae(X,Z),(mae(Z,Y);pai(Z,Y)).
-tavos(X,Y):-(pai(X,Z),(mae(Z,Y);pai(Z,Y)));(mae(X,Z),(mae(Z,Y);pai(Z,Y))).
+''''''''''''''''''''''''''''''''''''
+avoP(X,Y):- pai(X,Z),pai(Z,Y). %avô paterno
+avoM(X,Y):- pai(X,Z),mae(Z,Y). %avô materno
+avos(X,Y):- pai(X,Z),(mae(Z,Y);pai(Z,Y)). %avôs
+avohP(X,Y):- mae(X,Z),pai(Z,Y). %avó paterna
+avohM(X,Y):- mae(X,Z),mae(Z,Y). %avó materna
+avohs(X,Y):- mae(X,Z),(mae(Z,Y);pai(Z,Y)). %avós
+todosavos(X,Y):-(pai(X,Z),(mae(Z,Y);pai(Z,Y)));(mae(X,Z),(mae(Z,Y);pai(Z,Y))). %todos os avós
 neto(X,Y):-(pai(Y,Z),(mae(Z,X);pai(Z,X)));(mae(Y,Z),(mae(Z,X);pai(Z,X))).
 neto1(X,Y):-
     pai(Y,Z),pai(Z,X);
@@ -36,11 +36,11 @@ neto1(X,Y):-
     pai(Y,Z),mae(Z,X);
     mae(Y,Z),mae(Z,X).
 
-irmaoP(X,Y):- pai(Z,X),pai(Z,Y),X\=Y.
-irmaoM(X,Y):- mae(Z,X),mae(Z,Y),X\=Y.
-irmao(X,Y):-pai(P,X),pai(P,Y),mae(M,X),mae(M,Y).
-tioP(X,Y):- pai(Z,Y),irmaoP(X,Z).
-tioM(X,Y):- mae(Z,Y),irmaoP(X,Z).
+irmaoP(X,Y):- pai(Z,X),pai(Z,Y),X\=Y. %irmão paterno
+irmaoM(X,Y):- mae(Z,X),mae(Z,Y),X\=Y. %irmão materno
+irmao(X,Y):-pai(P,X),pai(P,Y),mae(M,X),mae(M,Y). %irmão
+tiosP(X,Y):- pai(Z,Y),pai(W,Z),pai(W,X),X\=Z. %tio paterno
+tiosM(X,Y):- mae(Z,Y),irmaoP(X,Z). %tio materno
 
 antecessor(X,Y):-pai(X,Y).
 antecessor(X,Y):-mae(X,Y).
