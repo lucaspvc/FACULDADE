@@ -8,10 +8,11 @@ using namespace std;
 int main(int argc, char const *argv[]){
     float notas[10] = {20,21,22,23,24,25,26,27,28,29};
     float acima[10] = {0,0,0,0,0,0,0,0,0,0};
-    float media;
+    float media, aux;
     int i, j;
     media = 0;
     j = 0;
+    aux = 0;
 
     cout << "Primeiro valor: " << notas[0] << endl;
     cout << "Sexto valor: " << notas[5] << endl;
@@ -34,7 +35,20 @@ int main(int argc, char const *argv[]){
     cout << "Os valores acima da média são: ";
     for (i = 0 ; i < j; i++){
         cout << acima[i] << " ";
+    }
+    cout<< endl;
 
+    j = 9;
+    for (i = 0; i < j ; i++){
+        aux = notas[i];
+        notas[i] = notas[j];
+        notas[j] = aux;
+        j--;
+    }
+    cout << "O vetor invertido é: ";
+    for (i = 0; i < 10; i++){
+        cout <<  notas[i] << " ";
+        media = media + notas[i];
     }
 
     return 0;
