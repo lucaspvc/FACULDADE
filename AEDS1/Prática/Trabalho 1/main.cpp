@@ -35,12 +35,11 @@ int main(int argc, char const *argv[]) {
   }
 
   //atribuindo valores iniciais para as variáveis
-  prestacao = 0;
   hatch = 0;
   valormaiscaro = 0;
   suv = 0;
   pickup = 0;
-  prestacao = 0;
+  valortotal = 0;
   sedan = 0;
   passeio = 0;
   van = 0;
