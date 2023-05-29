@@ -3,6 +3,7 @@
 pai(ricardo,lucas).
 pai(ricardo,leonardo).
 pai(robson,robsonJr).
+pai(robson,clara).
 pai(moises,joaquim).
 %-------------------------------------------------------------
 pai(antonio,ricardo).
