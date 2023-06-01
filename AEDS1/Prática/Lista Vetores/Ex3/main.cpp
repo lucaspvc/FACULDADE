@@ -10,6 +10,7 @@ int main(int argc, char const *argv[])
     float vetor1[TAM], vetor2[TAM];
     int x, y, cont;
     cont = 0;
+
     ifstream arquivo("vetores.txt");
     if (!arquivo.is_open())
     {
@@ -37,15 +38,11 @@ int main(int argc, char const *argv[])
     }
 
     cout << "Vetor final: " magenta_N "[";
-    for (int i = 0; i < cont; i++)
+    for (int i = 0; i < cont - 1; i++)
     {
-        cout << vetor2[i];
-        if (i < (cont - 1))
-        {
-            cout << ", ";
-        }
+        cout << vetor2[i] << ", ";
     }
-    cout << "] " reset << endl;
+    cout << vetor2[cont-1] << "] " reset << endl;
 
     return 0;
 }
