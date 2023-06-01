@@ -1,4 +1,5 @@
-%Árvore Genealógica
+% Trabalho feito por: Lucas Pessoa Oliveira Alves 2022.1.08.044
+% Árvore Genealógica
 
 pai(ricardo,lucas).
 pai(ricardo,leonardo).
@@ -61,16 +62,10 @@ neto(X,Y):-(pai(Y,Z),(mae(Z,X);pai(Z,X)));(mae(Y,Z),(mae(Z,X);pai(Z,X))). %os ne
 
 irmaoP(X,Y):- pai(Z,X),pai(Z,Y),X\=Y. %irmão paterno
 irmaoM(X,Y):- mae(Z,X),mae(Z,Y),X\=Y. %irmão materno
-irmao(X,Y):-pai(P,X),pai(P,Y),mae(M,X),mae(M,Y). %irmão
+irmao(X,Y):-pai(P,X),pai(P,Y),mae(M,X),mae(M,Y), X\=Y. %irmão
 tiosP(X,Y):- pai(Z,Y),pai(W,Z),pai(W,X),X\=Z. %tio paterno
 tiosM(X,Y):- mae(Z,Y),pai(W,Z),pai(W,X),X\=Z. %tio materno
 primoP(X,Y):- (pai(Z,X);mae(Z,X)),pai(W,Z),pai(W,P),pai(P,Y),Z\=P. %primo por parte de pai
 primoM(X,Y):- (pai(Z,X);mae(Z,X)),mae(W,Z),mae(W,P),mae(P,Y),Z\=P. %primo por parte de mãe
 todosprimos(X,Y):- ((pai(Z,X);mae(Z,X)),pai(W,Z),pai(W,P),pai(P,Y),Z\=P);
     ((pai(Z,X);mae(Z,X)),mae(W,Z),mae(W,P),mae(P,Y),Z\=P). %todos os primos
-
-
-
-antecessor(X,Y):-pai(X,Y).
-antecessor(X,Y):-mae(X,Y).
-parente(X,Y):-antecessor(X,Y);antecessor(Y,X).
