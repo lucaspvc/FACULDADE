@@ -24,7 +24,17 @@ int main(int argc, char const *argv[])
     {
         arquivo >> vetor1[i];
     }
-    
+
+    for (int i = 0; i < TAM; i++)
+    {
+        if(vetor1[i] < menorvalor){
+            menorvalor = vetor1[i];
+        } 
+        if (vetor1[i] > maiorvalor){
+            maiorvalor = vetor1[i];
+        }
+    }
+
     while (newop != 6)
     {
         cout << "[1] Encontrar o menor e o maior valor do vetor." << endl;
@@ -33,7 +43,7 @@ int main(int argc, char const *argv[])
         cout << "[4] Se o valor for par, multiplica por 2. Caso contrário atribui 0." << endl;
         cout << "[5] Incrementação do vetor com o fator inserido." << endl;
         cout << "[6] Sair do programa." << endl;
-        cout << "Insira a opção desejada: "; 
+        cout << "Insira a opção desejada: ";
         cin >> newop;
         switch (newop)
         {
@@ -46,7 +56,7 @@ int main(int argc, char const *argv[])
                     vetor2[j] = i;
                     j++;
                 }
-                else if (vetor1[i] >= maiorvalor)
+                if (vetor1[i] >= maiorvalor)
                 {
                     maiorvalor = vetor1[i];
                     vetor3[k] = i;
@@ -62,8 +72,9 @@ int main(int argc, char const *argv[])
             j = 0;
 
             cout << reset "O maior valor é: " amarelo_N << maiorvalor << reset " na(s) posição(s): " amarelo_N;
-            for (int i = 0; i < k; i++){
-                cout << vetor3[i] << " ";                
+            for (int i = 0; i < k; i++)
+            {
+                cout << vetor3[i] << " ";
             }
             cout << endl;
             k = 0;
@@ -99,7 +110,6 @@ int main(int argc, char const *argv[])
                     j++;
                 }
             }
-            
 
             cout << "O valor " amarelo_N << valor << reset " foi encontrado na(s) posição(s): ";
             for (int i = 0; i < j; i++)
@@ -180,7 +190,6 @@ int main(int argc, char const *argv[])
             }
             cout << vetor2[TAM - 1] << "] " reset << endl;
 
-
             cout << "Deseja sair do programa? S/N" << endl;
             cin >> q;
             while (q != 'n' && q != 'N')
@@ -204,11 +213,15 @@ int main(int argc, char const *argv[])
             cout << "Insira o fator de incrementação: ";
             cin >> x;
 
-            for(int i = 0; i < TAM; i++){
+            for (int i = 0; i < TAM; i++)
+            {
                 vetor2[i] = vetor1[i] + x;
-                if(vetor2[i] < 0){
+                if (vetor2[i] < 0)
+                {
                     vetor2[i] = 0;
-                }else if (vetor2[i] > 255){
+                }
+                else if (vetor2[i] > 255)
+                {
                     vetor2[i] = 255;
                 }
             }
