@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 #include <math.h>
 #include "cores.h"
-#define TAM 10
+#define TAM 40
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    float x, vetor1[TAM], vetor2[TAM], maiorvalor, valor, menorvalor;
+    float x, vetor1[TAM], vetor2[TAM], vetor3[TAM], maiorvalor, valor, menorvalor;
     char q;
-    int y, j, cont, newop, pos, posmenor, posmaior;
-    maiorvalor = cont = newop = j = x = 0;
+    int k, j, cont, newop, posmenor, posmaior;
+    maiorvalor = k = cont = newop = j = x = 0;
     menorvalor = MAXFLOAT;
 
     ifstream arquivo("vetores.txt");
@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
         cout << "[2] Procura de um valor no vetor." << endl;
         cout << "[3] Número de ocorrências de um valor no vetor." << endl;
         cout << "[4] Se o valor for par, multiplica por 2. Caso contrário atribui 0." << endl;
-        cout << "[5] " << endl;
+        cout << "[5] Incrementação do vetor com o fator inserido." << endl;
         cout << "[6] Sair do programa." << endl;
         cout << "Insira a opção desejada: "; 
         cin >> newop;
@@ -40,27 +40,42 @@ int main(int argc, char const *argv[])
         case 1:
             for (int i = 0; i < TAM; i++)
             {
-                if (vetor1[i] < menorvalor)
+                if (vetor1[i] <= menorvalor)
                 {
                     menorvalor = vetor1[i];
-                    posmenor = i;
+                    vetor2[j] = i;
+                    j++;
                 }
-                else if (vetor1[i] > maiorvalor)
+                else if (vetor1[i] >= maiorvalor)
                 {
                     maiorvalor = vetor1[i];
-                    posmaior = i;
+                    vetor3[k] = i;
+                    k++;
                 }
             }
-            cout << "O menor valor é: " amarelo_N << menorvalor << reset " na posição: " amarelo_N << posmenor << endl;
-            cout << reset "O maior valor é: " amarelo_N << maiorvalor << reset " na posição: " amarelo_N << posmaior << reset << endl;
+            cout << "O menor valor é: " amarelo_N << menorvalor << reset " na(s) posição(s): " amarelo_N;
+            for (int i = 0; i < j; i++)
+            {
+                cout << vetor2[i] << " ";
+            }
+            cout << endl;
+            j = 0;
 
-            cout << "Deseja sair do programa? S/N" << endl;
+            cout << reset "O maior valor é: " amarelo_N << maiorvalor << reset " na(s) posição(s): " amarelo_N;
+            for (int i = 0; i < k; i++){
+                cout << vetor3[i] << " ";                
+            }
+            cout << endl;
+            k = 0;
+
+            cout << reset "Deseja sair do programa? S/N" << endl;
             cin >> q;
             while (q != 'n' && q != 'N')
             {
                 if (q == 'S' || q == 's')
                 {
                     newop = 6;
+                    cout << vermelho_G "Programa finalizado." reset << endl;
                     break;
                 }
                 else
@@ -84,12 +99,14 @@ int main(int argc, char const *argv[])
                     j++;
                 }
             }
+            
 
             cout << "O valor " amarelo_N << valor << reset " foi encontrado na(s) posição(s): ";
             for (int i = 0; i < j; i++)
             {
                 cout << amarelo_N << vetor2[i] << " " reset;
             }
+            j = 0;
 
             cout << "\nDeseja sair do programa? S/N" << endl;
             cin >> q;
@@ -98,6 +115,7 @@ int main(int argc, char const *argv[])
                 if (q == 's' || q == 'S')
                 {
                     newop = 6;
+                    cout << vermelho_G "Programa finalizado." reset << endl;
                     break;
                 }
                 else
@@ -122,6 +140,7 @@ int main(int argc, char const *argv[])
             }
 
             cout << "O valor " amarelo_N << valor << reset " ocorre " amarelo_N << j << reset " vezes no vetor." << endl;
+            j = 0;
 
             cout << "Deseja sair do programa? S/N" << endl;
             cin >> q;
@@ -130,6 +149,7 @@ int main(int argc, char const *argv[])
                 if (q == 's' || q == 'S')
                 {
                     newop = 6;
+                    cout << vermelho_G "Programa finalizado." reset << endl;
                     break;
                 }
                 else
@@ -168,6 +188,7 @@ int main(int argc, char const *argv[])
                 if (q == 's' || q == 'S')
                 {
                     newop = 6;
+                    cout << vermelho_G "Programa finalizado." reset << endl;
                     break;
                 }
                 else
@@ -208,6 +229,7 @@ int main(int argc, char const *argv[])
                 if (q == 's' || q == 'S')
                 {
                     newop = 6;
+                    cout << vermelho_G "Programa finalizado." reset << endl;
                     break;
                 }
                 else
