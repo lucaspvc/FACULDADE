@@ -258,4 +258,5 @@ int main(int argc, char const *argv[])
             cout << vermelho_G "Programa finalizado." reset << endl;
         }
     }
+arquivo.close();
 }
