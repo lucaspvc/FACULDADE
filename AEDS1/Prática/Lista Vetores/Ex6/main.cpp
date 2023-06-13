@@ -29,7 +29,6 @@ int main(int argc, char const *argv[])
     for (int i = 0; i < qtd2; i++){
         arquivo >> vetor2[i];
     }
-    total = qtd + qtd2;
 
     cout << "Vetor 1 Inicial: " vermelho_N " [ ";
             for (int i = 0; i < qtd - 1; i++)
@@ -46,27 +45,41 @@ int main(int argc, char const *argv[])
             }
     cout << vetor2[qtd2 - 1] << " ] " reset << endl;
 
-    
+
     for(int i = 0; i < qtd; i++){
         vetorFinal[i] = vetor[i];
+        total++;
     }
-
-    total = qtd+1;
-    for(int i = 0; i < qtd; i++){
-        for(int j = 0; j < qtd2; j++){
-            if(vetorFinal[i] != vetor2[j]){
-                vetorFinal[k] = vetor2[j];
-                total++;
+    
+    bool existe = false;
+    for(int i = 0; i < qtd2; i++){
+        for( int j = 0; j < total; j++){
+            if(vetor2[i] == vetorFinal[j]){
+                existe = true;
             }
         }
+        if(!existe){
+            vetorFinal[total] = vetor2[i];
+            total++;
+        }
+        existe = false;
     }
 
-
+    
     cout << "União dos vetores 1 e 2: " vermelho_N " [ ";
-            for (int i = 0; i < k - 1; i++){
+            for (int i = 0; i < total - 1; i++){
                 cout << vetorFinal[i] << ", ";
             }
-    cout << vetorFinal[k - 1] << " ] " reset << endl;
+    cout << vetorFinal[total - 1] << " ] " reset << endl;
+
+
+    
+
+    cout << "Intersecção dos vetores 1 e 2: " vermelho_N " [ ";
+            for (int i = 0; i < total - 1; i++){
+                cout << vetorFinal[i] << ", ";
+            }
+    cout << vetorFinal[total - 1] << " ] " reset << endl;
 
 arquivo.close();
 }
