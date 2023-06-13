@@ -7,8 +7,8 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int qtd, qtd2,total, k;
-    float vetor[TAM], vetor2[TAM], vetorFinal[TAM+TAM];
+    int qtd, qtd2,total;
+    float vetor[TAM], vetor2[TAM], vetorUniao[TAM+TAM], vetorIntersec[TAM+TAM];
     total = 0;
 
     ifstream arquivo("vetores.txt");
@@ -47,39 +47,50 @@ int main(int argc, char const *argv[])
 
 
     for(int i = 0; i < qtd; i++){
-        vetorFinal[i] = vetor[i];
+        vetorUniao[i] = vetor[i];
         total++;
     }
     
     bool existe = false;
     for(int i = 0; i < qtd2; i++){
         for( int j = 0; j < total; j++){
-            if(vetor2[i] == vetorFinal[j]){
+            if(vetor2[i] == vetorUniao[j]){
                 existe = true;
             }
         }
         if(!existe){
-            vetorFinal[total] = vetor2[i];
+            vetorUniao[total] = vetor2[i];
             total++;
         }
         existe = false;
     }
 
-    
     cout << "União dos vetores 1 e 2: " vermelho_N " [ ";
             for (int i = 0; i < total - 1; i++){
-                cout << vetorFinal[i] << ", ";
+                cout << vetorUniao[i] << ", ";
             }
-    cout << vetorFinal[total - 1] << " ] " reset << endl;
+    cout << vetorUniao[total - 1] << " ] " reset << endl;
 
-
-    
+    existe = false;
+    total = 0;
+    for(int i = 0; i < qtd2; i++){
+        for( int j = 0; j < qtd+qtd2; j++){
+            if(vetor2[i] == vetor[j]){
+                existe = true;
+            }
+        }
+        if(existe){
+            vetorIntersec[total] = vetor2[i];
+            total++;
+        }
+        existe = false;
+    }
 
     cout << "Intersecção dos vetores 1 e 2: " vermelho_N " [ ";
             for (int i = 0; i < total - 1; i++){
-                cout << vetorFinal[i] << ", ";
+                cout << vetorIntersec[i] << ", ";
             }
-    cout << vetorFinal[total - 1] << " ] " reset << endl;
+    cout << vetorIntersec[total - 1] << " ] " reset << endl;
 
 arquivo.close();
 }
