@@ -14,7 +14,7 @@ int main(int argc, char const *argv[]){
     while(pal1[i] == pal2[i] && pal1[i] != '\0' && pal2[i] != '\0'){
         i++;
     }
-    if(pal1[i] == '\0'){
+    if(pal1[i] == '\0' || pal2[i] == '\0'){
         printf("As palavras são iguais.\n");
     }else{
         printf("Palavras diferentes!\n");
