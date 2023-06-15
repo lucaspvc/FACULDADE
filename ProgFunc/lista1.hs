@@ -37,7 +37,10 @@ reverse -> cria uma nova string com os itens na ordem reversa
 ex: reverse "abc" = "cba"
 
 map -> entra em cada elemento de uma lista 
-ex: map reverse ["abc","qwr"] = ["cba","rwq"] (resolve o reverse para cada elemento da lista)
+ex: map reverse ["abc","qwr"] = ["cba","rwq"] (resolve o reverse para cada elemento da lista)t
+
+
+(Eq a)=>a->a->Bool
 
 digitToInt -> faz a conversão de um char para int
 ex: digitToInt 'F' = 15
