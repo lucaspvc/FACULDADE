@@ -120,7 +120,9 @@ x &! y = x * (x &! (y-1))
 ex9 f p xs = map f (filter p xs)
 
 --Exercício 10
---dec2int :: [Int] -> Int
+dec2int :: [Int] -> Int
+dec2int [] = 0
+dec2int (x:xs) = x * (10^(length xs)) + dec2int xs
 
 --Exercício 11
 unfold :: (a -> Bool) -> (a -> b) -> (a -> a) -> a -> [b]
