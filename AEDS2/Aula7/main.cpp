@@ -32,7 +32,7 @@ Tveiculo * busca (Tveiculo * bd[], int tam,string placa){
 int buscaindice (Tveiculo * bd[], int tam, string placa){
     for (int i = 0; i < tam; i++)
         if (bd[i] -> placa == placa)
-            cout << i;
+            cout << i << endl;
 }
 
 int main(int argc, char** argv) {
@@ -95,7 +95,7 @@ int main(int argc, char** argv) {
             delete (bd[i]);
     }
     else
-        cout << "Arquivo não encontrado. ";
+        cout << "Arquivo não encontrado. " << endl;
     
     
    Tveiculo * p = busca (bd, tam, "MNA7449");
@@ -104,7 +104,7 @@ int main(int argc, char** argv) {
             cout << p->marca << " " << p->ano << " " << endl;
         }
         else 
-            cout << "Veículo não encontrado";
+            cout << "Veículo não encontrado" << endl;
     
     
     

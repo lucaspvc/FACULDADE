@@ -10,15 +10,13 @@ int main(int argc, char const *argv[])
     i = m = n = aux = qtd = 0;
     ofstream out;
     out.open("random.txt");
+    srand(time(NULL));
 
     cout << "Insira a quantidade de elementos do vetor: ";
     cin >> n;
     cout << "Insira o valor máximo do intervalo: ";
     cin >> m;
     int vetor[n];
-
- 
-
     
     while(i < n){
         vetor[i] = rand()%m;

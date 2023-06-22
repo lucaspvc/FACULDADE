@@ -13,12 +13,12 @@
  * http://www.each.usp.br/digiampietri/ACH2023/javaec/ArvoreAVL/arvoreAVL.c
  */
 
-#include "arvore.h"
-#include "lista.h"
 #include <bits/stdc++.h>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include "arvore.h"
+#include "lista.h"
 
 using namespace std;
 
