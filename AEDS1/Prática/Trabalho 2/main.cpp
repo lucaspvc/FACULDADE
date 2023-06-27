@@ -32,7 +32,7 @@ int insertionsort(int v[], int n){
     return contInsertion;
 }
 
-int selectionsort(int v[], int n, int cont){
+int selectionsort(int v[], int n){
   int aux, min, contSelection;
   contSelection = 0;
     for (int i = 0; i < n; i++){
@@ -58,6 +58,6 @@ void imprimevetor(int v[], int n, int cont){
 }
 
 int main(int argc, char const *argv[]){
-        
+
     return 0;
 }
