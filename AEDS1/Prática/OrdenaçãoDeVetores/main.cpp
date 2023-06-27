@@ -51,7 +51,6 @@ void imprimevetor(int v[], int n){
 }
 
 int main(int argc, char**argv){
-
   cout << endl << " Métodos de Ordenação" << endl << endl;
 
   int vb0[10] = {0,1,2,3,4,5,6,7,8,9}; // Vetor ordenado.
