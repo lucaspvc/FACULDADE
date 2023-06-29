@@ -11,7 +11,9 @@ int bubblesort(int v[], int n){
         aux = v[j];
         v[j] = v[j + 1];
         v[j + 1] = aux;
-        contBubble = contBubble + 4;
+        contBubble += 6;
+      } else {
+        contBubble += 2;
       }
     }
   }
