@@ -72,5 +72,35 @@ int main(int argc, char**argv){
   selectionsort(vb2, 10);
   imprimevetor(vb2, 10);
 
+  /*cout << " Buble Sort, vetor ordenado: " << endl;
+  imprimevetor(vb0, 10);
+  bubblesort(vb0, 10);
+  imprimevetor(vb0, 10);
+
+  cout << " Bubble Sort, vetor desordenado: " << endl;
+  imprimevetor(vb1, 10);
+  bubblesort(vb1, 10);
+  imprimevetor(vb1, 10);
+
+  cout << " Bubble Sort, vetor em ordem inversa: " << endl;
+  imprimevetor(vb2, 10);
+  bubblesort(vb2, 10);
+  imprimevetor(vb2, 10);
+
+    cout << " Insertion Sort, vetor ordenado: " << endl;
+  imprimevetor(vb0, 10);
+  insertionsort(vb0, 10);
+  imprimevetor(vb0, 10);
+
+  cout << " Insertion Sort, vetor desordenado: " << endl;
+  imprimevetor(vb1, 10);
+  insertionsort(vb1, 10);
+  imprimevetor(vb1, 10);
+
+  cout << " Insertion Sort, vetor em ordem inversa: " << endl;
+  imprimevetor(vb2, 10);
+  insertionsort(vb2, 10);
+  imprimevetor(vb2, 10);
+*/
   return 0;
 }
