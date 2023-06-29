@@ -62,10 +62,10 @@ int main(int argc, char const *argv[]){
 
   int contSelection;
   int vb0[10] = {0,1,2,3,4,5,6,7,8,9}; // Vetor ordenado.
-  int vb1[10] = {5,8,2,0,6,9,1,4,3,7}; // Vetor desordenado.
+  int vb1[10] = {9,8,2,0,6,5,1,4,3,7}; // Vetor desordenado.
   int vb2[10] = {9,8,7,6,5,4,3,2,1,0}; // Vetor em ordem inversa.
 
-  cout << "Selection Sort, vetor ordenado: " << endl;
+ /* cout << "Selection Sort, vetor ordenado: " << endl;
   imprimevetor(vb0, 10);
   contSelection = selectionsort(vb0, 10);
   imprimevetor(vb0, 10);
@@ -81,7 +81,7 @@ int main(int argc, char const *argv[]){
   imprimevetor(vb2, 10);
   contSelection = selectionsort(vb2, 10);
   imprimevetor(vb2, 10);
-  cout << "Contagem: " << contSelection << endl;
+  cout << "Contagem: " << contSelection << endl;*/
 
   /*cout << " Buble Sort, vetor ordenado: " << endl;
   imprimevetor(vb0, 10);
@@ -96,22 +96,27 @@ int main(int argc, char const *argv[]){
   cout << " Bubble Sort, vetor em ordem inversa: " << endl;
   imprimevetor(vb2, 10);
   bubblesort(vb2, 10);
-  imprimevetor(vb2, 10);
+  imprimevetor(vb2, 10);*/
 
     cout << " Insertion Sort, vetor ordenado: " << endl;
   imprimevetor(vb0, 10);
-  insertionsort(vb0, 10);
+  contSelection = insertionsort(vb0, 10);
   imprimevetor(vb0, 10);
+  cout << "Contagem: " << contSelection << endl;
 
   cout << " Insertion Sort, vetor desordenado: " << endl;
   imprimevetor(vb1, 10);
-  insertionsort(vb1, 10);
+  contSelection = insertionsort(vb1, 10);
   imprimevetor(vb1, 10);
+  cout << "Contagem: " << contSelection << endl;
+
 
   cout << " Insertion Sort, vetor em ordem inversa: " << endl;
   imprimevetor(vb2, 10);
-  insertionsort(vb2, 10);
+  contSelection = insertionsort(vb2, 10);
   imprimevetor(vb2, 10);
-*/
+  cout << "Contagem: " << contSelection << endl;
+
+
     return 0;
 }
