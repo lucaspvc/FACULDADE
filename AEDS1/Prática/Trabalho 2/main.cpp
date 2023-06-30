@@ -6,14 +6,13 @@ int bubblesort(int v[], int n){
   int aux, contBubble;
   aux = contBubble = 0;
   for (int i = n - 1; i > 0; i--){
+    contBubble += 2;
     for (int j = 0; j < i; j++){
       if (v[j] > v[j + 1]){
         aux = v[j];
         v[j] = v[j + 1];
         v[j + 1] = aux;
-        contBubble += 6;
-      } else {
-        contBubble += 2;
+        contBubble += 4;
       }
     }
   }
