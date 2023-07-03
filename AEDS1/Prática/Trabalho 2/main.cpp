@@ -2,12 +2,18 @@
 
 using namespace std;
 
-int bubblesort(int v[], int n){
+int bubblesort(int vetor[], int n){
+  int v[n]={};
   int aux, contBubble;
   aux = contBubble = 0;
+
+  for (int i = 0; i < n; i++){
+   v[i] = vetor[i];
+  }
+
   for (int i = n - 1; i > 0; i--){
-    contBubble += 2;
     for (int j = 0; j < i; j++){
+    contBubble += 2;
       if (v[j] > v[j + 1]){
         aux = v[j];
         v[j] = v[j + 1];
@@ -16,147 +22,204 @@ int bubblesort(int v[], int n){
       }
     }
   }
-  return 0;
+  return contBubble;
 }
 
-int insertionsort(int v[], int n){
+int insertionsort(int vetor[], int n){
   int aux, j, contInsertion;
+  int v[n] = {};
   contInsertion = 0;
+
+  for (int i = 0; i < n; i++){
+    v[i] = vetor[i];
+  }
+
   for (int i = 1; i < n; i++){
     aux = v[i];
     j = i - 1;
     while (j >= 0 && v[j] > aux){
       v[j + 1] = v[j];
       j--;
-      contInsertion++;
+      contInsertion += 2;
     }
     v[j + 1] = aux;
+    contInsertion += 3;
   }
   return contInsertion;
 }
 
-int selectionsort(int v[], int n){
+int selectionsort(int vetor[], int n){
+  int v[n]={};
   int aux, min, contSelection;
   contSelection = 0;
+
+  for (int i = 0; i < n; i++){
+   v[i] = vetor[i];
+  }
+  
   for (int i = 0; i < n; i++){
     min = i;
     aux = v[i];
     for (int j = i + 1; j < n; j++){
+      contSelection ++;
       if (v[j] < aux){
         aux = v[j];
         min = j;
+        contSelection++;
       }
     }
     v[min] = v[i];
     v[i] = aux;
-    contSelection++;
+    contSelection+=4;
   }
   return contSelection;
 }
 
-
-
-void imprimevetor(int v[], int n){
-  for (int i = 0; i < n; i++)
-    cout << v[i] << " ";
-  cout << endl;
+void create_file_random(int n, int m){
+    int vetor[n] = {};
+    int random_value = 0;
+    cout << "Criando arquivo com valores aleatórios..." << endl;
+    srand((unsigned) time(NULL));
+    ofstream out ("random.txt");
+    if (!out.is_open()){
+      cout << "Erro na criação do arquivo" << endl;
+      exit(1);
+    }
+    out << n << endl;
+    for (int i = 0; i < n; i++){
+        random_value = rand() % m; 
+        int j = 0;
+        while (j < n){
+            if (random_value == vetor[j]){ 
+                random_value = rand() % m;  
+                j = 0;
+            } else {
+                j++;
+            }
+        }
+        vetor[i] = random_value;
+        out << vetor[i];
+        out << endl;
+    }
+    cout << "Arquivo criado com sucesso!"  << endl;
+    out.close();
 }
+
+void ordena_vetor(int vetor[], int n, string chave){
+  int aux, min;
+  if (chave == "cresc"){
+    for (int i = 0; i < n; i++){
+    min = i;
+    aux = vetor[i];
+    for (int j = i + 1; j < n; j++){
+      if (vetor[j] < aux){
+        aux = vetor[j];
+        min = j;
+      }
+    }
+    vetor[min] = vetor[i];
+    vetor[i] = aux;
+   }
+  } else {
+    for (int i = 0; i < n; i++){
+    min = i;
+    aux = vetor[i];
+    for (int j = i + 1; j < n; j++){
+      if (vetor[j] > aux){
+        aux = vetor[j];
+        min = j;
+      }
+    }
+    vetor[min] = vetor[i];
+    vetor[i] = aux;
+   }
+  }  
+}
+
+void open_file(int vetor[], int n){
+  ifstream arquivo("random.txt");
+  int valor = 0;
+  if (!arquivo.is_open()){
+      cout << "Erro na abertura do arquivo" << endl;
+      exit(1);
+    }
+  arquivo >> valor; //descarte da primeira linha d o arquivo
+  for (int i = 0; i < n ; i++){
+    arquivo >> valor;
+    vetor[i] = valor;
+  }
+}
+
 
 int main(int argc, char const *argv[]){
 
   int contador;
-  int i, m, n, aux, qtd;
-  bool existe;
-  i = m = n = aux = qtd = 0;
-
-  ofstream out;
-  out.open("random.txt");
-  srand(time(NULL));
+  int m, intervalo, n, aux, qtd;
+  intervalo = m = n = aux = qtd = 0;
 
   cout << "Insira a quantidade de elementos do vetor: ";
   cin >> n;
-  cout << "Insira o valor máximo do intervalo: ";
+  cout << "Insira o valor maximo do intervalo: ";
   cin >> m;
-  int vetor1[n];
-
-  while (i < n){
-    vetor1[i] = rand() % m;
-    existe = false;
-    for (int j = 0; j < i; j++){
-      if (vetor1[j] == vetor1[i]){
-        existe = true;
-      }
-    }
-    if (!existe){
-      i++;
-    }
+  while (m <= n){
+    cout << "Valor maximo menor que a quantidade de elementos" << endl;
+    cout << "Insira outro valor maximo: ";
+    cin >> m;
   }
-
-  out << n << endl;
-  for (int i = 0; i < n - 1; i++){
-    out << vetor1[i] << endl;
-  }
-  out << vetor1[n - 1];
-
-  /* cout << "Selection Sort, vetor ordenado: " << endl;
-   imprimevetor(vb0, 10);
-   contSelection = selectionsort(vb0, 10);
-   imprimevetor(vb0, 10);
-   cout << "Contagem: " << contSelection << endl;
-
-   cout << "Selection Sort, vetor desordenado: " << endl;
-   imprimevetor(vb1, 10);
-   contSelection = selectionsort(vb1, 10);
-   imprimevetor(vb1, 10);
-   cout << "Contagem: " << contSelection << endl;
-
-   cout << "Selection Sort, vetor em ordem inversa: " << endl;
-   imprimevetor(vb2, 10);
-   contSelection = selectionsort(vb2, 10);
-   imprimevetor(vb2, 10);
-   cout << "Contagem: " << contSelection << endl;*/
-
-  /*cout << " Buble Sort, vetor ordenado: " << endl;
-  imprimevetor(vb0, 10);
-  bubblesort(vb0, 10);
-  imprimevetor(vb0, 10);
-
-  cout << " Bubble Sort, vetor desordenado: " << endl;
-  imprimevetor(vb1, 10);
-  bubblesort(vb1, 10);
-  imprimevetor(vb1, 10);
-
-  cout << " Bubble Sort, vetor em ordem inversa: " << endl;
-  imprimevetor(vb2, 10);
-  bubblesort(vb2, 10);
-  imprimevetor(vb2, 10);*/
-
-  /*cout << "Insertion Sort, vetor ordenado: " << endl;
-  imprimevetor(vb0, 10);
-  contSelection = insertionsort(vb0, 10);
-  imprimevetor(vb0, 10);
-  cout << "Contagem: " << contSelection << endl;*/
-
+  cout << "Insira o intervalo de comparação: ";
+  cin >> intervalo;
+  cout << "------------------------------------------" << endl;
+  int vetor[n] = {};
   
-  cout << "Contagem no Insertion com vetor aleatório: ";
-  contador = insertionsort(vetor1, n);
+  create_file_random(n, m);
+  open_file(vetor, n);
+  cout << "------------------------------------------" << endl;
+
+  cout << "Contagem no metodo InsertionSort com vetor aleatorio: ";
+  contador = insertionsort(vetor, n);
   cout << contador << endl;
 
-
-  cout << "Contagem no insertion com vetor crescente: ";
-  contador = insertionsort(vetor1, n);
+  cout << "Contagem no metodo BubbleSort com vetor aleatorio: ";
+  contador = bubblesort(vetor, n);
   cout << contador << endl;
 
+  cout << "Contagem no metodo SelectionSort com vetor aleatorio: ";
+  contador = selectionsort(vetor, n);
+  cout << contador << endl;
+  cout << "------------------------------------------" << endl;
 
-  cout << "Contagem no insertion com vetor decrescente: ";
-  contador = insertionsort(vetor1, n);
+
+  ordena_vetor(vetor, n, "cresc");
+  cout << "Contagem no metodo InsertionSort com vetor crescente: ";
+  contador = insertionsort(vetor, n);
+  cout << contador << endl;
+  
+  cout << "Contagem no metodo BubbleSort com vetor crescente: ";
+  contador = bubblesort(vetor, n);
   cout << contador << endl;
 
-  /*cout << "Insertion Sort, vetor em ordem inversa: " << endl;
-  imprimevetor(vb2, 10);
-  contSelection = insertionsort(vb2, 10);
-  imprimevetor(vb2, 10);
-  cout << "Contagem: " << contSelection << endl;*/
+  cout << "Contagem no metodo SelectionSort com vetor crescente: ";
+  contador = selectionsort(vetor, n);
+  cout << contador << endl;  
+  cout << "------------------------------------------" << endl;
+
+
+  ordena_vetor(vetor, n, "dec");
+  cout << "Contagem no metodo InsertionSort com vetor decrescente: ";
+  contador = insertionsort(vetor, n);
+  cout << contador << endl;
+
+  ordena_vetor(vetor, n, "dec");
+  cout << "Contagem no metodo BubbleSort com vetor decrescente: ";
+  contador = bubblesort(vetor, n);
+  cout << contador << endl;
+
+  ordena_vetor(vetor, n, "dec");
+  cout << "Contagem no metodo SelectionSort com vetor decrescente: ";
+  contador = selectionsort(vetor, n);
+  cout << contador << endl;
+  cout << "------------------------------------------" << endl;
+
 
   return 0;
 }
