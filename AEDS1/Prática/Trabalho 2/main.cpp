@@ -265,6 +265,8 @@ int main(int argc, char const *argv[]){
   cont_total_bbs = bubblesort (vetor, n);
   cont_total_ins = insertionsort (vetor, n);
   cont_total_sel = selectionsort (vetor, n);
+  //continuar a partir daqui.
+  // fazer a função result_print para printar o resultado TOTAL na tela.
 
 
   result_to_file(vetor, intervalo, n);
