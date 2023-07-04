@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -58,7 +59,7 @@ int selectionsort(int vetor[], int n){
    v[i] = vetor[i];
   }
   
-  for (int i = 0; i < n; i++){
+  for (int i = 0; i < n-1; i++){
     min = i;
     aux = v[i];
     for (int j = i + 1; j < n; j++){
@@ -181,6 +182,8 @@ void interface(){
   cout << "|       ||    ___|  |   |  |  |_|  || |_|   ||  |_|  ||_____  |                   " << endl;
   cout << "| ||_|| ||   |___   |   |  |       ||       ||       | _____| |                   " << endl;
   cout << "|_|   |_||_______|  |___|  |_______||______| |_______||_______|                   " << endl;
+  cout << "                                                                                  " << endl;
+  cout << "                                                                                  " << endl;
   cout << " ______   _______                                                                 " << endl;
   cout << "|      | |       |                                                                " << endl;
   cout << "|  _    ||    ___|                                                                " << endl;
@@ -188,18 +191,31 @@ void interface(){
   cout << "| |_|   ||    ___|                                                                " << endl;
   cout << "|       ||   |___                                                                 " << endl;
   cout << "|______| |_______|                                                                " << endl;
+  cout << "                                                                  _____           " << endl;
+  cout << "                                                                 |_____|           " << endl;
   cout << " _______  ______    ______   _______  __    _  _______  _______  _______  _______ " << endl;
   cout << "|       ||    _ |  |      | |       ||  |  | ||   _   ||       ||   _   ||       |" << endl;
-  cout << "|   _   ||   | ||  |  _    ||    ___||   |_| ||  |_|  ||       ||  |_|  ||   _   |" << endl;
-  cout << "|  | |  ||   |_||_ | | |   ||   |___ |       ||       ||       ||       ||  | |  |" << endl;
-  cout << "|  |_|  ||    __  || |_|   ||    ___||  _    ||       ||      _||       ||  |_|  |" << endl;
-  cout << "|       ||   |  | ||       ||   |___ | | |   ||   _   ||     |_ |   _   ||       |" << endl;
-  cout << "|_______||___|  |_||______| |_______||_|  |__||__| |__||_______||__| |__||_______|" << endl;                                                  
+  cout << "|   _   ||   | ||  |  _    ||    ___||   |_| ||  |_|  ||     __||  |_|  ||   _   |" << endl;
+  cout << "|  | |  ||   |_||_ | | |   ||   |___ |       ||       ||    |   |       ||  | |  |" << endl;
+  cout << "|  |_|  ||    __  || |_|   ||    ___||  _    ||       ||    |__ |       ||  |_|  |" << endl;
+  cout << "|       ||   |  | ||       ||   |___ | | |   ||   _   ||       ||   _   ||       |" << endl;
+  cout << "|_______||___|  |_||______| |_______||_|  |__||__| |__||_______||__| |__||_______|" << endl;     
+  cout << "                                                        __| |                     " << endl;
+  cout << "                                                       |____|                      " << endl;
+  
+                                               
   cout << "==================================================================================" << endl;
 }
 
 void result_print(int qtd_elementos, int cont_bbs, int cont_ins, int cont_sel){
-  
+  cout << "\n       =================VETOR DE ENTRADA ALEATÓRIO==================" << endl;
+  cout << "       |   Dimensão   |   Número de usos do vetor pelo método de   |" << endl;
+  cout << "       |   do Vetor   |  Bubble   |    Selection   |   Insertion   |" << endl;
+  cout << "       -------------------------------------------------------------" << endl;
+  cout << "       |  " << setw(10) << qtd_elementos << "  |  " << setw(10) << cont_bbs << "  |  " << setw(10) 
+  << cont_sel << "  |  " << setw(10) << cont_ins << "  |" << endl;
+  cout << "       -------------------------------------------------------------" << endl;
+
 }
 
 void result_to_file(int vetor[], int intervalo, int n){
@@ -268,7 +284,7 @@ int main(int argc, char const *argv[]){
   //continuar a partir daqui.
   // fazer a função result_print para printar o resultado TOTAL na tela.
 
-
+  result_print (n, cont_total_bbs, cont_total_ins, cont_total_sel);
   result_to_file(vetor, intervalo, n);
 
 
