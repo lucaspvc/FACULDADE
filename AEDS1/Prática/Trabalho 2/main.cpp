@@ -3,7 +3,7 @@
 
 #include "cores.h"
 #include "funcoes.cpp" // no visual studio tem que ser assim
-// #include "funcoes.h"
+//#include "funcoes.hpp"
 
 using namespace std;
 
@@ -13,22 +13,22 @@ int main(){
 
   interface();
 
-  cout << "Insira a quantidade de elementos do vetor: ";
+  cout << "Insira a " ciano "quantidade de elementos" reset " do vetor: ";
   cin >> n;
   int vetor[n] = {};
 
-  cout << "Insira o valor máximo: ";
+  cout << "Insira o " ciano "valor máximo" reset " possível no vetor: ";
   cin >> m;
   while (m <= n){
-    cout << "Valor máximo menor que a quantidade de elementos" << endl;
-    cout << "Insira outro valor máximo: ";
+    cout << "Valor máximo " vermelho_N "menor" reset " que a quantidade de elementos" << endl;
+    cout << "Insira um valor máximo válido : ";
     cin >> m;
   }
 
-  cout << "Insira o intervalo de comparação: ";
+  cout << "Insira o " ciano "intervalo" reset " de comparação: ";
   cin >> intervalo;
   while (intervalo >= n){
-    cout << "Itervalo maior que a quantidade de elementos" << endl;
+    cout << "Itervalo " vermelho_N "maior" reset " que a quantidade de elementos" << endl;
     cout << "Insira um intervalo válido: ";
     cin >> intervalo;
   }

@@ -84,7 +84,7 @@ void create_file_random(int n, int m){
     srand((unsigned) time(NULL));
     ofstream out ("random.txt");
     if (!out.is_open()){
-      cout << "Erro na criação do arquivo!" << endl;
+      cout << vermelho_G "Erro na criação do arquivo!" reset << endl;
       exit(1);
     }
     out << n << endl;
@@ -142,7 +142,7 @@ void open_file(int vetor[], int n){
   ifstream arquivo("random.txt");
   int valor = 0;
   if (!arquivo.is_open()){
-      cout << "Erro na abertura do arquivo" << endl;
+      cout << vermelho_G "Erro na abertura do arquivo" reset << endl;
       exit(1);
     }
   arquivo >> valor; //descarte da primeira linha do arquivo
@@ -156,7 +156,7 @@ void open_file(int vetor[], int n){
 void header_exit_file(string filename){
   ofstream out (filename);
   if (!out.is_open()){
-    cout << "Erro na criação do arquivo" << endl;
+    cout << vermelho_G "Erro na criação do arquivo" reset << endl;
     exit(1);
   }
   out << "qtd_elementos,cont_bbs,cont_ins,cont_sel\n" << endl;
@@ -167,7 +167,7 @@ void exit_file(string filename, int qtd_elementos, int cont_bbs, int cont_ins, i
   ofstream out;
   out.open(filename, ios_base::app);
   if (!out.is_open()){
-    cout << "Não foi possível abrir o arquivo de saída: " << filename << endl;
+    cout << vermelho_G "Não foi possível abrir o arquivo de saída: " << filename << reset << endl;
     exit(1);
   }
   out << qtd_elementos << "," << cont_bbs << "," << cont_ins << "," << cont_sel << endl;
@@ -175,7 +175,9 @@ void exit_file(string filename, int qtd_elementos, int cont_bbs, int cont_ins, i
 }
 
 void interface(){
-  cout << " __   __  _______  _______  _______  ______   _______  _______            ______   _______ " << endl;
+  cout << magenta_N "             ___                                                                   " << endl;
+  cout << "            /  /                                                                    " << endl;
+  cout << " __   __  _/__/__  _______  _______  ______   _______  _______            ______   _______ " << endl;
   cout << "|  |_|  ||       ||       ||       ||      | |       ||       |          |      | |       |" << endl;
   cout << "|       ||    ___||_     _||   _   ||  _    ||   _   ||  _____|          |  _    ||    ___| " << endl;
   cout << "|       ||   |___   |   |  |  | |  || | |   ||  | |  || |_____           | | |   ||   |___ " << endl;
@@ -192,18 +194,21 @@ void interface(){
   cout << "|       ||   |  | ||       ||   |___ | | |   ||   _   ||       ||   _   ||       |" << endl;
   cout << "|_______||___|  |_||______| |_______||_|  |__||__| |__||_______||__| |__||_______|" << endl;     
   cout << "                                                        __| |                     " << endl;
-  cout << "                                                       |____|                      " << endl;
-  cout << "==================================================================================" << endl;
+  cout << "                                                       |____|                      " reset << endl;
+  cout << "=============================================================================================" << endl;
 }
 
 void result_print(string entrada, int qtd_elementos, int cont_bbs, int cont_ins, int cont_sel){
-  cout << "\n  ----------------VETOR DE ENTRADA " << entrada << "-------------------" << endl;
-  cout << "  |   Tamanho    |   Número de acesso do vetor pelo método    |" << endl;
-  cout << "  |   do Vetor   |    Bubble    |  Selection   |   Insertion  |" << endl;
+  cout << magenta_N "\n  ----------------" reset "VETOR DE ENTRADA " ciano_N << setw(11) << entrada
+    << magenta_N "-----------------" << endl;
+  cout << "  |   " reset "Tamanho" magenta_N "    |   " reset "Número de acesso do vetor pelo método" magenta_N "    |" << endl;
+  cout << "  |   " reset "do Vetor" magenta_N "   |    " reset "Bubble" magenta_N "    |  " reset 
+    "Selection" magenta_N "   |   " reset "Insertion" magenta_N "  |" << endl;
   cout << "  -------------------------------------------------------------" << endl;
-  cout << "  |" << setw(10) << qtd_elementos << "    |  " << setw(10) << cont_bbs << "  |  " << setw(10) 
-  << cont_sel << "  |  " << setw(10) << cont_ins << "  |" << endl;
-  cout << "  -------------------------------------------------------------" << endl;
+  cout << "  |" verde_N << setw(10) << qtd_elementos << magenta_N "    |  " verde_N << setw(10) << cont_bbs 
+    << magenta_N "  |  " verde_N << setw(10) << cont_sel << magenta_N "  |  " verde_N << setw(10) 
+    << cont_ins << magenta_N "  |" << endl;
+  cout << "  -------------------------------------------------------------" reset << endl;
 }
 
 void result_to_file(int vetor[], int intervalo, int n){
