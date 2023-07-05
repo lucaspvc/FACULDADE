@@ -2,7 +2,8 @@
 #include <iomanip>
 
 #include "cores.h"
-#include "funcoes.h"
+#include "funcoes.cpp" // no visual studio tem que ser assim
+// #include "funcoes.h"
 
 using namespace std;
 

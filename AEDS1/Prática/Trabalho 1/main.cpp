@@ -46,7 +46,7 @@ int main(int argc, char const *argv[]) {
   kmtotal = 0;
   qtd2018 = 0;
   total = 0;
-  valormaisbarato = MAXFLOAT; //atribuindo o valorfloat máximo possível para float
+  valormaisbarato = 99999999999; //atribuindo o valorfloat máximo possível para float
 
   
   arquivo >> modelo; //leitura da primeira variável do txt

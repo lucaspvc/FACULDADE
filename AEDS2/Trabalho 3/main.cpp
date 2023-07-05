@@ -17,8 +17,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include "arvore.h"
-#include "lista.h"
+#include "arvore.cpp"
+#include "lista.cpp"
 
 using namespace std;
 
