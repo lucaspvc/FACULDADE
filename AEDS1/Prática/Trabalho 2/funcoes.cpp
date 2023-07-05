@@ -171,7 +171,7 @@ void exit_file(string filename, int qtd_elementos, int cont_bbs, int cont_ins, i
     exit(1);
   }
   out << qtd_elementos << "," << cont_bbs << "," << cont_ins << "," << cont_sel << endl;
-  out.close(); 
+  out.close();
 }
 
 void interface(){
@@ -214,7 +214,7 @@ void result_print(string entrada, int qtd_elementos, int cont_bbs, int cont_ins,
 void result_to_file(int vetor[], int intervalo, int n){
   int cont_bbs, cont_ins, cont_sel;
   cont_bbs = cont_ins = cont_sel = 0;
-  for (int i = 0; i <= n; i += intervalo){
+  for (int i = intervalo; i <= n; i += intervalo){
     cont_bbs = bubblesort(vetor, i);
     cont_ins = insertionsort(vetor, i);
     cont_sel = selectionsort(vetor, i);
