@@ -170,18 +170,18 @@ void header_exit_file(string filename){
     cout << vermelho_G "Erro na criação do arquivo" reset << endl;
     exit(1);
   }
-  out << "qtd_elementos,cont_bbs,cont_ins,cont_sel\n" << endl;
+  out << "qtd_elementos,cont_bbs,cont_sel,cont_ins" << endl;
   out.close(); 
 }
 
-void exit_file(string filename, int qtd_elementos, int cont_bbs, int cont_ins, int cont_sel){
+void exit_file(string filename, int qtd_elementos, int cont_bbs, int cont_sel, int cont_ins){
   ofstream out;
   out.open(filename, ios_base::app);
   if (!out.is_open()){
     cout << vermelho_G "Não foi possível abrir o arquivo de saída: " << filename << reset << endl;
     exit(1);
   }
-  out << qtd_elementos << "," << cont_bbs << "," << cont_ins << "," << cont_sel << endl;
+  out << qtd_elementos << "," << cont_bbs << "," << cont_sel << "," << cont_ins << endl;
   out.close();
 }
 
@@ -209,7 +209,7 @@ void interface(){
   cout << "=============================================================================================" << endl;
 }
 
-void result_print(string entrada, int qtd_elementos, int cont_bbs, int cont_ins, int cont_sel){
+void result_print(string entrada, int qtd_elementos, int cont_bbs, int cont_sel, int cont_ins){
   cout << magenta_N "\n  ----------------" reset "VETOR DE ENTRADA " ciano_N << setw(11) << entrada
     << magenta_N "-----------------" << endl;
   cout << "  |   " reset "Tamanho" magenta_N "    |   " reset "Número de acesso do vetor pelo método" magenta_N "    |" << endl;
@@ -229,21 +229,20 @@ void result_to_file(int vetor[], int intervalo, int n){
     cont_bbs = bubblesort(vetor, i);
     cont_ins = insertionsort(vetor, i);
     cont_sel = selectionsort(vetor, i);
-    exit_file("ALEATORIO.txt", i, cont_bbs, cont_ins, cont_sel );
+    exit_file("ALEATORIO.txt", i, cont_bbs, cont_sel, cont_ins);
   }
+
   for (int i = intervalo; i <= n; i += intervalo){
     ordena_vetor(vetor, i, "cresc");
     cont_bbs = bubblesort(vetor, i);
     cont_ins = insertionsort(vetor, i);
     cont_sel = selectionsort(vetor, i);
-    exit_file("CRESCENTE.txt", i, cont_bbs, cont_ins, cont_sel );
-
+    exit_file("CRESCENTE.txt", i, cont_bbs, cont_sel, cont_ins);
+    
     ordena_vetor(vetor, i, "dec");
     cont_bbs = bubblesort(vetor, i);
-    ordena_vetor(vetor, i, "dec");
     cont_ins = insertionsort(vetor, i);
-    ordena_vetor(vetor, i, "dec");
     cont_sel = selectionsort(vetor, i);
-    exit_file("DECRESCENTE.txt", i, cont_bbs, cont_ins, cont_sel );
+    exit_file("DECRESCENTE.txt", i, cont_bbs, cont_sel, cont_ins);
   }
 }

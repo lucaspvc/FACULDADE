@@ -33,36 +33,32 @@ int main(){
     cin >> intervalo;
   }
 
-  cout << "==================================================================================" << endl;
+  cout << "=============================================================================================" << endl;
   
   create_file_random(n, m);
   open_file(vetor, n);
   header_exit_file("ALEATORIO.txt");
   header_exit_file("CRESCENTE.txt");
   header_exit_file("DECRESCENTE.txt");
-  cout << "==================================================================================" << endl;
+  cout << "=============================================================================================" << endl;
 
   cont_total_bbs = bubblesort (vetor, n);
   cont_total_ins = insertionsort (vetor, n);
   cont_total_sel = selectionsort (vetor, n);
-  result_print ( "ALEATÓRIO",n, cont_total_bbs, cont_total_ins, cont_total_sel);
+  result_print ( "ALEATÓRIO",n, cont_total_bbs, cont_total_sel, cont_total_ins);
   result_to_file(vetor, intervalo, n);
 
   ordena_vetor(vetor, n, "cresc");
   cont_total_bbs = bubblesort (vetor, n);
-  ordena_vetor(vetor, n, "cresc");
   cont_total_ins = insertionsort (vetor, n);
-  ordena_vetor(vetor, n, "cresc");
   cont_total_sel = selectionsort (vetor, n);
-  result_print ( "CRESCENTE",n, cont_total_bbs, cont_total_ins, cont_total_sel);
+  result_print ( "CRESCENTE",n, cont_total_bbs, cont_total_sel, cont_total_ins);
 
   ordena_vetor(vetor, n, "dec");
   cont_total_bbs = bubblesort (vetor, n);
-  ordena_vetor(vetor, n, "dec");
   cont_total_ins = insertionsort (vetor, n);
-  ordena_vetor(vetor, n, "dec");
   cont_total_sel = selectionsort (vetor, n);
-  result_print ( "DECRESCENTE",n, cont_total_bbs, cont_total_ins, cont_total_sel);
+  result_print ( "DECRESCENTE",n, cont_total_bbs, cont_total_sel, cont_total_ins);
 
   return 0;
 }
