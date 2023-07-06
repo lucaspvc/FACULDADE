@@ -3,6 +3,12 @@
 
 using namespace std;
 
+
+/*
+ * Função de ordenção pelo método de troca (bubble sort).
+ * @param o vetor a ser ordenado
+ * @param tamano N do vetor a ser ordenado
+ */
 int bubblesort(int vetor[], int n){
   int v[n]={};
   int aux, contBubble;
@@ -26,6 +32,11 @@ int bubblesort(int vetor[], int n){
   return contBubble;
 }
 
+/*
+ * Função de ordenção pelo método de inserção (insertion sort).
+ * @param o vetor a ser ordenado
+ * @param tamano N do vetor a ser ordenado
+ */
 int insertionsort(int vetor[], int n){
   int aux, j, contInsertion;
   int v[n] = {};
@@ -219,7 +230,8 @@ void result_to_file(int vetor[], int intervalo, int n){
     cont_ins = insertionsort(vetor, i);
     cont_sel = selectionsort(vetor, i);
     exit_file("ALEATORIO.txt", i, cont_bbs, cont_ins, cont_sel );
-
+  }
+  for (int i = intervalo; i <= n; i += intervalo){
     ordena_vetor(vetor, i, "cresc");
     cont_bbs = bubblesort(vetor, i);
     cont_ins = insertionsort(vetor, i);
