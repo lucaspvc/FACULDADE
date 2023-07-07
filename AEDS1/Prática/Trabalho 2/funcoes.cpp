@@ -118,7 +118,7 @@ void create_file_random(int n, int m){
     out.close();
 }
 
-void ordena_vetor(int vetor[], int n, string chave){
+void sort_vector(int vetor[], int n, string chave){
   int aux, min;
   if (chave == "cresc"){
     for (int i = 0; i < n; i++){
@@ -233,13 +233,13 @@ void result_to_file(int vetor[], int intervalo, int n){
   }
 
   for (int i = intervalo; i <= n; i += intervalo){
-    ordena_vetor(vetor, i, "cresc");
+    sort_vector(vetor, i, "cresc");
     cont_bbs = bubblesort(vetor, i);
     cont_ins = insertionsort(vetor, i);
     cont_sel = selectionsort(vetor, i);
     exit_file("CRESCENTE.txt", i, cont_bbs, cont_sel, cont_ins);
     
-    ordena_vetor(vetor, i, "dec");
+    sort_vector(vetor, i, "dec");
     cont_bbs = bubblesort(vetor, i);
     cont_ins = insertionsort(vetor, i);
     cont_sel = selectionsort(vetor, i);

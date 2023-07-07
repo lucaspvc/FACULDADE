@@ -48,13 +48,13 @@ int main(){
   result_print ( "ALEATÓRIO",n, cont_total_bbs, cont_total_sel, cont_total_ins);
   result_to_file(vetor, intervalo, n);
 
-  ordena_vetor(vetor, n, "cresc");
+  sort_vector(vetor, n, "cresc");
   cont_total_bbs = bubblesort (vetor, n);
   cont_total_ins = insertionsort (vetor, n);
   cont_total_sel = selectionsort (vetor, n);
   result_print ( "CRESCENTE",n, cont_total_bbs, cont_total_sel, cont_total_ins);
 
-  ordena_vetor(vetor, n, "dec");
+  sort_vector(vetor, n, "dec");
   cont_total_bbs = bubblesort (vetor, n);
   cont_total_ins = insertionsort (vetor, n);
   cont_total_sel = selectionsort (vetor, n);
