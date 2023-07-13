@@ -8,7 +8,7 @@ typedef int tImagem[1000][1000];
 
 string erro;
 
-int carregaPGM(string nome, tImagem img, int *lin, int *col, int *tons){
+int carregaPGM(string nome, tImagem img,  int *lin, int *col, int *tons){
 
     string tipo;
     ifstream arquivo(nome);
@@ -23,7 +23,7 @@ int carregaPGM(string nome, tImagem img, int *lin, int *col, int *tons){
         return 2;
     }
      
-    arquivo >> *col >> *lin >> *tons;
+    arquivo >> *lin >> *col >> *tons;
     for (int i = 0; i < *lin; i++){
         for (int j = 0; j < *col; j++){
             arquivo >> img[i][j];
@@ -40,7 +40,7 @@ int salvaPGM(string nome, tImagem img, int lin, int col, int tons){
         return 1;
     }
 
-    arquivo << "P2" << endl << col << " " << lin << endl << tons << endl;
+    arquivo << "P2" << endl << lin << " " << col << endl << tons << endl;
     for (int i = 0; i < lin; i++){
         for (int j = 0; j < col; j++){
             arquivo << img[i][j] << " ";
@@ -52,10 +52,8 @@ int salvaPGM(string nome, tImagem img, int lin, int col, int tons){
     return 0;
 }
 
-/*
- * Leitura e Escrita de arquivos no formato PGM com funções.
- */
-int main(int argc, char** argv) {
+
+int main() {
     tImagem img_entrada, img_saida;
     int colunas = 10, linhas = 10, tons;
     string arquivo_entrada, arquivo_saida;
@@ -73,7 +71,7 @@ int main(int argc, char** argv) {
     // Construindo a imagem negativa.
     for (int i = 0; i < linhas; i++){
         for (int j = 0; j < colunas; j++){
-            img_saida[j][i] = tons - img_entrada[i][j];
+            img_saida[i][j] = tons - img_entrada[i][j];
         }
     }
     
@@ -81,7 +79,7 @@ int main(int argc, char** argv) {
     cout << " Entre com o nome da imagem de saída: ";
     cin >> arquivo_saida;
     arquivo_saida = arquivo_saida + ".pgm";
-    if (salvaPGM(arquivo_saida, img_saida, colunas, linhas, tons) != 0){
+    if (salvaPGM(arquivo_saida, img_saida, linhas, colunas, tons) != 0){
         cout << "\n" + erro + "\n";
         return 1;
     }
