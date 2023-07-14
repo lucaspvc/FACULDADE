@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="">Projeto Prático de Introdução à Ciência da Computação</title>
+</head>
+<body>
+  <div class="center">
+    <h1 class="purple"><b>GitHub e Comandos Git</b></h1>
+  </div>
+    <img src="img/logo.png" alt="img" width="150px" height="150px">
+    <br>
+    <div class="caixa center">
+    <div>
+      <h2>Professor:<i> Ricardo Menezes Salgado</i> </h2>
+      <table>
+      <tr>
+        <th>Nome</th>
+        <th>RA</th>
+      </tr>
+      <tr>
+        <td><code>Jorran Luka Andrade dos Santos</code></td>
+        <td>2022.2.08.001</td>
+      </tr>
+      <tr>
+        <td><code>Lucas Pessoa Oliveira Alves</code></td>
+        <td>2022.1.08.044</td>
+      </tr>
+    </table>
+    <small><mark> Material utilizado: <i>Visual Studio Code</i> e <i>GitHub</i></mark></small>
+    </div>
+    </div>
+
+    <div class="center">
+    <h2>Links</h2>
+    <button><a href="audio.html" >Áudio</a></button>
+    <button><a href="video.html">Vídeo</a></button>
+    </div>
+    <h2>Conteúdo</h2>
+    <div>
+      <p>Esse site mostra qual a função de cada comando <b>Git</b>.</p>
+      <h3>Comando <i>init</i></h3>
+      <ul>
+        <p>O comando cria um novo repositório do Git. Ele pode ser usado para converter um projeto existente e não versionado em um repositório do Git ou inicializar um novo repositório vazio.</p>
+        <p><b>Uso: </b><code>git init</code></p>
+      </ul>
+      <h3>Comando <i>clone</i></h3>
+      <ul>
+        <p>Obtém um repositório a partir de um link e o adiciona a um novo diretório. É usado para obter repositórios de locais como o GitHub.</p>
+        <p><b>Uso: </b><code>git clone [seu link]</code></p>
+      </ul>
+      <h3>Comando <i>branch</i></h3>
+      <ul>
+        <p>O comando <i>branch</i> é usado para realizar operações com branches, ou seja, ramificações do código. Essas operações podem ser criar, listar, renomear ou excluir.</p>
+        <table>
+          <tr>
+            <th>Comando</th>
+            <th>Descrição</th>
+          </tr>
+          <tr>
+            <td><code>git branch</code></td>
+            <td>Lista todos os branches do repositório atual.</td>
+          </tr>
+          <tr>
+            <td><code>git branch [seu branch]</code></td>
+            <td>Cria um novo branch com o nome especificado.</td>
+          </tr>
+          <tr>
+            <td><code>git branch -d [seu branch]&nbsp;&nbsp;&nbsp;</code></td>
+            <td>Exclui o branch com o nome especificado.</td>
+          </tr>
+        </table>
+      </ul>
+      <h3>Comando <i>checkout</i></h3>
+      <ul>
+        <p>O git checkout é uma forma de alternar entre versões de arquivos, commits ou branches. Ele tem diferentes formas de usar, mas seus dois principais usos são: trocar de branch ou restaurar arquivos.</p>
+        <p><b>Uso: </b><code>git checkout [branch de destino]</code></p>
+      </ul>
+      <h3>Comando <i>status</i></h3>
+      <ul>
+        <p>O comando exibe as condições do diretório de trabalho e da área de staging. Ele permite que você veja quais alterações foram despreparadas, quais não foram e quais arquivos não estão sendo monitorados pelo Git. Os resultados de status não exibem qualquer informação sobre o histórico de projetos que recebeu commit.
+        </p>
+        <p><b>Uso: </b><code>git status</code></p>
+      </ul>
+      <h3>Comando <i>diff</i></h3>
+      <ul>
+        <p>É um comando Git multiuso que, quando executado, realiza uma função de comparação nas fontes de dados Git. Essas fontes de dados podem ser commits, ramificações, arquivos e outros. Este documento vai discutir solicitações comuns de git diff e comparações de padrões de fluxo de trabalho.</p>
+        <p><b>Uso: </b><code>git diff</code></p>
+      </ul>
+      <h3>Comando <i>add</i></h3>
+      <ul>
+        <p>Adiciona um arquivo à área de preparação. Esse comando serve para gravar as versões do projeto no histórico do repositório. </p>
+        <p><b>Uso: </b><code>git add [nome do arquivo]</code></p>
+      </ul>
+      <h3>Comando <i>commit</i></h3>
+      <ul>
+        <p>O Git Commit permite que você crie um commit, ou seja, você consegue guardar o estado do seu repositório naquele momento. Existem diferentes estratégias para fazer commits, mas a ideia principal é que a cada ponto em que o seu código esteja funcionando com uma nova pequena funcionalidade, exista um commit.</p>
+        <p><b>Uso: </b><code>git commit -m [mensagem/nome do commit]</code></p>
+        <p>Também é possível utilizar o modificador <code>-a</code> para incluir todos os arquivos modificados, além dos adicionados com o comando <code>git add</code>.</p>
+      </ul>
+      <h3>Comando <i>push</i></h3>
+      <ul>
+        <p>É utilizado usado para enviar o conteúdo do repositório local para um repositório remoto. O comando push transfere commits do repositório local a um repositório remoto.
+        </p>
+        <p><b>Uso: </b><code>git push [seu repositório remoto] [qual branch]</code></p>
+      </ul>
+      <h3>Comando <i>pull</i></h3>
+      <ul>
+        <p> O comando é utilizado para buscar e baixar conteúdo de repositórios remotos e fazer a atualização imediata ao repositório local para que os conteúdos sejam iguais. Fazer o merge de alterações upstream remotas no repositório local é algo comum em fluxos de trabalho de colaboração baseados em Git.</p>
+        <p><b>Uso: </b><code>git pull [seu repositório remoto] [qual branch]</code></p>
+      </ul>
+      <h3>Comando <i>revert</i></h3>
+      <ul>
+        <p>Desfaz as alterações de um commit específico sem remover outros commits posteriores. O resultado é um novo commit que combina as alterações de branches anteriores e posteriores ao branch especificado.</p>
+        <p><b>Uso: </b><code>git revert [commit a ser desfeito]</code></p>
+      </ul>
+      <h3>Comando <i>merge</i></h3>
+      <ul>
+        <p>Permite que você pegue as linhas criadas a partir do Git branch e faça uma integração para a ramificação principal. É importante notar que o comando git branch cria uma nova ramificação a partir da branch que o desenvolvedor está situado.
+        </p>
+        <p><b>Uso: </b><code>git merge [nome do branch]</code></p>
+      </ul>
+      <h3>Comando <i>stash</i></h3>
+      <ul>
+        <p>O comando <i>stash</i> possui vários usos, dependendo de seus parâmetros.</p>
+        <table>
+          <tr>
+            <th>Comando</th>
+            <th>Descrição</th>
+          </tr>
+          <tr>
+            <td><code>git stash save</code></td>
+            <td>Guarda temporariamente todos os arquivos modificados.</td>
+          </tr>
+          <tr>
+            <td><code>git stash pop</code></td>
+            <td>Restaura os arquivos guardados.</td>
+          </tr>
+          <tr>
+            <td><code>git stash list</code></td>
+            <td>Lista todas as mudanças guardadas.</td>
+          </tr>
+          <tr>
+            <td><code>git stash drop&nbsp;&nbsp;&nbsp;</code></td>
+            <td>Descarta as mudanças guardadas.</td>
+          </tr>
+        </table>
+      </ul>
+      <h3>Comando <i>rm</i></h3>
+      <ul>
+        <p>O comando rm pode ser usado para remover arquivos individuais ou uma coleção de arquivos. A principal função do git rm é remover arquivos rastreados do índice de Git.
+        </p>
+        <p><b>Uso: </b><code>git rm [seu arquivo]</code></p>
+      </ul>
+      <h3>Comando <i>config</i></h3>
+      <ul>
+        <p>É usado para configurar o nome e o email que serão usados em seus commits.</p>
+        <table>
+          <tr>
+            <th>Comando</th>
+            <th>Descrição</th>
+          </tr>
+          <tr>
+            <td><code>git config –global user.name [seu nome]</code></td>
+            <td>Configura seu nome.</td>
+          </tr>
+          <tr>
+            <td><code>git config –global user.email [seu email]&nbsp;&nbsp;&nbsp;</code></td>
+            <td>Configura seu email.</td>
+          </tr>
+        </table>
+      </ul>
+      <h3>Comando <i>reset</i></h3>
+      <ul>
+        <p>Serve para desfazer as alterações do índice de staging. Uma redefinição –mixed vai mover qualquer alteração pendente do índice de staging de volta para o diretório de trabalho.</p>
+        <table>
+          <tr>
+            <th>Comando</th>
+            <th>Descrição</th>
+          </tr>
+          <tr>
+            <td><code>git reset [nome do arquivo]</code></td>
+            <td>Remove um arquivo da área de preparação sem afetar seu conteúdo.</td>
+          </tr>
+          <tr>
+            <td><code>git reset [nome do commit]</code></td>
+            <td>Desfaz todos os commits após o commit especificado e os armazena localmente.</td>
+          </tr>
+          <tr>
+            <td><code>git reset -hard [nome do commit]&nbsp;&nbsp;&nbsp;</code></td>
+            <td>Desfaz todos os commits após o commit especificado, sem armazená-los.</td>
+          </tr>
+        </table>
+      </ul>
+      <h3>Comando <i>remote</i></h3>
+      <ul>
+        <p>Para evitar a necessidade de adicionar um link toda vez, o <i>remote</i> permite definir uma variável como seu repositório remoto.</p>
+        <p><b>Uso: </b><code>git remote add [nome da variável] [link do repositório]</code></p>
+      </ul>
+      <h3>Comando <i>fetch</i></h3>
+      <ul>
+        <p>O fetch busca as mudanças do repositório remoto, assim como o pull, mas a diferença é que ele as armazena em um branch separado.
+          É uma forma mais segura de buscar alterações, pois não há risco de perder seu diretório de trabalho atual.</p>
+        <p><b>Uso: </b><code>git fetch [link do repositório]</code></p>
+      </ul>
+      <h3>Comando <i>show</i></h3>
+      <ul>
+        <p>Mostra os metadados e as modificações de um commit específico.</p>
+        <p><b>Uso: </b><code>git show [seu commit]</code></p>
+      </ul>
+      <h3>Comando <i>help</i></h3>
+      <ul>
+        <p>Fornece uma descrição dos comandos Git mais utilizados.</p>
+        <p><b>Uso: </b><code>git help</code></p>
+        <p>Se adicionar qualquer comando git (<small>exemplo:</small> <code>git help commit</code>), o <i>git help</i> fornecerá uma descrição do comando especificado.</p>
+      </ul>
+      <h3>Comando <i>rebase</i></h3>
+      <ul>
+        <p>O comando git rebase permite alterar com facilidade uma variedade de commits, modificando o histórico do seu repositório. É possível reordenar, editar ou combinar commits por squash.
+        </p>
+        <p><b>Uso: </b><code>git rebase [branch nova base] [branch que queremos mudar a base]</code></p>
+      </ul>
+      <h3>Comando <i>blame</i></h3>
+      <ul>
+        <p>O comando é um utilitário versátil de resolução de problemas que tem opções de uso extensas. A função geral do git blame é a exibição de metadados do autor anexados a linhas de commit específicas em um arquivo. Ele é usado para examinar os pontos específicos do histórico de um arquivo e obter contexto sobre quem foi o último autor que modificou a linha. É usado para explorar o histórico de código específico e responder dúvidas sobre o que, como e por que o código foi adicionado ao repositório.</p>
+        <p><b>Uso: </b><code>git blame [nome do arquivo]</code></p>
+      </ul>
+      <h3>Comando <i>tag</i></h3>
+      <ul>
+        <p>Cria uma tag para o estado atual do repositório. Tags são referências a pontos específicos no histórico - são semelhantes a branches, mas a diferença é que as tags são estáticas.
+        Úteis para classificação de versões.</p>
+        <p><b>Uso: </b><code>git tag [nome da tag (ex: v1.2)]</code></p>
+      </ul>
+    </div> 
+</body>
+</html>
