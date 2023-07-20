@@ -59,6 +59,13 @@ void negativa(tImagem img_entrada, tImagem img_saida, int linhas, int colunas, i
     }
 }
 
+void rotacionaDireita(tImagem img_entrada, tImagem img_saida, int *linhas, int *colunas){
+    for(int i = 0; i < *colunas; i++){
+        for (int k = 0, j = *linhas; k < *linhas; k++, j--){
+            img_saida[i][k] = img_entrada[j][i];
+        }
+    }
+}
 
 int main() {
     tImagem img_entrada, img_saida;
@@ -67,7 +74,7 @@ int main() {
 
     
     // Leitura do arquivo de entrada da imagem.
-    cout << " Entre com o nome da imagem de entrada: ";
+    cout << "Entre com o nome da imagem de entrada: ";
     cin >> arquivo_entrada;
     arquivo_entrada = arquivo_entrada + ".pgm";
     if (carregaPGM(arquivo_entrada, img_entrada, &linhas, &colunas, &tons) != 0){
@@ -76,10 +83,14 @@ int main() {
     }
     
     // Construindo a imagem negativa.
-    negativa(img_entrada, img_saida, linhas, colunas, tons);
+    //negativa(img_entrada, img_saida, linhas, colunas, tons);
+
+    //Rotacionando a direita.
+    //rotacionaDireita(img_entrada, img_saida, &linhas, &colunas);
+    
     
     // Escrita do arquivo de saída da imagem.
-    cout << " Entre com o nome da imagem de saída: ";
+    cout << "Entre com o nome da imagem de saída: ";
     cin >> arquivo_saida;
     arquivo_saida = arquivo_saida + ".pgm";
     if (salvaPGM(arquivo_saida, img_saida, linhas, colunas, tons) != 0){
