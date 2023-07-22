@@ -1,5 +1,15 @@
-/* Autor: Lucas Pessoa Oliveira Alves
+/* Universidade Federal de Alfenas (UNIFAL) - 2023
+ * Lucas Pessoa Oliveira Alves        2022.1.08.044
+ * Jorran Luka Andrade dos Santos     2022.2.08.001
+ *
+ * Docente: Paulo Alexandre Bressan - Algoritimo e Estrutura de Dados I
  * 
+ * Trabalho com o objetivo adquirir conhecimentos de manipulação de imagens em 
+ * formato de matrizes implementando funcionalidades que geram novas imagens a 
+ * partir de imagens lidas de arquivos-texto em formato PGM.
+ */
+
+/*
  * Header file utilizado para definir cores para os textos
  */
 #ifndef CORES_H
