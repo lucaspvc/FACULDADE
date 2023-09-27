@@ -3,7 +3,7 @@ library(readxl)
 #Dataset <- read_excel("/home/2022.1.08.044/Desktop/Estatística/AuladeAmostragem/Dados_Aula_Pratica_Amostragem.xlsx")
 
 #Leitura no Windows em casa
-Dataset <- read_excel("Estatística/AulaDeAmostragem/Dados_Aula_Pratica_Amostragem.xlsx")
+Dataset <- read_excel("Estatística/AuladeAmostragem/Dados_Aula_Pratica_Amostragem.xlsx")
 
 #Ao inv�s de usar o comando apresentado anteriormente, repita o processo
 #utilizado em sala de aula
