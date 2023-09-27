@@ -1,8 +1,16 @@
+library(datasets)
+library(base)
+library(graphics)
+library(grDevices)
+library(methods)
+library(stats)
+library(utils)
 library(readxl)
-library(ploty)
-Dataset <- read_excel("/home/2022.1.08.044/Desktop/Estatística/Auladegraficos/Dados_Aula_Pratica_Amostragem.xlsx")
+library(RcmdrMisc)
+Dataset <- read_excel("Estatística/AulaDeTabelas/Dados_Aula_Pratica_Amostragem.xlsx")
+
+
 summary(Dataset)
-summary(dados)
 
 dados <- Dataset$Idade
 
@@ -102,5 +110,3 @@ library(abind, pos=17)
 library(e1071, pos=18)
 numSummary(Dataset[,"Idade", drop=FALSE], statistics=c("mean", "sd", "quantiles", "CV"), quantiles=c(0,.25,.5,.75,
   1))
-
-Boxplot( ~ Idade, data=Dataset, id=list(method="y"))
