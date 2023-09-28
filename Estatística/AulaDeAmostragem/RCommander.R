@@ -23,8 +23,6 @@ n<-80
 #Amostragem casual simples
 
 #Fazendo a amostra direta da vari�vel idade
-
-
 amostracs<-sample(dados,n)
 amostracs
 
