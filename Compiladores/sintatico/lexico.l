@@ -1,10 +1,16 @@
 %{
-#include "sintatico.h"    
+#include "sintatico.h"
+int yyerror(char *);
+int numLinha = 1;
 %}
+
 identificador [a-zA-Z]([a-zA-Z0-9])*
 numero [0-9]+
 espaco [ \t]+
 novalinha [\n]
+
+
+%x coment
 
 %%
 programa     return T_PROGRAMA;
@@ -34,18 +40,24 @@ nao          return T_NAO;
 inteiro      return T_INTEIRO;
 logico       return T_LOGICO;
 "V"          return T_V;
-"F"          return T_F;  
+"F"          return T_F;
+
+"//".""      /*nada*/
+"/*"         BEGIN(coment);
+<coment>"*/" BEGIN(INITIAL);
+<coment>.    /*nada*/
+<coment>\n   numLinha++;
 
 
 {identificador} return T_IDENTIF;
 {numero}        return T_NUMERO;
 {espaco}      /* nada */
-{novalinha}   /* nada */
-              erro("lexico!");
-
+{novalinha}   numLinha++;
+.              yyerror ("lexico!");
 %%
 int yywrap() { return 1;}
-int main(){
-    yylex();
-    return 0;
+
+int yyerror(char*s){
+    printf("\e[1;31mERRO\e[0m na linha %d: %s\n", numLinha, s);
+    exit(100);
 }

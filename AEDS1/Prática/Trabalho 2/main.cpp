@@ -14,7 +14,7 @@
 #include <bits/stdc++.h>
 #include <iomanip>
 #include "cores.h"
-//#include "funcoes.h"
+#include "funcoes.h"
 #include "funcoes.cpp"
 using namespace std;
 
