@@ -1,0 +1,87 @@
+Exemplo 01 (slide 6/9)
+item 4:
+X: número de plantas doentes em uma amostra de 3 plantas.
+X~Binomial (3;0,25)
+
+P(X<2)=?
+como é cauda inferior, o R faz P(X<=a)
+Logo, P(X<2) no R será P(X<= 1)
+P(X<=1)=0,84375
+como ele pede com 4 casas decimais, olhe o ultimo número, como é 5 olha o penultimo, se for par mantém se for impar aumenta uma casa decimal.
+P(X<=1)=0,8438
+
+
+ item 5:
+X: número de plantas doentes em uma amostra de 3 plantas.
+X~Binomial (3;0,25)
+P(X>2)=?
+no R só fazer normal
+P(X>2)=0.015625
+arredondamento:
+P(X>2)=0.0156
+====================================================================================
+Distribuição Poisson
+X~Poisson(λ)
+λ: número médio de ocorrências no intervalo.
+
+Exemplo 01(slide 7/9)
+item 1:
+X: número de pacientes recebidos em 1 minuto
+X~Poisson(2)
+P(X=3)=?
+P(X=3)=0.1804470443
+arredondamento
+P(X=3)=0,1804
+
+item 2:
+X: número de pacientes recebidos em 1 minuto
+X~Poisson(2)
+P(X>3)=?
+P(X>3)=0.1428765
+arredondamento
+P(X>3)=0.1429
+
+item 3:
+X: número de pacientes recebidos em 2 minutos
+X~Poisson(4)
+P(x=0)=?
+p(x=0)=0.0183156389
+arredondamento
+p(x=0)=0,0183
+====================================================================================
+
+Distribuição Normal (Gaussiana)
+Exemplo slide 8/9
+Seja X ∼ N(12, 4). Determine:
+1 P(X≤18,5) -> 0.9479187
+2 P(X≥5) -> 0.9599408
+3 P(10≤X<21) -> P(X>=10) - P(X>=21) = 0.6914625-0.01222447 = 0.679238
+4 Qual é o valor de x0 tal que P(X ≥ x0) = 0, 05? -> x0 é um quantil, logo 18.57941
+
+
+
+Nicoletti et al. (2000) avaliaram o peso de camundongos,
+aos 4 meses de vida, de dois grupos: controle e tratados
+com injeções de PBS. Os camundongos machos do grupo
+tratado apresentaram peso médio igual a 33,4g, com
+desvio padrão de 1,50g. Já os camundongos machos do
+grupo controle apresentaram peso médio de 32,8g e
+desvio padrão de 1,36g.
+
+grupo tratado
+N(33.4; 1.50)
+grupo controle
+N(32.8; 1.36)
+
+1 Qual é a porcentagem de camundongos machos do grupo
+tratado com peso entre 30,8g e 35,10g ?
+P(X>= 30,8) - P(X>=35,10) = > > 0.9584818-0.1285371=0.8299447 = 82,99%
+
+2 Qual é a porcentagem de camundongos machos do grupo
+de controle com peso maior que 35g ?
+0.05286934 -> 5,29%
+
+3 Qual peso dos camundongos machos do grupo tratado
+deixa, aproximadamente, 2,5% dos camundongos abaixo
+dele?
+30.46005
