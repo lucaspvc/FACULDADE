@@ -1,0 +1,9 @@
+programa teste1
+    inteiro a
+inicio
+    leia a
+    enquanto a < 100 faca
+        a <- a * 2
+    fimenquanto
+    escreva a
+fimprograma
