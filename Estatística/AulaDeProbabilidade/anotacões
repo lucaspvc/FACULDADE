@@ -28,7 +28,7 @@ Exemplo 01(slide 7/9)
 item 1:
 X: número de pacientes recebidos em 1 minuto
 X~Poisson(2)
-P(X=3)=?
+P(X=3)=?'
 P(X=3)=0.1804470443
 arredondamento
 P(X=3)=0,1804
