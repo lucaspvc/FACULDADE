@@ -1,5 +1,10 @@
 // Tabela de simbolos
 
+enum
+{
+    INT,
+    LOG
+};
 #define TAM_TAB 100
 
 struct elemTabSimbolos
@@ -41,6 +46,21 @@ void insereSimbolo(struct elemTabSimbolos elem)
     tabSimb[posTab++] = elem;
 }
 
+void mostraTabela()
+{
+    puts("Tabela de Simbolos");
+    puts("------------------");
+    printf("%30s | %s | %s\n", "ID", "END", "TIP");
+    for (int i = 0; i < 50; i++)
+        printf("-");
+    for (int i = 0; i < posTab; i++)
+        printf("\n%30s | %3d | %s",
+               tabSimb[i].id,
+               tabSimb[i].end,
+               tabSimb[i].tip == INT ?"INT" : "LOG");
+    puts("");
+}
+
 // Pilha Semantica
 #define TAM_PIL 100
 int pilha[TAM_PIL];
@@ -59,3 +79,4 @@ int desempilha(void)
         yyerror("Pilha semântica vazia!");
     return pilha[topo--];
 }
+

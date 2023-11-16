@@ -1,5 +1,7 @@
 programa teste1
-    inteiro a
+    inteiro a b c
+    logico x y
+    inteiro w
 inicio
     leia a
     enquanto a < 100 faca
