@@ -1,9 +1,12 @@
 programa teste2
     inteiro a
+    logico b
 inicio
+    b <- V
     leia a
-    enquanto a > 0 faca
+    enquanto b faca
         escreva a
-        a <- a - 1
+        a <- a + 1
+        b <- a < 10
     fimenquanto
 fimprograma

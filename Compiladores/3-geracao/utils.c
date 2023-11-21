@@ -37,6 +37,7 @@ void insereSimbolo(struct elemTabSimbolos elem)
     for (i = posTab - 1; strcmp(tabSimb[i].id, elem.id) && i >= 0; i--);
     if (i != -1)
     {
+        char msg[200];
         sprintf(msg, "Identificador [%s] duplicado!", elem.id);
         yyerror(msg);
     }
@@ -77,3 +78,12 @@ int desempilha(void)
     return pilha[topo--];
 }
 
+// tipo1 e tipo2 são os tipos esperados na expressão
+// ret é o tipo que será empilhado com resultado da expressão
+void testaTipo(int tipo1, int tipo2, int ret){
+    int t1= desempilha();
+    int t2 = desempilha();
+    if(t1 != tipo1 || t2 != tipo2)
+        yyerror("Incompatibilidade de tipo!");
+    empilha(ret);
+}
