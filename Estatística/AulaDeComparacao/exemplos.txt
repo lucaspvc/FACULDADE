@@ -1,0 +1,78 @@
+Comparação da média de duas populações
+
+H0: U1 = U2 <=> H0: U1 - U2 = 0
+
+==============================================================================================================================================
+
+Exemplo 1 (slide 4/10)
+
+H0: U1 - U2 = 0
+H1: U1 - U2 != 0 => Teste Bilateral
+
+U1: Temperatura do termômetro A
+U2: Temperatura do termômetro B
+
+U1 = U2 ? => U1 - U2 = 0 ?
+Como alpha = 5%= 0,05 e valor p = 0,0154, então aceita-se H1. Logo, com 5% de significância, U1 - U2 != 0, ou seja, U1 != U2.
+Os termômetros não apresentam temperaturas iguais.
+
+==============================================================================================================================================
+
+Exemplo 2 (slide 8/10)
+dados não emparelhados
+
+U1: notas dos alunos da faculdade A 
+U2: notas dos alunos da faculdade B
+
+U1 > U2 ? => U1 - U2 > 0? => alpha = 10%
+
+H0: U1 - U2 =< 0
+H1: U1 - U2 > 0
+
+Como os dados são não emparelhados, temos que verificar se as variâncias populacionais são iguais, ou seja, G1 = G2 ?
+
+H0: G1 = G2
+H1: G1 != G2  
+;alpha-0,05
+
+Como valor-p > alpha, então aceita-se H0. Portanto, conclui-se que as variâncias são iguais .
+Agora vamos comparar as médias: valor-p-0,0433. Como o valor-r é menor que alpha (0,10),então aceita-se H1. Logo, com 10% de significância, 
+tem-se que U1-U2>0. Portanto, em média, as notas dos alunos da faculdade A são maiores que as dos alunos da faculdade B
+
+==============================================================================================================================================
+
+Exemplo(9/10)
+dados não emparelhados
+
+U1: tempo de entrega da pizzaria local
+U2: tempo de entrega da pizzaria filial
+
+U1 < U2 ? => U1 - U2 < 0 => alpha = 5%
+
+(H0 sempre tem que ter igualdade)
+H0: U1 - U2  >= 0 
+H1: U1 - U2 < 0 
+Como os dados são não emparelhados, temos que verificar se as variâncias populacionais são iguais, ou seja G1 = G2 ?
+
+H0: G1 = G2
+H1: G1 != G2
+;alpha = 0,05
+
+Como valor-p > alpha, então aceita-se H0. Portanto, conclui-se que as variâncias são iguais.
+Agora vamos comparar as médias: valor-p= 0.0598. Como o valor-r é maior que alpha(0,05), então aceita-se H0. Logo, com 5% de significância,
+tem-se U1-U2<0. Portanto, em média, o tempo de entrega da pizzaria LOCAL é menor que o tempo de entrega da pizzaria FILIA.
+
+==============================================================================================================================================
+
+Exemplo(10/10)
+dados emparelhados
+
+H0: U1 - U2 = 0                           (não houve diferença de peso)
+H1: U1 - U2 != 0 => Teste Bilateral       (houve diferença)
+
+U1: Xi
+U2: Yi
+
+U1 = U2 ? => U1 - U2 = 0 ?
+Como alpha = 5% = 0,05 e valor p = 0.0113, então aceita-se H1. Logo, com 5% de significância, U1 - U2 != 0, ou seja, U1 != U2.
+Houve diminuição de peso médio depois da aplicação da dieta 
