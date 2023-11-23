@@ -49,9 +49,15 @@ U2: tempo de entrega da pizzaria filial
 
 U1 < U2 ? => U1 - U2 < 0 => alpha = 5%
 
+L-F
 (H0 sempre tem que ter igualdade)
 H0: U1 - U2  >= 0 
 H1: U1 - U2 < 0 
+
+O R estava fazendo F-L então precisamos fazer o inverso
+H0: U2 - U1 <= 0
+H1: U2 - U1 >0
+
 Como os dados são não emparelhados, temos que verificar se as variâncias populacionais são iguais, ou seja G1 = G2 ?
 
 H0: G1 = G2
@@ -60,7 +66,7 @@ H1: G1 != G2
 
 Como valor-p > alpha, então aceita-se H0. Portanto, conclui-se que as variâncias são iguais.
 Agora vamos comparar as médias: valor-p= 0.0598. Como o valor-r é maior que alpha(0,05), então aceita-se H0. Logo, com 5% de significância,
-tem-se U1-U2<0. Portanto, em média, o tempo de entrega da pizzaria LOCAL é menor que o tempo de entrega da pizzaria FILIA.
+tem-se U2-U1>0. Portanto, em média, o tempo de entrega da pizzaria LOCAL é menor que o tempo de entrega da pizzaria FILIA.
 
 ==============================================================================================================================================
 
