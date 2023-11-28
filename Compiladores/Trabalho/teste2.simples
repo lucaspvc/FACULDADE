@@ -1,0 +1,12 @@
+programa teste2
+    inteiro a
+    logico b
+inicio
+    b <- V
+    leia a
+    enquanto b faca
+        escreva a
+        a <- a + 1
+        b <- a < 10
+    fimenquanto
+fimprograma
