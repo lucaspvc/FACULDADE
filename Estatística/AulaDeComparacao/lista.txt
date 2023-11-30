@@ -1,0 +1,95 @@
+1-É muito comum a Universidade Unifaz-SQN realizar reformas em seus prédios durante o período
+letivo e as reformas acontecerem durante o horário das aulas. Em uma pesquisa com 500 estudantes
+dessa universidade, verificou-se que 223 concordam que as reformas aconteçam dessa forma. Com
+5% de significância, é possível afirmar que a proporção de estudantes que concordam com a forma
+com que as reformas são feitas na Unifaz-SQN é igual a 0,5?
+RESPOSTA:
+H0:  π = 0,5
+H1:  π != 0,5
+valor-p=0,0177
+Como o valor-p é < 0,05 aceita-se H1
+Portanto, om 5% de significância, é possível concluir que a proporçãao que concorda com a forma com que as reformas são feitas 
+na Unifaz-SQN é diferente de 0,5
+
+2-Um pesquisador tomou uma amostra de 20 pacientes com artrite para observar a concentração
+de fósforo no sangue (em mg/100 mL). Ele quer verificar se a concentraçãao é igual a média dos
+indivíduos normais μ=3,0 mg/100 mL. Ele obteve os seguintes resultados:
+    3,9     3,9     4,0     4,4     3,9     4,4     3,1     4,5     3,1     3,1
+    3,8     4,6     2,5     2,6     2,7     2,9     2,7     2,8     3,1     2,7.
+a)Verifique, com nível de significância de 5%, se a média da concentração de fósforo no sangue
+de pacientes com artrite é igual a média da concentração dos indivíduos normais.
+RESPOSTA
+H0: μ=3,0
+H1: μ!=3,0
+valor-p=0,0139
+Como o valor-p é < 0,05 aceita-se H1
+Com 5% de significância, é possível concluir que a média da concentração de fósforo no sangue de
+pacientes com artrite não é igual a 3,0 mg/100mL.
+
+3-Em um experimento controlado de laboratório, cientistas da Universidade de Minnesota descobri-
+ram que 25% de certa descendência de ratos, sujeitos a uma dieta de 20% com grãos de café e,
+então, alimentados à força com um elemento químico causador de câncer, desenvolveu tumores
+cancerígenos. Você teria razão para acreditar que a proporçãao de ratos que desenvolveram tu-
+mores quando sujeitos a essa dieta aumentou se o experimento fosse repetido e 132 de 480 ratos
+desenvolvessem tumores? Use um nível de significância de 0,05.
+RESPOSTA
+H0: π ≤ 0,25
+H1: π > 0,25
+valor-p=0,1134
+Como o valor-p é > 0,05 aceita-se H0
+Com 5% de significância, é possível conclui que a proporção de ratos que desenvolveram tumores 
+com a dieta proposta não aumentou.
+
+4-Um certo tipo de hormônio, ao ser injetado em galinhas,aumenta o peso médio do ovo em 0,3 g.
+Uma amostra de 30 ovos tem média 0,4 g acima da média anterior à injeção e s = 0, 30. Há razões
+suficientes para aceitar a afirmação de que o aumento da média é superior a 0,3 g ao nível de 5%?
+RESPOSTA
+H0: μ ≤ 0,3
+H1: μ > 0,3
+valor-p=1,699
+Como o valor-p é > 0,05, aceita-se H1
+Com 95% de confiançaa, é possível concluir que o aumento da média é superior a 0,3 g.
+
+5-A concentração média de zinco recuperado de uma amostra de medições desse material em 36
+locações diferentes de um determinado rio é 2,6 gramas por mililitro, com desvio padrão de 0,3
+gramas por mililitro.
+a)Com α = 10%, a média da concentração de zinco no rio é igual a 3,0 gramas por mililitro?
+RESPOSTA
+H0: μ = 3
+H1: μ != 3
+valor-p<0, 0001
+Como valor-p é < 0,0001 aceita-se H1
+Com 10% de significância, é possível concluir que a média da concentração de zinco no rio 
+é diferente que 3,0 gramas por mililitro.
+
+b)Com α = 1%, a média da concentração de zinco no rio é menor que 3,0 gramas por mililitro?
+RESPOSTA
+H0: μ ≥ 3
+H1: μ < 3
+valor-p < 0, 0001
+Como valor-p é < 0,0001 aceita-se H1
+Com 1% de significância, é possível concluir que a média da concentração de zinco no rio 
+é menor que 3,0 gramas por mililitro.
+
+6-O prefeito de uma pequena cidade deseja saber a proporção dos habitantes do município que apro-
+vam a sua administração. Para isso, ele tomou uma amostra de 80 habitantes do município e
+verificou que 24 aprovam a sua administração.
+a)Com α = 1%, é possível afirmar que a administração do prefeito é aprovada pela metade dos
+habitantes do município?
+RESPOSTA
+H0: π = 0, 5
+H1: π != 0, 5
+valor-p = 0, 0005
+Como valor-p é < 0,01 aceita-se H1
+Com 1% de significância, é possível concluir
+que a taxa de aprovação do prefeito não é igual a 50%
+
+b)A oposição afirma que a porcentagem dos habitantes do município que aprovam a adminis-
+tração do prefeito é menor ou igual a 15%. Com α = 5%, verifique se a afirmação da oposição
+é verdadeira.
+RESPOSTA
+H0: π ≤ 0, 15
+H1: π > 0, 15 
+valor-p = 0,0005
+Como o valor-p é < 0,05 aceita-se H1
+Com 5% de significância, é possível concluir que a taxa de aprovação do prefeito não é menor ou igual a 15%
