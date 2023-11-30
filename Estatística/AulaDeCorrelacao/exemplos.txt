@@ -1,0 +1,38 @@
+Exemplo 01 (slide 11/19)
+
+H0: p=0
+H1: p!=0
+
+alpha = 5% = 0,05
+
+valor-p <0,0001
+ou
+valor-p = 9,543x10⁻⁸
+
+decisão: como valor-p < alpha, então aceita-se H1.
+conclusão: existe correlação linear entre as variáveis massa do composto dissolvido e temperatura, 
+ao nível de 5% de significância
+
+==============================
+
+Exemplo 01 (slide 13/19)
+H0: p=0  => não tem correlação linear
+H1: p!=0 => tem correlação linear
+
+alpha = 5% = 0,05
+valor-p=0,05282
+decisão: como valor-p > alpha, aceita-se H0
+conclusão: não existe correlação linear entre as variáveis a força estástica e a força dinâmica com 5% de significância
+
+===============================
+
+Exemplo 01 (slide 15/19)
+
+H0: p >= 0
+H1: p < 0
+
+alpha = 10% = 0,10
+
+valor-p=0,0007401
+decisão: como valor-p < alpha, então aceita-se H1
+conclusão: com 10% de significância, existe correlação linear negativa entre o valor e o tempo de uso do automóvel
