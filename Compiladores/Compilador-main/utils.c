@@ -1,13 +1,20 @@
 // Tabela de Simbolos 
 #include <stdarg.h>
 
+// Criar uma estrutura e operações para manipular uma lista de campos (necessáriamente antes da tabela declarada)
+
 #define TAM_TAB 100
 
 enum 
 {
     INT,
-    LOG
+    LOG,
+    REG
 };
+
+char nomeTipo[3][4] = {"INT", "LOG", "REG"};
+
+// Nova struct necessária: Lista de campos -> Lista encadeada (inserir e percorrer)
 
 struct elemTabSimbolos
 {
@@ -53,7 +60,7 @@ void mostraTabela()
         printf("\n%30s | %3d | %s",
         tabSimb[i].id,
         tabSimb[i].end,
-        tabSimb[i].tip == INT ? "INT" : "LOG");
+        nomeTipo[tabSimb[i].tip]);
     puts("");
 }
 
@@ -83,4 +90,48 @@ void testaTipo(int tipo1, int tipo2, int ret) {
     }
 
     empilha(ret);
+}
+
+
+typedef struct no*ptno;
+struct no{
+    char info;
+    ptno prox;
+};
+
+ptno insere(ptno L, char infor){
+    ptno p, new;
+    new = (ptno) malloc(sizeof(struct no));
+    new->info = info;
+    new->prox = NULL;
+    p = L;
+    while (p && p->prox){
+        p = p->prox;
+    }
+    if (p){
+        p->prox = new;
+    }else{
+        L = new;
+    }
+    return L;
+}
+
+ptno busca(ptno L, char info){
+    while (L && L->info!=info){
+        L=L->prox;
+    }
+    return L;    
+}
+
+void mostra(ptno L){
+    printf("[");
+    while (L){
+        if(L->prox){
+            printf("%c", L->info);
+        }else{
+            printf("%c", L->info);
+        }
+        L = L->prox;
+    }
+    printf("]\n");
 }

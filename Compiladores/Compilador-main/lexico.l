@@ -52,17 +52,28 @@ logico      return T_LOGICO;
 V           return T_V;
 F           return T_F;
 
-"//".*       /* nada */
-"/*"        BEGIN(comment);
-<comment>"*/" BEGIN(INITIAL);
-<comment>.  /* nada */
-<comment>\n numLinha++;
+def         return T_DEF;
+fimdef      return T_FIMDEF;
+registro    return T_REGISTRO;
+            return T_IDPONTO;
 
-{identificador} {strcpy(atomo, yytext); return T_IDENTIF;}
-{numero}        {strcpy(atomo, yytext); return T_NUMERO;}
-{espaco}        /* nada */
-{novalinha}     numLinha++;
-.               yyerror ("lexico");
+"//".*        /* nada */
+"/*"          BEGIN(comment);
+<comment>"*/" BEGIN(INITIAL);
+<comment>.    /* nada */
+<comment>\n   numLinha++;
+
+
+{identificador}   { strcpy(atomo, yytext); return T_IDENTIF; }
+{identificador}"." {
+                     strcpy(atomo, yytext); 
+                     atomo[strlen(atomo) - 1] = 0; 
+                     return T_IDPONTO;
+                   }
+{numero}           { strcpy(atomo, yytext); return T_NUMERO; }
+{espaco}           /* nada */
+{novalinha}        numLinha++;
+.                  yyerror ("lexico");
 
 %%
 
