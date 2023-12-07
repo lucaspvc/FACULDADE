@@ -99,7 +99,7 @@ struct no{
     ptno prox;
 };
 
-ptno insere(ptno L, char infor){
+ptno insere(ptno L, char info){
     ptno p, new;
     new = (ptno) malloc(sizeof(struct no));
     new->info = info;

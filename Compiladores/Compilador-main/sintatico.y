@@ -10,7 +10,8 @@ int rotulo = 0;
 int ehRegistro = 0;
 int tipo;
 int tam;
-int desl;
+int des;
+int pos;
 %}
 
 %token T_PROGRAMA
@@ -224,9 +225,9 @@ atribuicao
        { 
          // TODO #10 - FEITO
          // Tem que guardar o TAM, DES e o TIPO (POS do tipo, se for registro)
-          //empilha(tam);
-          //empilha(des);
-          //empilha(tipo);
+          empilha(tam);
+          empilha(des);
+          empilha(tipo);
        }
      T_ATRIB expressao
        { 

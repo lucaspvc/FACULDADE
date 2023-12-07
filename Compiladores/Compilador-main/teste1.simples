@@ -1,0 +1,13 @@
+programa teste
+    inteiro a b
+inicio
+    leia a
+    se a > 10 entao
+        a <- a * 10
+        escreva a * 10
+    senao
+        escreva a - 10
+    fimse
+    b <- a * 10
+    escreva b
+fimprograma
