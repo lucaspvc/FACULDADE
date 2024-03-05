@@ -1,0 +1,81 @@
+1)a) T(n) = T(7n/10) + n
+
+a = 1
+b = 10/7
+f(n) = n
+
+log a na base b
+log 1 na base 10/7 = 0
+
+f(n) = O(n^0)
+f(n) = O(n^0+e)
+e=1
+n=O(n)
+
+satisfaz o caso 3
+verificando condição de regularidade
+af(n/b) =< cf(n)
+1f(n/10/7) =< cf(n)
+7n/10 =< cn
+considerano c = 7/10, um valor < 1
+então
+7n/10 <= 7n/10
+logo é satisfeita a condição
+então T(n)=Θ(f(n))
+
+b)T(n) = 2T(n/2) + 1
+
+a = 2
+b = 2
+f(n) = 1
+
+log a na base b 
+log 2 na base 2 = 1
+
+f(n) = O(n^1)
+1 = O(n^1-e)
+e = 1
+1 = O(n^1-1)
+1 = O(1)
+satisfaz o caso 1
+então
+T(n) = Θ(n^log 2 na base 2)
+T(n) = Θ(n^1)
+
+c) T(n) = 16T(n/4) +n^2
+
+a = 16
+b = 4
+f(n) = n^2
+
+log a na base b 
+log 16 na base 4 = 2
+
+f(n) = O(n^2)
+n^2 = O(n^2)
+satisfaz o caso 2
+então
+T(n) = O((n^log a na base b)*log n) = O((n^2)*log n)
+
+2) a) Se f(n) = O(g(n)), então g(n) = O(f(n)). FALSO
+f(n)=n e g(n)=n^2. Aqui, claramente f(n)=O(g(n)), porque n cresce assintoticamente mais devagar do que n^2. No entanto, g(n)=n2 não é O(f(n)), porque não existe uma constante c 
+tal que n^2≤c⋅n para todo n grande o suficiente. Ou seja, n^2 cresce mais rápido do que n e não pode ser limitada superiormente por n multiplicada por uma constante.
+
+Neste caso, temos que g(n) é um limitante superior para a taxa de crescimento de f(n). Por
+consequência, f(n) é um limitante inferior para a taxa de crescimento de f (n). O correto seria afirmar
+que g(n) = Ω(f(n)).
+
+b) Se f(n) = O(g(n)) e f(n) = Ω(g(n)), então f(n) = Θ(g(n)). VERDADEIRO
+
+c) n − 1000 log n = O(n). VERDADEIRO
+(c = 1 e qualquer valor n0 > 0).
+
+d) Se f1(n) = O(g1(n)) e f2(n) = O(g2(n)), então f1(n)f2(n) = O(∣g1(n)∣ + ∣g2(n)∣). FALSO
+Como é realizado um produto entre f1(n) e f2(n), temos que multiplicar também as duas
+funções g. Assim, temos que f1(n)f2(n) = O (g1(n)g2(n)).
+
+3) a) Quais são os passos para mostrar que um problema é NP-Completo?
+
+São dois passos. O primeiro passo é mostrar que o problema está em NP. Já o segundo passo é realizar uma redução de um problema já sabidamente NP-Completo para o problema que
+você quer provar a NP-Completude. Esta redução tem que ser feita em tempo polinomial. Além disso, deve-se também apresentar uma transformação polinomial que transforma a 
+solução obtida por um algoritmo que resolve o problema que você quer provar ser NP-Completo em uma solução do problema NP-Completo.
