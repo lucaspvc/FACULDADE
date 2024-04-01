@@ -1,0 +1,113 @@
+1. Quando você entra numa sala de cinema escura em um dia claro, leva um tempo antes de conseguir enxergar bem o 
+suficiente para encontrar um lugar vago. Quais dos processos explicados na seção 2.1 (livro do Gonzalez) 
+ocorrem nessa situação?
+=======================================================================================================================
+-Subestimação ou Superestimação de Contornos: O sistema visual tende a subestimar ou superestimar os contornos 
+entre as regiões de diferentes intensidades. Isso significa que o brilho percebido não é uma simples função da intensidade,
+e os limites entre áreas de diferentes níveis de luz podem ser distorcidos.
+
+-Contraste Simultâneo: Esse fenômeno está relacionado ao fato de que o brilho percebido de uma região não depende simplesmente 
+de sua intensidade. O contraste simultâneo ocorre quando a percepção do brilho é influenciada pelo contexto visual ao redor da 
+região em questão.
+
+=======================================================================================================================
+2. Qual a profundidade em bits de uma imagem com 8192 níveis de cinza?
+=======================================================================================================================
+A profundidade em bits de uma imagem com 8192 níveis de cinza é de 13 bits
+2^13 = 8192.
+
+=======================================================================================================================
+3. Considere um protocolo de transmissão de dados consistidos em pacotes com 1 bit de início, 8 bits de informação e 1 bit de 
+parada. Qual o tempo (em segundos) necessário para se transmitir uma imagem de 1024x1024 pixels com 256 níveis de cinza 
+à taxa de transmissão de 9600 bits/segundo?
+=======================================================================================================================
+
+10 bits total
+256 níveis de cinzas = 2^8
+
+tamanho da imagem 1024x1024= 1.048.576 pixels
+
+transmissão 9600 bits/segundo
+
+ou seja,
+1.048.576 pixels *8 bits/pixel= 8.388.608 bits
+tempo necessário = 8.388.608 bits / 9600
+tempo necessário = 874.67 segundos, aproximadamente.
+
+=======================================================================================================================
+4. Considere a imagem binária mostrada abaixo, onde os pixels de valor 1 pertencem ao objeto e os pixels de valor 0 pertencem 
+ao fundo. Determine o número de componentes conexos existentes na imagem com vizinhança-4 e vizinhança-8:
+
+        0 0 0 0 0 0 0 0
+        0 1 1 0 1 1 0 0
+        0 1 1 0 1 1 0 0
+        0 0 1 1 0 0 0 0
+        0 0 0 1 0 1 0 0
+        0 1 1 0 1 1 0 0
+        0 1 1 0 0 1 1 0
+        0 0 0 0 0 0 0 0
+=======================================================================================================================
+
+Pela vizinhança-4 temos 4 elementos conexos
+Pela vizinhança-8 temos apenas 1 elemento conexo
+(Vizualizar nas imagens PDI\imagensL1)
+
+=======================================================================================================================
+5. Diferencie os conceitos de resolução, amostragem e quantização no processo de digitalização de imagens.
+=======================================================================================================================
+
+Resolução:
+-A resolução refere-se à quantidade de detalhes que uma imagem pode representar.
+-É medida em pixels e indica quantos pixels compõem a imagem em largura e altura.
+-Resoluções mais altas significam mais detalhes, mas também resultam em arquivos maiores.
+-Por exemplo, uma imagem de 1024x768 tem 1024 pixels de largura e 768 pixels de altura.
+
+Amostragem:
+-A amostragem está relacionada à captura dos valores de cor ou intensidade de uma imagem em pontos específicos.
+-No contexto digital, a amostragem ocorre quando a imagem é dividida em uma grade de pixels.
+-Cada pixel representa uma amostra da cor ou intensidade da imagem naquela posição.
+-Quanto mais densa for a grade de pixels, maior será a precisão da amostragem.
+
+Quantização:
+-A quantização envolve atribuir valores discretos a cada amostra de cor ou intensidade.
+-Em imagens digitais, os valores de cor são representados em bits.
+-Por exemplo, em uma imagem em escala de cinza, cada pixel pode ter um valor entre 0 e 255 (8 bits).
+-A quantização reduz a gama contínua de tons para um conjunto finito de valores discretos.
+
+=======================================================================================================================
+6. Determine a distância Euclidiana, Xadrez e City-block para os pixels de coordenadas p=(1,1) e q=(6,6) na imagem 
+binária do exercício 4. Considere que o pixel superior esquerdo da imagem tem coordenadas (0,0).
+=======================================================================================================================
+
+distância Euclidiana = sqrt[(I1-I2)^2+(J1-J2)^2]
+distância City-block = |I1-I2|+|J1-J2|
+distância Xadrez= max(|I1-I2|,|J1-J2|)
+
+De=sqrt[(1-6)^2+(1-6)^2]
+De=sqrt(50)
+De=7,07 aproximadamente
+
+Dc= |1-6|+|1-6|
+Dc= 5+5
+Dc = 10
+
+Dx= max(|1-6|,|1-6|)
+Dx= max(5,5)
+Dx = 5
+
+
+=======================================================================================================================
+7. Determine uma borda exterior e interior para a imagem binária abaixo:
+
+            0 0 0 0 0 0 0 0
+            0 1 1 1 1 1 0 0
+            0 1 1 1 1 1 0 0
+            0 0 1 1 1 0 0 0
+            0 0 1 1 1 1 0 0
+            0 0 1 1 1 1 0 0
+            0 1 1 0 0 1 0 0
+            0 0 0 0 0 0 0 0
+=======================================================================================================================
+
+(Resolução na imagem em PDI\imagensL1\7-Borda-externa) = borda em azul e imagem em vermelho
+(Resolução na imagem em PDI\imagensL1\7-Borda-interior) = borda em azul e imagem em vermelho
