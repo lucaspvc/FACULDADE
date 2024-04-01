@@ -6,9 +6,9 @@ ocorrem nessa situação?
 entre as regiões de diferentes intensidades. Isso significa que o brilho percebido não é uma simples função da intensidade,
 e os limites entre áreas de diferentes níveis de luz podem ser distorcidos.
 
--Contraste Simultâneo: Esse fenômeno está relacionado ao fato de que o brilho percebido de uma região não depende simplesmente 
-de sua intensidade. O contraste simultâneo ocorre quando a percepção do brilho é influenciada pelo contexto visual ao redor da 
-região em questão.
+-Contraste Simultâneo: Esse fenômeno está relacionado ao fato de que o brilho percebido de uma região não depende 
+simplesmente de sua intensidade. O contraste simultâneo ocorre quando a percepção do brilho é influenciada pelo contexto
+visual ao redor da região em questão.
 
 =======================================================================================================================
 2. Qual a profundidade em bits de uma imagem com 8192 níveis de cinza?
@@ -17,9 +17,9 @@ A profundidade em bits de uma imagem com 8192 níveis de cinza é de 13 bits
 2^13 = 8192.
 
 =======================================================================================================================
-3. Considere um protocolo de transmissão de dados consistidos em pacotes com 1 bit de início, 8 bits de informação e 1 bit de 
-parada. Qual o tempo (em segundos) necessário para se transmitir uma imagem de 1024x1024 pixels com 256 níveis de cinza 
-à taxa de transmissão de 9600 bits/segundo?
+3. Considere um protocolo de transmissão de dados consistidos em pacotes com 1 bit de início, 8 bits de informação e 
+1 bit de parada. Qual o tempo (em segundos) necessário para se transmitir uma imagem de 1024x1024 pixels com 256 
+níveis de cinza à taxa de transmissão de 9600 bits/segundo?
 =======================================================================================================================
 
 10 bits total
@@ -34,9 +34,14 @@ ou seja,
 tempo necessário = 8.388.608 bits / 9600
 tempo necessário = 874.67 segundos, aproximadamente.
 
+(RESOLUÇÃO DO LUIS)
+1024*1024*10 = 10.485.760 bits
+10.485.760 bits / 9600 = 1092 segundos, aproximadamente
+
+
 =======================================================================================================================
-4. Considere a imagem binária mostrada abaixo, onde os pixels de valor 1 pertencem ao objeto e os pixels de valor 0 pertencem 
-ao fundo. Determine o número de componentes conexos existentes na imagem com vizinhança-4 e vizinhança-8:
+4. Considere a imagem binária mostrada abaixo, onde os pixels de valor 1 pertencem ao objeto e os pixels de valor 
+0 pertencem ao fundo. Determine o número de componentes conexos existentes na imagem com vizinhança-4 e vizinhança-8:
 
         0 0 0 0 0 0 0 0
         0 1 1 0 1 1 0 0
@@ -83,18 +88,20 @@ distância Euclidiana = sqrt[(I1-I2)^2+(J1-J2)^2]
 distância City-block = |I1-I2|+|J1-J2|
 distância Xadrez= max(|I1-I2|,|J1-J2|)
 
-De=sqrt[(1-6)^2+(1-6)^2]
+De=sqrt[(6-1)^2+(6-1)^2]
 De=sqrt(50)
-De=7,07 aproximadamente
+De=7,07 aproximadamente ou 5sqrt(2)
 
-Dc= |1-6|+|1-6|
+Dc= |6-1|+|6-1|
 Dc= 5+5
 Dc = 10
 
-Dx= max(|1-6|,|1-6|)
+Dx= max(|6-1|,|6-1|)
 Dx= max(5,5)
 Dx = 5
 
+caminho de p para q
+(1,1),(2,2),(3,3),(4,3),(5,4),(6,5),(6,6)
 
 =======================================================================================================================
 7. Determine uma borda exterior e interior para a imagem binária abaixo:
@@ -111,3 +118,5 @@ Dx = 5
 
 (Resolução na imagem em PDI\imagensL1\7-Borda-externa) = borda em azul e imagem em vermelho
 (Resolução na imagem em PDI\imagensL1\7-Borda-interior) = borda em azul e imagem em vermelho
+
+=======================================================================================================================
