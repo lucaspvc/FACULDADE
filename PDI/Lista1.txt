@@ -1,3 +1,7 @@
+Lista 1 da matéria de Processamento de Imagem digital
+Autor: Lucas Pessoa Oliveira Alves - 2022.1.08.044
+
+=======================================================================================================================
 1. Quando você entra numa sala de cinema escura em um dia claro, leva um tempo antes de conseguir enxergar bem o 
 suficiente para encontrar um lugar vago. Quais dos processos explicados na seção 2.1 (livro do Gonzalez) 
 ocorrem nessa situação?
@@ -53,9 +57,8 @@ tempo necessário = 874.67 segundos, aproximadamente.
         0 0 0 0 0 0 0 0
 =======================================================================================================================
 
-Pela vizinhança-4 temos 4 elementos conexos
-Pela vizinhança-8 temos apenas 1 elemento conexo
-(Vizualizar nas imagens PDI\imagensL1)
+Pela vizinhança-4 temos 4 elementos conexos (PDI\imagensL1\vizinhanca-4.png)
+Pela vizinhança-8 temos apenas 1 elemento conexo (PDI\imagensL1\vizinhanca-8.png)
 
 =======================================================================================================================
 5. Diferencie os conceitos de resolução, amostragem e quantização no processo de digitalização de imagens.
@@ -106,17 +109,211 @@ caminho de p para q
 =======================================================================================================================
 7. Determine uma borda exterior e interior para a imagem binária abaixo:
 
-            0 0 0 0 0 0 0 0
-            0 1 1 1 1 1 0 0
-            0 1 1 1 1 1 0 0
-            0 0 1 1 1 0 0 0
-            0 0 1 1 1 1 0 0
-            0 0 1 1 1 1 0 0
-            0 1 1 0 0 1 0 0
-            0 0 0 0 0 0 0 0
+                0 0 0 0 0 0 0 0
+                0 1 1 1 1 1 0 0
+                0 1 1 1 1 1 0 0
+                0 0 1 1 1 0 0 0
+                0 0 1 1 1 1 0 0
+                0 0 1 1 1 1 0 0
+                0 1 1 0 0 1 0 0
+                0 0 0 0 0 0 0 0
 =======================================================================================================================
 
-(Resolução na imagem em PDI\imagensL1\7-Borda-externa) = borda em azul e imagem em vermelho
-(Resolução na imagem em PDI\imagensL1\7-Borda-interior) = borda em azul e imagem em vermelho
+(Resolução na imagem em PDI\imagensL1\7-Borda-externa.png) = borda em azul e imagem em vermelho
+(Resolução na imagem em PDI\imagensL1\7-Borda-interna.png) = borda em azul e imagem em vermelho
 
 =======================================================================================================================
+8.  Dentre as transformações apresentadas na Figura 1, determine as que produzem o clareamento da imagem de entrada.
+Figura 1: PDI\imagensL1\Figura1.png
+=======================================================================================================================
+As linhas que produzem um clareamento da imagem de entrada são os 2 acima da linha identidade, log e (pi)th root.
+
+=======================================================================================================================
+9. Considerando a transformação representada na Figura 2, qual é o resultado dessa transformação aplicada na imagem seguinte:
+Figura 2: PDI\imagensL1\Figura2.png
+
+                7 1 4 7 6 3 4 6
+                7 1 7 1 0 1 6 3
+                4 5 2 4 1 1 7 5
+                6 0 2 3 7 0 0 7
+                1 0 5 1 3 1 2 1
+                7 4 1 1 2 1 4 5
+                2 6 4 5 1 2 7 2
+                5 7 3 5 0 4 2 3
+=======================================================================================================================
+
+função u = 2,5*u  ou   5/2*u   (0<=u<=2)
+função v = 0,5*v  ou   1/2*v   (2<u<=4)
+função w = 0,33*w  ou   1/3*w   (4<u<=7)
+
+portanto: 
+7 = 2,33
+6 = 2
+5 = 1,66
+4 = 2
+3 = 1,5
+2 = 5
+1 = 2,5
+0 = 0
+[representação da imagem após a transformação]
+                (2,33)  (2,5)     (2)    (2,33)   (2)   (1,5)    (2)      (2)
+                (2,33)  (2,5)    (2,33)  (2,5)    (0)   (2,5)    (2)     (1,5)
+                 (2)    (1,66)    (5)     (2)    (2,5)  (2,5)   (2,33)   (1,66)
+                (2,33)   (0)      (5)    (1,5)   (2,33)  (0)     (0)     (2,33)
+                (2,5)    (0)     (1,66)  (2,5)   (1,5)  (2,5)    (2)     (1,5)
+                (2,33)   (2)     (2,5)   (2,5)   (1,5)  (2,5)    (2)     (1,66)
+                 (5)    (2,33)    (2)    (1,66)  (2,5)  (1,66)  (2,33)    (2)
+                (1,66)  (2,33)   (1,5)   (1,66)   (0)    (2)    (2,33)   (1,5)
+       
+=======================================================================================================================
+10.Exercício 10. Escreva o algoritmo para realizar a transformação do exercício anterior. Represente essa função de 
+transformação num vetor
+=======================================================================================================================
+
+int T[8] = [2.5, 2.5, 2, 0.5, 0.5, 0.33, 0.33, 0.33];
+
+=======================================================================================================================
+11. Construa um histograma para a imagem abaixo com 10 níveis de cinza:
+                        9 5 7 5 3 4
+                        0 2 6 4 2 5
+                        4 1 2 4 6 2
+                        2 3 6 3 0 0
+                        7 8 3 4 5 4
+                        0 5 2 9 8 7
+=======================================================================================================================
+
+histograma:
+        Nível de Cinza(K)   |   0   |   1   |   2   |   3   |   4  |   5   |   6   |   7   |   8   |   9   |
+        Nro de pixels(NK)   |   4   |   1   |   6   |   4   |   6  |   5   |   3   |   3   |   2   |   2   |
+
+=======================================================================================================================
+12. Dado o histograma mostrado na tabela abaixo, equalize-o utilizando a função de distribuição acumulada e desenhe o 
+histograma resultante. O valor k corresponde a cada nível de cinza na imagem e nk o número de pixels para o nível de cinza k:
+        Nível de cinza(k)   |   0   |   1   |   2   |   3   |   4   |  5   |   6   |   7  |
+        Nro de pixels(nk)   |  120  |  200  |  350  |  400  |  100  |  80  |   50  |  30  |
+=======================================================================================================================
+MN=120+200+350+400+100+80+50+30
+MN=1330
+pk(0)= 120/1330= 0,0902
+pk(1)= 200/1330= 0,1504
+pk(2)= 350/1330= 0,2632
+pk(3)= 400/1330= 0,3008
+pk(4)= 100/1330= 0,0752
+pk(5)= 80/1330= 0,0602
+pk(6)= 50/1330= 0,0376
+pk(7)= 30/1330= 0,0226
+
+
+T(0)= round((8−1)×0.0902)= round(0.7236)= 1
+T(1)= round((8−1)×0.2406)= round(1.9254)=2T(1)= round((8−1)×0.2406)=round(1.9254)= 2
+T(2)= round((8−1)×0.5038)= round(3.5306)=4T(2)= round((8−1)×0.5038)=round(3.5306)= 4
+T(3)= round((8−1)×0.8046)= round(6.2414)=6T(3)= round((8−1)×0.8046)=round(6.2414)= 6
+T(4)= round((8−1)×0.8798)= round(7.0276)=7T(4)= round((8−1)×0.8798)=round(7.0276)= 7
+T(5)= round((8−1)×0.9400)= round(7.52)=8T(5)= round((8−1)×0.9400)=round(7.52)= 8
+T(6)= round((8−1)×0.9776)= round(7.8016)=8T(6)= round((8−1)×0.9776)=round(7.8016)= 8
+T(7)= round((8−1)×1)= round(7)= 7
+
+Tabela de transformação
+        Nível de cinza(k)   |   0   |   1   |   2   |   3   |   4   |   5  |   6   |   7  |
+        Valor equalizado    |   1   |   2   |   4   |   6   |   7   |   8  |   8   |   7  |
+
+Nova distribuição
+        Nível de cinza(k)   |   0   |   1   |   2   |   3   |   4   |   5   |   6    |   7   |   8   |
+        Nro de pixels(nk)   |   0   |  200  |  350  |   0   |  350  |   0   |  400   |  130  |  130  |
+
+Histograma feito, vizualizar em:
+        PDI\imagensL1\12-Histograma.png
+=======================================================================================================================
+
+13. Calcule a transformação linear para alterar a escala de níveis de cinza do intervalo [0,70] para [10,180]. O restante 
+da escala de cinza [71,255] considere a transformação identidade. Apresentar o gráfico da transformação, conforme ilustrado
+na Figura 2 (PDI\imagensL1\Figura2.png)
+=======================================================================================================================
+
+Resultado apresentado na imagem no seguinte diretório:
+        (PDI\imagensL1\13-TransformacaoLinear.png)
+        
+=======================================================================================================================
+14. Considere o trecho de imagem seguinte de dimensão 7 x 7, onde o pixel do centro está destacado. Calcule o novo 
+valor do pixel central (18) após a aplicação dos seguintes filtros: Filtro de média, mediana, Sobel (horizontal e vertical),
+Prewitt (horizontal e vertical), Robert (dois, conforme ilustrado no livro do Gonzalez).
+
+                0   3   22  22  18  84  4
+                3   23  18  18  19  9   8
+                9   9   18  15  14  49  9
+                0   5   17 [18] 18  98  9
+                14  12  15  18  18  76  8
+                15  15  12  18  16  98  9
+                9   8   19  19  17  9   10   
+=======================================================================================================================
+-Filtro da média:
+(0 + 3 + 22 + 22 + 18 + 84 + 4 + 3 + 23 + 18 + 18 + 19 + 9 + 8 + 9 + 9 + 18 + 15 + 14 + 49 + 9 + 0 + 5 + 17 + 18 + 18 + 98 + 9 +
+ 14 + 12 + 15 + 18 + 18 + 76 + 8 + 15 + 15 + 12 + 18 + 16 + 98 + 9 + 9 + 8 + 19 + 19 + 17 + 9 + 10) / 49
+Resultado = (532) / 49 = 10.85
+
+-Filtro da Mediana:
+0, 0, 3, 3, 5, 8, 9, 9, 9, 9, 12, 14, 15, 15, 17, 18, 18, 18, 18, 19, 19, 22, 22, 23, 49, 76, 84, 98, 98
+Resultado = 18
+
+-Filtro de Sobel
+
+18  15  14
+17 [18] 18
+15  18  18
+
+        -horizontal
+                -1   0   1
+                -2   0   2
+                -1   0   1
+        = (-1*18 + 0*15 + 1*14 + -2*17 + 0*18 + 2*18 + -1*15 + 0*18 + 1*18) = -18 + 14 - 34 + 36 - 15 + 18  = 1
+
+        -Vertical
+                -1 -2 -1
+                 0  0  0
+                 1  2  1
+        = ( -1*18 + -2*15 + -1*14 + 0*17 + 0*18 + 0*18 + 1*15 + 2*18 + 1*18) = -18 - 20 - 14 + 15 + 36 + 18 = 17
+
+NÃO PRECISA SABER DISSO ABAIXO[
+        M(x, y) ≈ |(15 + 2*18 + 18) − (18 + 2*15 + 14)| + |(14 + 2*18 + 18) − (18 + 2*17 + 15)|
+        M(x, y) ≈ |(69) - (62)| + |(68) - (67)|
+        M(x, y) ≈ 7 + 1
+        M(x, y) ≈ 8
+]
+
+-Filtro de Prewitt
+18  15  14
+17 [18] 18
+15  18  18
+        -Horizontal
+                -1 0 1
+                -1 0 1
+                -1 0 1
+        = (-1*18 + 0*15 + 1*14 + -1*17 + 0*18 + 1*18 + -1*15 + 0*18 + 1*18) = -18 + 14 - 17 + 18 - 15 + 18 = 0
+
+        -Vertical
+                -1 -1 -1
+                 0  0  0
+                 1  1  1
+        = (-1*18 + -1*15 + -1*14 + 0*17 + 0*18 + 0*18 + 1*15 + 1*18 + 1*18) = -18 - 15 - 14 + 15 + 18 + 18 = 4 
+
+-Filtro do Roberto 2(não sei se precisa)
+[18] 18
+ 18  18
+        -Matriz
+         0  1
+        -1  0
+        = (0*18 + 1*18 + -1*18 + 0*18) = 18 - 18 = 0
+
+Portanto:
+-Filtro da média = 10.85
+-Filtro da mediana = 18
+-Filtor de Sobel
+        -Vertical = 17
+        -Horizontal = 1
+-Filtro de Prewitt
+        -Vertical = 4
+        -Horizontal = 0
+-Filtro do Roberto 2 = 0
+=======================================================================================================================
+
+FIM CARALHOOOOOOOOOOOOOOOOO
