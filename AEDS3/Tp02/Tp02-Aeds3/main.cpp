@@ -590,7 +590,7 @@ int main()
             op2 = 0;
             break;
         default:
-            cout << "Opcao invalida." << endl;
+            cout << "Programa Finalizado." << endl;
         }
     }
     return 0;
