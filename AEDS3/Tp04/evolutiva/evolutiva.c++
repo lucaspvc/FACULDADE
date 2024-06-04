@@ -156,7 +156,7 @@ int main(int argc, char *argv[]) {
     vector<int> elements;
     vector<int> solution;
 
-    for (int i = 3; i < argc; ++i)
+    for (int i = 2; i < argc; ++i)
     { // leitura por meio de makefile
         int op = atoi(argv[i]);
         if (op == 11)
