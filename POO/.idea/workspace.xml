@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b429fe2d-4ec4-4798-9d54-f6999636f0e2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/CriadorBD.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/controle/Loja.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/excecoes/ExcecaoCamposObrigatoriosVazios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/excecoes/ExcecaoNenhumProdutoSelecionado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/tela/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/tela/PagCadastroController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/tela/PagEdicaoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/tela/PagInicialController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/resources/tela/PagCadastro.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/resources/tela/PagEdicao.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/resources/tela/PagInicial.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/resources/tela/images/logo.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoSemestreOO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/bancodedados/conexao/ConectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/conexaoSQL/FabricaConecao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/bancodedados/conexaoProdutos/ProdutoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/conexaoSQL/DAO/ProdutoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/modelos/Loja.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/modelos/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/java/modelos/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoSemestreOO/src/main/resources/org/example/projetoorientacaoobjetos/hello-view.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/TrabalhoSemestreOO" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2hvG3NlnDYXvJdCDQXErKeoDn1R" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.38965517&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-temurin-21.0.2-4caba194b151-7da56cdf" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b429fe2d-4ec4-4798-9d54-f6999636f0e2" name="Changes" comment="" />
+      <created>1718466939233</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718466939233</updated>
+      <workItem from="1718466941430" duration="4362000" />
+      <workItem from="1718552348842" duration="1983000" />
+      <workItem from="1718563123047" duration="852000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
