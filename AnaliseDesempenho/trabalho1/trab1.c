@@ -3,7 +3,8 @@
 #include <math.h>
 #include <time.h>
 #include <float.h>
-#include <utility>
+
+
 
 typedef struct {
     unsigned long int num_eventos;
@@ -36,22 +37,30 @@ void inicia_little(little *n){
     n->tempo_anterior = 0.0;
 }
 
-int main () {
+void inicia_arquivo(char f[]){
+    FILE *file = fopen(f, "w");
+    
+}
+
+int main (int argc, char *argv[ ] ) {
     srand(time(NULL));
 
     double param_chegada;
     printf("Informe o tempo medio entre as chegadas: ");
-    scanf("%lF", &param_chegada);
+    param_chegada = atof(argv[1]);
+    //scanf("%lF", &param_chegada);
     param_chegada = 1.0/param_chegada;
 
     double param_saida;
     printf("Informe o tempo medio de atendimento: ");
-    scanf("%lF", &param_saida);
+    param_saida = atof(argv[2]);
+    //scanf("%lF", &param_saida);
     param_saida = 1.0/param_saida;
 
     double tempo_simulacao;
     printf("Informe o tempo de simulacao: ");
-    scanf("%lF", &tempo_simulacao);
+    tempo_simulacao = atof(argv[3]);
+    //scanf("%lF", &tempo_simulacao);
 
     double tempo_decorrido = 0.0;
 
