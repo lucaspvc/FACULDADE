@@ -1,7 +1,7 @@
 # Nome do arquivo sem extensão
 TARGET = trab1
 # Parâmetros fixos
-PARAMS = 0.5 0.495 100000
+PARAMS = 0.5 0.495 100000 1
 
 # Regra padrão para compilar e rodar o programa
 all: compile run
