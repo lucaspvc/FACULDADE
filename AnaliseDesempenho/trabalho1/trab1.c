@@ -53,18 +53,34 @@ void inicia_arquivo(char f[]){
     fclose(file);
 }
 
-void escreve_arquivo(char f[], double coleta, double soma_ocupacao, double en_final,double ew_final, double lambda){
+void escreve_arquivo(char f[], int coleta, double soma_ocupacao, double en_final,
+double ew_final, double lambda){
     FILE *file = fopen(f, "a");
     if(!file){
         printf("erro ao abrir o arquivo");
         return;
     }
-    fprintf(file,"teste\n");
+    fprintf(file, "%d ", coleta);
+    fprintf(file, "%.5f ", soma_ocupacao);
+    fprintf(file, "%.5f ", en_final);
+    fprintf(file, "%.5f ", ew_final);
+    fprintf(file, "%.5f ", lambda);
+    fprintf(file, "%.20f\n", en_final - lambda * ew_final);
+
+
+
+    
+
+
+    //printf(file, "Tempo de coleta %lF\n", coleta);
+    //printf("E[N]: %lF\n",en_final);
+    //printf("E[W]: %lF\n", ew_final );
+    //printf("Erro de Little: %.20lF\n", en_final - lambda * ew_final);
     fclose(file);
 }
 
 int main (int argc, char *argv[ ] ) {
-    srand(time(NULL));
+    srand(8);
     char nome_arquivo[20];
 
 
@@ -150,7 +166,7 @@ int main (int argc, char *argv[ ] ) {
 
             //printf("================================\n");
             escreve_arquivo(nome_arquivo, coleta, soma_ocupacao, en_final, ew_final, lambda);
-            //fprintf(file, "Tempo de coleta %lF\n", coleta);
+            //printf(file, "Tempo de coleta %lF\n", coleta);
             //printf("E[N]: %lF\n",en_final);
             //printf("E[W]: %lF\n", ew_final );
             //printf("Erro de Little: %.20lF\n", en_final - lambda * ew_final);
