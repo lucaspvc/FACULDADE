@@ -1,4 +1,4 @@
-#Arquivo Coleta95.txt 
+#Arquivo Dados/Coleta95.txt 
 #Parametros(Chegada/saida/tempo): 1.000/0.950/100000
 #Coleta|Ocupação|E(n)|E(w)|lambda|Little
 

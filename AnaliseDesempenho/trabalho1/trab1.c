@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #include <time.h>
 #include <float.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
 
 typedef struct {
     unsigned long int num_eventos;
@@ -34,12 +38,21 @@ void inicia_little(little *n){
 }
 
 void inicia_arquivo(char f[], double param_chegada, double param_saida, double tempo_decorrido){
-    FILE *file = fopen(f, "w");
+    #ifdef _WIN32
+        _mkdir("Dados"); // No Windows
+    #else
+        mkdir("Dados", 0777); // No Linux
+    #endif
+
+    char path[100] = "Dados/"; 
+    strcat(path, f);
+
+    FILE *file = fopen(path, "w");
     if(!file){
-        printf("Erro ao abrir o arquivo:");
+        printf("Erro ao abrir o arquivo\n");
         return;
     }
-    fprintf(file, "#Arquivo %s \n", f);
+    fprintf(file, "#Arquivo %s \n", path);
     fprintf(file, "#Parametros(Chegada/saida/tempo): %.3f/%.3f/%.0f\n", param_chegada, param_saida, tempo_decorrido);
     fprintf(file, "#Coleta|Ocupação|E(n)|E(w)|lambda|Little\n\n");
     fclose(file);
@@ -47,7 +60,18 @@ void inicia_arquivo(char f[], double param_chegada, double param_saida, double t
 
 void escreve_arquivo(char f[], int coleta, double ocupacao, double en_final,
 double ew_final, double lambda){
-    FILE *file = fopen(f, "a");
+    #ifdef _WIN32
+        _mkdir("Dados"); // No Windows
+        _mkdir("Graficos");
+    #else
+        mkdir("Dados", 0777); // No Linux
+        mkdir("Graficos", 0777); // No Linux
+    #endif
+
+    char path[100] = "Dados/"; 
+    strcat(path, f);
+
+    FILE *file = fopen(path, "a");
     if(!file){
         printf("Erro ao abrir o arquivo");
         return;
