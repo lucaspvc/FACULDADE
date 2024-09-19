@@ -1,1 +1,2 @@
-localhost slots=200
+localhost slots=1
+192.168.15.151 slots=1
