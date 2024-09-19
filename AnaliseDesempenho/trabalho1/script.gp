@@ -151,7 +151,12 @@ set key right inside bottom font ",12" box
 # Definir o estilo do gráfico com tics ajustados
 set tics font "Arial,10"
 
-set yrange [-1e-16:1e-16] 
+set yrange [-0.000000001:0.000000001] 
+set ytics 0.000000001
+set mytics 2
+
+set arrow from graph 0, first 0 to graph 1, first 0 nohead dashtype 2 linewidth 1.5 linecolor rgb "black"
+
 
 # Gerar o gráfico em SVG
 set terminal svg size 1000,700
