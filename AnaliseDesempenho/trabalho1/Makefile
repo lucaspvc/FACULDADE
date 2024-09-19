@@ -1,5 +1,6 @@
 # Nome do arquivo sem extensão
 TARGET = trab1
+TARGET2 = script.gp
 
 # Parâmetros fixos
 PARAMS1 = 1.00 0.85 100000 85
@@ -31,8 +32,11 @@ run3:
 run4:
 	./$(TARGET) $(PARAMS4)	
 
+run5:
+	gnuplot $(TARGET2)
+
 # Regra para rodar o programa com ambos os parâmetros
-run_all: run1 run2 run3 run4
+run_all: run1 run2 run3 run4 run5
 
 # Limpa os arquivos compilados
 clean:
