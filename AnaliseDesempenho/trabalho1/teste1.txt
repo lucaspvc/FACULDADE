@@ -1,6 +1,0 @@
-# Arquivo teste1.txt
-#Coluna 1 > Ponto de coleta
-#Coluna 2 > Ocupação
-#Coluna 3 > E(n)
-#Coluna 4 > E(w)
-#Coluna 5 > Erro de Little

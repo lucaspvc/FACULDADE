@@ -1,6 +1,0 @@
-# Arquivo teste2.txt
-#Coluna 1 > Ponto de coleta
-#Coluna 2 > E(n) 85
-#Coluna 2 > E(n) 90
-#Coluna 2 > E(n) 95
-#Coluna 2 > E(n) 99
