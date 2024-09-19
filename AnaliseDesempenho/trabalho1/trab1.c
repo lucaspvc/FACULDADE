@@ -4,15 +4,11 @@
 #include <time.h>
 #include <float.h>
 
-
-
 typedef struct {
     unsigned long int num_eventos;
     double tempo_anterior;
     double soma_areas;
 }little;
-
-
 
 double uniforme() {
     double u = rand() / ((double) RAND_MAX + 1);
@@ -37,72 +33,52 @@ void inicia_little(little *n){
     n->tempo_anterior = 0.0;
 }
 
-void inicia_arquivo(char f[]){
+void inicia_arquivo(char f[], double param_chegada, double param_saida, double tempo_decorrido){
     FILE *file = fopen(f, "w");
     if(!file){
-        printf("erro ao abrir o arquivo:");
+        printf("Erro ao abrir o arquivo:");
         return;
     }
-    fprintf(file, "# Arquivo %s \n", f);
-    fprintf(file, "#Coluna 1 > Ponto de coleta\n");
-    fprintf(file, "#Coluna 2 > Ocupação\n");
-    fprintf(file,"#Coluna 3 > E(n)\n");
-    fprintf(file,"#Coluna 4 > E(w)\n");
-    fprintf(file,"#Coluna 5 > lambda\n");
-    fprintf(file,"#Coluna 6 > Erro de Little\n");
+    fprintf(file, "#Arquivo %s \n", f);
+    fprintf(file, "#Parametros(Chegada/saida/tempo): %.3f/%.3f/%.0f\n", param_chegada, param_saida, tempo_decorrido);
+    fprintf(file, "#Coleta|Ocupação|E(n)|E(w)|lambda|Little\n\n");
     fclose(file);
 }
 
-void escreve_arquivo(char f[], int coleta, double soma_ocupacao, double en_final,
+void escreve_arquivo(char f[], int coleta, double ocupacao, double en_final,
 double ew_final, double lambda){
     FILE *file = fopen(f, "a");
     if(!file){
-        printf("erro ao abrir o arquivo");
+        printf("Erro ao abrir o arquivo");
         return;
     }
     fprintf(file, "%d ", coleta);
-    fprintf(file, "%.5f ", soma_ocupacao);
+    fprintf(file, "%.5f ", ocupacao);
     fprintf(file, "%.5f ", en_final);
     fprintf(file, "%.5f ", ew_final);
     fprintf(file, "%.5f ", lambda);
     fprintf(file, "%.20f\n", en_final - lambda * ew_final);
 
-
-
-    
-
-
-    //printf(file, "Tempo de coleta %lF\n", coleta);
-    //printf("E[N]: %lF\n",en_final);
-    //printf("E[W]: %lF\n", ew_final );
-    //printf("Erro de Little: %.20lF\n", en_final - lambda * ew_final);
     fclose(file);
 }
 
 int main (int argc, char *argv[ ] ) {
-    srand(8);
+    srand(RAND_MAX);
     char nome_arquivo[20];
 
-
-    sprintf(nome_arquivo, "Coleta%d.txt", atoi(argv[4]));
-    inicia_arquivo(nome_arquivo);
-
     double param_chegada;
-    printf("Informe o tempo medio entre as chegadas: ");
+    //printf("Informe o tempo medio entre as chegadas: ");
     param_chegada = atof(argv[1]);
-    //scanf("%lF", &param_chegada);
     param_chegada = 1.0/param_chegada;
 
     double param_saida;
-    printf("Informe o tempo medio de atendimento: ");
+    //printf("Informe o tempo medio de atendimento: ");
     param_saida = atof(argv[2]);
-    //scanf("%lF", &param_saida);
     param_saida = 1.0/param_saida;
 
     double tempo_simulacao;
-    printf("Informe o tempo de simulacao: ");
+    //printf("Informe o tempo de simulacao: ");
     tempo_simulacao = atof(argv[3]);
-    //scanf("%lF", &tempo_simulacao);
 
     double tempo_decorrido = 0.0;
 
@@ -111,6 +87,9 @@ int main (int argc, char *argv[ ] ) {
 
     double soma_ocupacao = 0.0;
     double coleta = 100.0;
+
+    sprintf(nome_arquivo, "Coleta%d.txt", atoi(argv[4]));
+    inicia_arquivo(nome_arquivo, atof(argv[1]), atof(argv[2]), atof(argv[3]));
 
     /**
      * variaveis little
@@ -164,8 +143,10 @@ int main (int argc, char *argv[ ] ) {
             double ew_final = (ew_chegadas.soma_areas - ew_saidas.soma_areas)/ew_chegadas.num_eventos;
             double lambda = ew_chegadas.num_eventos/tempo_decorrido;
 
+            double ocupacao = (soma_ocupacao/tempo_decorrido)*100;
+
             //printf("================================\n");
-            escreve_arquivo(nome_arquivo, coleta, soma_ocupacao, en_final, ew_final, lambda);
+            escreve_arquivo(nome_arquivo, coleta, ocupacao, en_final, ew_final, lambda);
             //printf(file, "Tempo de coleta %lF\n", coleta);
             //printf("E[N]: %lF\n",en_final);
             //printf("E[W]: %lF\n", ew_final );
@@ -192,20 +173,16 @@ int main (int argc, char *argv[ ] ) {
             ew_saidas.tempo_anterior = tempo_decorrido;
         }
     }
-
     
     en.soma_areas += (tempo_decorrido - en.tempo_anterior) * en.num_eventos;
     ew_chegadas.soma_areas += (tempo_decorrido - ew_chegadas.tempo_anterior) * ew_chegadas.num_eventos;
     ew_saidas.soma_areas += (tempo_decorrido - ew_saidas.tempo_anterior) * ew_saidas.num_eventos;
     
-
-
     //printf("Maior tamanho de fila: %ld\n", fila_max);
     //printf("Ocupacao: %lF\n", soma_ocupacao/tempo_decorrido);
     double en_final = en.soma_areas/tempo_decorrido;
     double ew_final = (ew_chegadas.soma_areas - ew_saidas.soma_areas)/ew_chegadas.num_eventos;
     double lambda = ew_chegadas.num_eventos/tempo_decorrido;
-
 
     //printf("E[N]: %lF\n",en_final);
     //printf("E[W]: %lF\n", ew_final );
