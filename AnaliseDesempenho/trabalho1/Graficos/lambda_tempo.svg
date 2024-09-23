@@ -182,9 +182,9 @@
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M664.83,733.40 L664.83,619.40 L966.43,619.40 L966.43,733.40 L664.83,733.40 Z  '/></g>
+	<path stroke='rgb(  0,   0,   0)' stroke-dasharray='1.0,2.0'  d='M664.83,733.40 L664.83,619.40 L966.43,619.40 L966.43,733.40 L664.83,733.40 Z  '/></g>
 	<g id="gnuplot_plot_1" ><title>Ocupação a 85%</title>
-<g fill="none" color="white" stroke="black" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
+<g fill="none" color="white" stroke="rgb(  0,   0,   0)" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(877.63,639.83)" stroke="none" fill="black" font-family="Arial" font-size="19.00"  text-anchor="end">

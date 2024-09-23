@@ -10,8 +10,11 @@ set title "{/:Bold E[n] x Tempo}" font ",20"
 set xlabel "Tempo (s)" font ",14"
 set ylabel "E[n]" font ",14"
 
+# Definindo o estilo da linha 5 como pontilhada
+set style line 5 dashtype 8 linecolor rgb "black" linewidth 1 # linha pontilhada 
+
 # Definir o estilo da legenda com fonte e quadrados
-set key left inside top font ",19" box
+set key left inside top font ",19" box linestyle 5
 
 # Definir o estilo do gráfico com tics ajustados
 set tics font "Arial,10"
@@ -19,7 +22,7 @@ set ytics 10
 set mytics 2
 
 # Gerar o gráfico em SVG
-set terminal svg size 1000,800
+set terminal svg size 1000,700
 set output './Graficos/eN_tempo.svg'
 
 # Plotar os arquivos com quadrados na legenda

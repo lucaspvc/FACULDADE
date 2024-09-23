@@ -10,8 +10,13 @@ set title "{/:Bold E[w] x Tempo}" font ",20"
 set xlabel "Tempo (s)" font ",14"
 set ylabel "E[w]" font ",14"
 
+# Definindo o estilo da linha 5 como pontilhada
+set style line 5 dashtype 8 linecolor rgb "black" linewidth 1 # linha pontilhada 
+
 # Definir o estilo da legenda com fonte e quadrados
-set key left inside top font ",19" box
+set key left inside top font ",19" box linestyle 5 # Aplica o estilo da linha 2 ao box da legenda
+
+
 
 # Definir o estilo do gráfico com tics ajustados
 set tics font "Arial,10"

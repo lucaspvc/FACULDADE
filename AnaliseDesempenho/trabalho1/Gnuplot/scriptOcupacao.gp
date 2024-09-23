@@ -9,8 +9,11 @@ set title "{/:Bold Ocupação x Tempo}" font ",20"
 set xlabel "Tempo (s)" font ",14"
 set ylabel "Ocupação (%)" font ",14"
 
+# Definindo o estilo da linha 5 como pontilhada
+set style line 5 dashtype 8 linecolor rgb "black" linewidth 1 # linha pontilhada 
+
 # Definir o estilo da legenda com fonte e quadrados
-set key right inside bottom font ",19" box
+set key right inside bottom font ",19" box linestyle 5
 
 # Definir o estilo do gráfico com tics ajustados
 set ytics 2
