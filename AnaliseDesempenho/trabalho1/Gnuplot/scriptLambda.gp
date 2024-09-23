@@ -24,7 +24,7 @@ set yrange [0.5:1.1]
 set arrow from graph 0, first 1 to graph 1, first 1 nohead dashtype 2 linewidth 1.5 linecolor rgb "black"
 
 # Gerar o gráfico em SVG
-set terminal svg size 1000,700
+set terminal svg size 1000,800
 set output './Graficos/lambda_tempo.svg'
 
 # Plotar os arquivos com quadrados na legenda

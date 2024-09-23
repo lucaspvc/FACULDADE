@@ -25,7 +25,7 @@ set arrow from graph 0, first 0 to graph 1, first 0 nohead dashtype 2 linewidth 
 
 
 # Gerar o gráfico em SVG
-set terminal svg size 1000,700
+set terminal svg size 1000,800
 set output './Graficos/little_tempo.svg'
 
 # Plotar os arquivos com quadrados na legenda

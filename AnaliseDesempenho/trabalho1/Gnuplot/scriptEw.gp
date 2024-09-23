@@ -19,7 +19,7 @@ set ytics 10
 set mytics 2
 
 # Gerar o gráfico em SVG
-set terminal svg size 1000,700
+set terminal svg size 1000,800
 set output './Graficos/eW_tempo.svg'
 
 # Plotar os arquivos com quadrados na legenda

@@ -22,7 +22,7 @@ set arrow from graph 0, first 95 to graph 1, first 95 nohead dashtype 2 linewidt
 set arrow from graph 0, first 99 to graph 1, first 99 nohead dashtype 2 linewidth 1.5 linecolor rgb "black"
 
 # Gerar o gráfico em SVG
-set terminal svg size 1000,700
+set terminal svg size 1000,800
 set output './Graficos/ocupacao_tempo.svg'
 
 # Plotar os arquivos com quadrados na legenda
