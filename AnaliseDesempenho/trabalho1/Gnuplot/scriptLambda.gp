@@ -6,9 +6,9 @@ set style line 3 lc rgb '#ff0000' lt 1.5 lw 1.5
 set style line 4 lc rgb '#ff00ff' lt 1.5 lw 1.5 
 
 # Definir o título do gráfico e os rótulos dos eixos com tamanho de fonte ajustado
-set title "{/:Bold  x Tempo}" font ",20"
+set title "{/:Bold λ x Tempo}" font ",20"
 set xlabel "Tempo (s)" font ",14"
-set ylabel "\lambda" font ",14"
+set ylabel "λ" font ",14"
 
 # Definindo o estilo da linha 5 como pontilhada
 set style line 5 dashtype 8 linecolor rgb "black" linewidth 1 # linha pontilhada 
