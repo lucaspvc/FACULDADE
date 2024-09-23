@@ -10,7 +10,7 @@ set xlabel "Tempo (s)" font ",14"
 set ylabel "Ocupação (%)" font ",14"
 
 # Definir o estilo da legenda com fonte e quadrados
-set key right inside bottom font ",20" box
+set key right inside bottom font ",19" box
 
 # Definir o estilo do gráfico com tics ajustados
 set ytics 2
