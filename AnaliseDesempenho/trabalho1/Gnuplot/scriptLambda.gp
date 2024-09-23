@@ -6,7 +6,7 @@ set style line 3 lc rgb '#ff0000' lt 1.5 lw 1.5
 set style line 4 lc rgb '#ff00ff' lt 1.5 lw 1.5 
 
 # Definir o título do gráfico e os rótulos dos eixos com tamanho de fonte ajustado
-set title "{/:Bold λ x Tempo}" font ",20"
+set title "{/:Bold \lambda x Tempo}" font ",20"
 set xlabel "Tempo (s)" font ",14"
 set ylabel "\lambda" font ",14"
 
