@@ -134,17 +134,17 @@
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='black'  d='M711.03,633.40 L711.03,537.40 L966.43,537.40 L966.43,633.40 L711.03,633.40 Z  '/></g>
+	<path stroke='black'  d='M695.85,633.40 L695.85,531.40 L966.43,531.40 L966.43,633.40 L695.85,633.40 Z  '/></g>
 	<g id="gnuplot_plot_1" ><title>Ocupação a 85%</title>
 <g fill="none" color="white" stroke="black" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(890.23,554.60)" stroke="none" fill="black" font-family="Arial" font-size="16.00"  text-anchor="end">
+	<g transform="translate(886.09,549.68)" stroke="none" fill="black" font-family="Arial" font-size="17.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >Ocupação a 85%</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(  0,   0, 204)'  d='M901.43,549.40 L955.23,549.40 M98.58,354.20 L99.45,354.20 L100.33,354.22 L101.21,354.23 L102.09,354.20 L102.96,354.19
+	<path stroke='rgb(  0,   0, 204)'  d='M897.98,544.15 L954.54,544.15 M98.58,354.20 L99.45,354.20 L100.33,354.22 L101.21,354.23 L102.09,354.20 L102.96,354.19
 		L103.84,354.23 L104.72,354.25 L105.59,354.13 L106.47,354.26 L107.35,354.27 L108.23,354.31 L109.10,354.35 L109.98,354.40
 		L110.86,354.44 L111.73,354.19 L112.61,354.18 L113.49,354.09 L114.37,353.94 L115.24,353.81 L116.12,353.82 L117.00,354.20
 		L117.87,353.93 L118.75,353.76 L119.63,354.13 L120.51,354.04 L121.38,354.18 L122.26,354.54 L123.14,354.15 L124.01,354.50
@@ -273,12 +273,12 @@
 	</g>
 	<g id="gnuplot_plot_2" ><title>Ocupação a 90%</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(890.23,578.60)" stroke="none" fill="black" font-family="Arial" font-size="16.00"  text-anchor="end">
+	<g transform="translate(886.09,575.18)" stroke="none" fill="black" font-family="Arial" font-size="17.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >Ocupação a 90%</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(  0, 255,   0)'  d='M901.43,573.40 L955.23,573.40 M98.58,354.20 L99.45,354.22 L100.33,354.23 L101.21,354.18 L102.09,354.18 L102.96,354.20
+	<path stroke='rgb(  0, 255,   0)'  d='M897.98,569.65 L954.54,569.65 M98.58,354.20 L99.45,354.22 L100.33,354.23 L101.21,354.18 L102.09,354.18 L102.96,354.20
 		L103.84,354.25 L104.72,354.29 L105.59,354.36 L106.47,354.24 L107.35,354.23 L108.23,354.23 L109.10,354.35 L109.98,354.23
 		L110.86,354.32 L111.73,354.69 L112.61,355.05 L113.49,355.21 L114.37,355.42 L115.24,355.39 L116.12,355.15 L117.00,354.95
 		L117.87,354.87 L118.75,354.96 L119.63,354.92 L120.51,354.94 L121.38,355.42 L122.26,355.20 L123.14,354.97 L124.01,355.35
@@ -407,12 +407,12 @@
 	</g>
 	<g id="gnuplot_plot_3" ><title>Ocupação a 95%</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(890.23,602.60)" stroke="none" fill="black" font-family="Arial" font-size="16.00"  text-anchor="end">
+	<g transform="translate(886.09,600.68)" stroke="none" fill="black" font-family="Arial" font-size="17.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >Ocupação a 95%</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(255,   0,   0)'  d='M901.43,597.40 L955.23,597.40 M98.58,354.20 L99.45,354.22 L100.33,354.22 L101.21,354.20 L102.09,354.22 L102.96,354.22
+	<path stroke='rgb(255,   0,   0)'  d='M897.98,595.15 L954.54,595.15 M98.58,354.20 L99.45,354.22 L100.33,354.22 L101.21,354.20 L102.09,354.22 L102.96,354.22
 		L103.84,354.21 L104.72,354.27 L105.59,354.26 L106.47,354.21 L107.35,354.10 L108.23,353.91 L109.10,353.80 L109.98,353.79
 		L110.86,353.92 L111.73,353.73 L112.61,353.50 L113.49,353.27 L114.37,353.20 L115.24,353.17 L116.12,353.23 L117.00,353.57
 		L117.87,353.81 L118.75,353.91 L119.63,353.93 L120.51,353.88 L121.38,353.47 L122.26,353.71 L123.14,353.35 L124.01,353.58
@@ -541,12 +541,12 @@
 	</g>
 	<g id="gnuplot_plot_4" ><title>Ocupação a 99%</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(890.23,626.60)" stroke="none" fill="black" font-family="Arial" font-size="16.00"  text-anchor="end">
+	<g transform="translate(886.09,626.18)" stroke="none" fill="black" font-family="Arial" font-size="17.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >Ocupação a 99%</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.50" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(255,   0, 255)'  d='M901.43,621.40 L955.23,621.40 M98.58,354.20 L99.45,354.20 L100.33,354.19 L101.21,354.21 L102.09,354.23 L102.96,354.21
+	<path stroke='rgb(255,   0, 255)'  d='M897.98,620.65 L954.54,620.65 M98.58,354.20 L99.45,354.20 L100.33,354.19 L101.21,354.21 L102.09,354.23 L102.96,354.21
 		L103.84,354.13 L104.72,354.13 L105.59,354.06 L106.47,353.93 L107.35,353.92 L108.23,353.76 L109.10,353.76 L109.98,353.95
 		L110.86,353.80 L111.73,353.80 L112.61,353.85 L113.49,353.98 L114.37,354.14 L115.24,354.07 L116.12,354.25 L117.00,354.07
 		L117.87,353.93 L118.75,354.15 L119.63,353.75 L120.51,353.56 L121.38,354.01 L122.26,354.29 L123.14,354.15 L124.01,354.28

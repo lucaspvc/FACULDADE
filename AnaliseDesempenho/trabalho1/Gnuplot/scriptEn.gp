@@ -11,7 +11,7 @@ set xlabel "Tempo (s)" font ",14"
 set ylabel "E[n]" font ",14"
 
 # Definir o estilo da legenda com fonte e quadrados
-set key left inside top font ",16" box
+set key left inside top font ",17" box
 
 # Definir o estilo do gráfico com tics ajustados
 set tics font "Arial,10"
