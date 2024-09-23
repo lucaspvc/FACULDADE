@@ -731,7 +731,7 @@
 	<path stroke='black'  d='M80.92,66.01 L80.92,742.40 L974.82,742.40 L974.82,66.01 L80.92,66.01 Z  '/></g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(527.87,33.51)" stroke="none" fill="black" font-family="Arial" font-size="20.00"  text-anchor="middle">
-		<text><tspan font-family="Arial"  font-weight="bold" >lambda x Tempo</tspan></text>
+		<text xml:space="preserve"><tspan font-family="Arial"  font-weight="bold"  xml:space="preserve"> x Tempo</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
