@@ -29,24 +29,3 @@ plot "./Dados/Coleta85.txt" using 1:3 with lines linestyle 1 title "Ocupação a
      "./Dados/Coleta99.txt" using 1:3 with lines linestyle 4 title "Ocupação a 99%"
 
 unset output
-
-# Gerar o gráfico em formato EPS e LaTeX para inclusão no Overleaf
-set terminal epslatex size 5,3.5 color colortext
-set output './Graficos/eN_tempo.tex'
-
-# Plotar novamente para o arquivo LaTeX
-plot "./Dados/Coleta85.txt" using 1:3 with lines linestyle 1 title "Ocupação a 85%", \
-     "./Dados/Coleta90.txt" using 1:3 with lines linestyle 2 title "Ocupação a 90%", \
-     "./Dados/Coleta95.txt" using 1:3 with lines linestyle 3 title "Ocupação a 95%", \
-     "./Dados/Coleta99.txt" using 1:3 with lines linestyle 4 title "Ocupação a 99%"
-
-unset output
-
-
-# Uso em LaTeX
-#\begin{figure}[h!]
-#   \centering
-#   \input{Graficos/eN_tempo.tex}
-#   \caption{E[n] em função do tempo para diferentes níveis de ocupação}
-#   \label{fig:eN_tempo}
-#end{figure}
