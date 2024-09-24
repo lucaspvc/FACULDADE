@@ -1,0 +1,13 @@
+\section{\large INTRODUÇÃO}
+Este relatório apresenta uma análise detalhada do desempenho de um sistema de filas através de uma simulação que abrange 100.000 segundos. O principal objetivo é avaliar o comportamento do sistema sob diferentes cenários de ocupação (85\%, 90\%, 95\% e 99\%), utilizando parâmetros matematicamente calculados para garantir que o desempenho do sistema atenda exatamente a essas condições.
+
+Ao longo da simulação, dados acumulados foram coletados em intervalos regulares de 100 segundos, permitindo um acompanhamento preciso das métricas de desempenho ao longo do tempo. Essas medições fornecem uma percepção sobre o comportamento do sistema em termos de:
+\begin{itemize}
+    \item Ocupação em função do tempo: Avaliação da utilização do sistema ao longo dos cenários simulados.
+    \item $E[N]$ em função do tempo: Número médio de clientes presentes no sistema em cada intervalo.
+    \item $E[W]$ em função do tempo: Tempo médio de espera dos clientes no sistema.
+    \item $\lambda$ em função do tempo: Taxa de chegada dos clientes ao sistema, crucial para confirmar o cálculo das ocupações.
+    \item Erro do Teorema de Little em função do tempo: Verificação da validade do Teorema de Little ao longo da simulação, comparando as estimativas de $E[N]$,$\lambda$ e $E[W]$.
+\end{itemize}
+
+A coleta regular de informações a cada 100 segundos permite um acompanhamento detalhado e acumulativo do comportamento do sistema, com o objetivo de validar os resultados teóricos previstos pelos cálculos matemáticos.

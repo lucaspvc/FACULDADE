@@ -1,0 +1,150 @@
+\section{\large DESENVOLVIMENTO}
+%=====================================================================
+\subsection{Cálculos Matemáticos}
+Nesta seção, detalharemos o cálculo da taxa de ocupação em um sistema de filas durante a simulação. O conceito de ocupação está relacionado ao tempo em que o sistema está ocupado, ou seja, o tempo em que há clientes sendo atendidos ou aguardando atendimento na fila.
+%=====================================================================
+\subsubsection{Conceitos Preliminares}
+Antes de realizar o cálculo da taxa de ocupação, é necessário definir alguns conceitos fundamentais:
+\begin{itemize}
+    \item    \label{cal:taxa_chegada}Taxa de Chegada $(\lambda)$: É a taxa na qual os clientes chegam ao sistema, geralmente medida em clientes por unidade de tempo.
+    $$
+    \lambda = \frac{1}{T_{\text{chegada}}}
+    $$
+    
+    \item Taxa de Atendimento $(\mu)$: É a taxa na qual os clientes são atendidos, também medida em clientes por unidade de tempo.
+    $$
+    \mu = \frac{1}{T_{\text{atendimento}}}
+    $$
+    \item Taxa de Ocupação $(\rho)$: Representa a proporção do tempo que o sistema está ocupado.
+    $$
+    \rho = \frac{\lambda}{\mu}
+    $$
+\end{itemize}
+%=====================================================================
+\subsubsection{Cálculos de Ocupação}
+Com base nesses conceitos, podemos calcular a taxa de ocupação $\rho$ para diferentes cenários de simulação. Abaixo, realizamos os cálculos para taxas de ocupação de 85\%, 90\%, 95\%, e 99\%.
+\begin{itemize}
+    \item    \label{cal:ocupacao85}Cálculo para 85\%:
+    $$
+    \rho = \frac{\frac{1}{1}}{\frac{1}{0.85}} = \frac{0.85}{1} = 0.85 * 100 = 85\%
+    $$
+    \item \label{cal:ocupacao90}Cálculo para 90\%:
+    $$
+    \rho = \frac{\frac{1}{1}}{\frac{1}{0.90}} = \frac{0.90}{1} = 0.90 * 100 = 90\%
+    $$
+    \item \label{cal:ocupacao95}Cálculo para 95\%:
+    $$
+    \rho = \frac{\frac{1}{1}}{\frac{1}{0.95}} = \frac{0.95}{1} = 0.95 *100 = 95\%
+    $$
+    \item\label{cal:ocupacao85} Cálculo para 99\%:
+    $$
+    \rho = \frac{\frac{1}{1}}{\frac{1}{0.99}} = \frac{0.99}{1} = 0.99 * 100 = 99\%
+    $$
+\end{itemize}
+
+A partir desses cálculos, podemos verificar que para cada taxa de ocupação escolhida (85\%, 90\%, 95\%, e 99\%), o sistema estará ocupado por uma fração correspondente do tempo. Isso significa que, em uma simulação onde $\rho = 0.90$ , por exemplo, o sistema está ocupado 90\% do tempo, e livre 10\% do tempo. Além disso, foi possível descobrir os ${T_{\text{atendimento}}}$ e ${T_{\text{chegada}}}$ para cada ocupação escolhida
+
+Esses valores de $\rho$,${T_{\text{atendimento}}}$ e ${T_{\text{chegada}}}$ serão utilizados nas simulações subsequentes para analisar o comportamento do sistema sob diferentes condições de carga.
+%=====================================================================
+\subsection{Resultados}
+Para esta seção, iremos considerar, em todos os cenário, que a curva azul representa uma taxa de ocupação que converge para 85\%(${T_{\text{atendimento}}}$ = 0.85 e ${T_{\text{chegada}}} = 1.00$), a verde para 90\%(${T_{\text{atendimento}}}$ = 0.90 e ${T_{\text{chegada}}} = 1.00$), a vermelha para 95\%(${T_{\text{atendimento}}}$ = 0.95 e ${T_{\text{chegada}}} = 1.00$), e a rosa para 99\%(${T_{\text{atendimento}}}$ = 0.99 e ${T_{\text{chegada}}} = 1.00$), onde os valores para ${T_{\text{atendimento}}}$ e ${T_{\text{chegada}}}$ foram calculado anteriormente na seção \ref{cal:ocupacao85}
+%=====================================================================
+\subsubsection{Gráfico da taxa de ocupação$(\rho)$ em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos/ocupacao_tempo.svg}
+   \caption{Ocupação em função do tempo}
+   \label{fig:ocupacao}
+\end{figure}
+
+Observa-se na figura \ref{fig:ocupacao} que, à medida que o tempo avança, as diferentes taxas de ocupação tendem a estabilizar-se nos valores calculados. Essa convergência ao longo do tempo reflete o comportamento esperado em sistemas onde o equilíbrio ou a saturação é atingido de forma gradual. Além disso, podemos perceber que, quanto maior o valor de $\rho$, maior a taxa de ocupação final, implicando que sistemas com maior demanda ou carga tendem a ter ocupações mais elevadas. Este comportamento é consistente com as previsões feitas anteriormente na seção \ref{cal:ocupacao85}, e o gráfico confirma que, conforme o tempo aumenta, as taxas de ocupação se aproximam de seus respectivos limites teóricos.
+%=====================================================================
+\subsubsection{Gráfico do número médio de elementos no sistema E[n] em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos/eN_tempo.svg}
+   \caption{Número médio de elementos no sistema E[n] em função do tempo}
+   \label{fig:eN}
+\end{figure}
+Pode-se na figura \ref{fig:eN} que ao longo do tempo da simulação obtemos diferentes comportamentos em relação as curvas.
+
+A curva rosa inicia-se com valores próximos de zero e apresenta um crescimento acentuado ao longo do tempo, aproximando-se a 100 em determinado momento. Este aumento sugere que, inicialmente, o sistema experimenta um rápido acúmulo de eventos ou entidades, atingindo quase a capacidade máxima. No entanto, após esse pico, a curva começa a decair gradualmente, até finalizar em um valor de 85. Esse comportamento pode indicar que o sistema, após atingir sua saturação, ajusta-se ou é liberado aos poucos, até que haja uma liberação até o fim da simulação.
+
+A curva vermelha também começa com valores próximos a zero, mas seu crescimento é menos acentuado em comparação com a curva rosa. Ela atinge rapidamente um patamar em torno de 20, onde se estabiliza pelo restante do tempo. Este comportamento sugere que, no início da simulação, há um aumento no número de eventos ou entidades, mas o sistema atinge um equilíbrio estável em um valor relativamente baixo, talvez representando uma situação em que o fluxo de entrada e saída está balanceado, resultando em um número constante de elementos no sistema.
+
+A curva verde segue um padrão similar ao da curva vermelha, mas com um valor de estabilização mais baixo. Inicia-se com valores próximos de zero e rapidamente se estabiliza em torno de 10. Isso indica que o sistema, neste caso, atinge o equilíbrio de maneira rápida e com um número médio menor de entidades ou eventos em comparação com as outras curvas, o que pode sugerir um sistema menos congestionado ou com uma menor taxa de entrada de elementos.
+
+A curva azul é a que apresenta o menor valor de estabilização dentre todas. Ela também começa perto de zero e, de forma rápida, estabiliza-se em aproximadamente 5. Esse comportamento indica um sistema que, após um breve crescimento, mantém uma operação com poucos elementos, sugerindo baixa carga ou uma alta eficiência no processamento dos eventos ao longo do tempo.
+
+O comportamento das curvas indicam diferentes níveis de carga e desempenho do sistema, sendo a curva rosa representativa de um sistema que atinge uma alta ocupação antes de aliviar, enquanto as curvas azul, verde e vermelha sugerem sistemas que alcançam equilíbrio com menor acúmulo de eventos ou entidades.
+
+Em todos os casos, E[n] foi calculado com base na seguinte fórmula:
+$$
+    E[n]=\frac{en\_soma\_areas}{en\_tempo\_decorrido}
+$$
+o que significa que a média ponderada do número de entidades foi obtida ao longo do tempo da simulação. Para cada curva, o cálculo reflete a evolução dinâmica do sistema, com períodos de crescimento, estabilização e, no caso da curva rosa, decaimento, resultando nos valores médios esperados para cada cenário.
+%=====================================================================
+\subsubsection{Gráfico do tempo médio de espera dos elementos no sistema E[w] em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos/eW_tempo.svg}
+   \caption{Tempo médio de espera dos elementos no sistema E[w] em função do tempo}
+   \label{fig:eW}
+\end{figure}
+
+Pode-se na figura \ref{fig:eW} que representa o tempo médio de espera de uma evento no sistema ao longo do tempo, exibe quatro curvas com padrões de comportamento semelhantes aos observados anteriormente no gráfico de E[n], mas com variações nos valores exatos.
+
+A curva rosa começa com valores próximos a zero e mostra um crescimento acentuado, aproximando-se de 100 em um determinado momento da simulação. Esse rápido aumento indica que, inicialmente, as entidades enfrentam um aumento significativo no tempo de espera, o que pode ser devido a um congestionamento ou alta demanda no sistema. Após atingir esse pico, a curva começa a decair gradualmente, estabilizando-se em 85 ao final da simulação. Esse comportamento pode ser interpretado como o sistema aliviando a carga de espera, mas ainda mantendo um nível relativamente elevado de tempo de espera no final do processo.
+
+A curva vermelha também inicia-se em quase zero, mas o seu crescimento é mais moderado em comparação com a curva rosa, estabilizando-se em torno de 20. Isso reflete um sistema onde, após um breve período de crescimento, o tempo de espera atinge um equilíbrio relativamente baixo, indicando que, embora haja algum tempo de espera, o sistema consegue processar as entidades de forma eficiente, mantendo esse valor constante ao longo do tempo.
+
+A curva verde segue um padrão semelhante, com início próximo de zero e estabilização em torno de 10. Esse comportamento sugere um sistema com ainda menos espera média para as entidades em comparação à curva vermelha. O sistema rapidamente atinge um equilíbrio com tempos de espera bastante curtos, o que indica um processo eficiente de entrada e saída das entidades, resultando em pouca ou quase nenhuma acumulação ao longo do tempo.
+
+A curva azul, por sua vez, é a que apresenta o menor valor de estabilização. Ela começa em quase zero e rapidamente atinge um patamar em torno de 5, onde se estabiliza pelo restante da simulação. Esse padrão sugere que o sistema tem um tempo de espera muito baixo, talvez devido à baixa carga ou alta capacidade de processamento, resultando em uma espera mínima para as entidades no sistema.
+
+O valor de E[w] foi calculado com base na fórmula 
+$$
+E[w] = \frac{ew\_soma\_area\_chegadas-ew\_soma\_area\_saidas}{ew\_numero\_eventos}
+$$
+o que reflete a diferença entre as áreas das chegadas e saídas acumuladas ao longo do tempo, normalizado pelo total de eventos. Essa fórmula fornece uma média ponderada do tempo de espera, considerando o número de eventos processados.
+
+%=====================================================================
+\subsubsection{Gráfico da taxa de chegada $(\lambda)$ em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos/lambda_tempo.svg}
+   \caption{Taxa de chegada $(\lambda)$ em função do tempo}
+   \label{fig:lambda}
+\end{figure}
+Na figura \ref{fig:lambda} todas as quatro curvas começam em um valor entre 0,5 e 0,6, sugerindo uma taxa de chegada inicial moderada, indicando que o sistema está recebendo pacotes em uma taxa estável, mas abaixo do que será observado posteriormente.
+
+A partir de aproximadamente Tempo=15,000, as quatro curvas convergem e se estabilizam em uma taxa de chegada de 1 chegada/segundo.
+Esse comportamento sugere que, após um período de crescimento, o sistema atinge uma taxa de chegada constante, onde os pacotes ou eventos chegam ao sistema em uma frequência regular.
+
+A taxa de chegada $\lambda$ foi calculada como o número de eventos de chegada ao longo do tempo decorrido, isto é,
+$$
+\lambda=\frac{ew\_num\_eventos\_chegadas}{ew\_tempo\_decorrido}
+$$
+Este cálculo reflete a média ponderada da taxa de chegada de pacotes no sistema ao longo do tempo de simulação, sendo ajustado pelo número de eventos que realmente chegaram ao sistema em cada instante.
+
+O comportamento do gráfico de $\lambda$ demonstra que, apesar de as taxas de chegada começarem em níveis moderados, todas as curvas convergem para o mesmo valor estável ao final da simulação, indicando que o sistema atinge um fluxo de chegada constante e regular a partir de certo ponto.
+%=====================================================================
+\subsubsection{Gráfico do erro de Little em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos/little_tempo.svg}
+   \caption{Erro de Little em função do tempo}
+   \label{fig:little}
+\end{figure}
+
+A figura \ref{fig:little} ilustra a evolução do erro da Lei de Little ao longo do tempo para diferentes níveis de ocupação do sistema, sendo esses 85\%, 90\%, 95\%, e 99\%. O erro é calculado a partir da fórmula:
+$$
+erro\_little=en\_final − \lambda * ew\_final
+$$
+Na curva azul, observa-se que, para esta taxa de ocupação, a curva oscila de forma contida em torno de zero. Isso sugere que, para baixas ocupações, a Lei de Little é uma boa aproximação do comportamento real do sistema. As variações no erro são pequenas, o que indica que o tempo de espera e o número de itens no sistema estão próximos dos valores esperados pela lei.
+
+A curva verde começa a apresentar uma maior volatilidade em comparação com a de 85\%. No entanto, as oscilações permanecem moderadas, sugerindo que, embora o erro aumente à medida que a ocupação cresce, a Lei de Little ainda mantém uma boa acurácia para este nível de utilização do sistema.
+
+Na curva vermelha o erro torna-se mais pronunciado, com variações mais significativas em torno de zero. Esse comportamento sugere que o sistema, à medida que se aproxima de uma ocupação mais alta, começa a experimentar uma divergência maior entre o valor previsto pela Lei de Little e os resultados observados. Esse aumento no erro é indicativo de que o sistema está mais próximo de sua capacidade máxima, onde a previsibilidade de parâmetros como o tempo de espera se torna mais difícil.
+
+A curva rosa apresenta um erro com as maiores flutuações, com desvios significativos ao longo do tempo. Esse comportamento pode ser atribuído à saturação do sistema, onde o tempo de espera cresce de maneira desproporcional em relação ao número de eventos processados. Isso indica que, em níveis de ocupação muito altos, a Lei de Little não captura adequadamente a dinâmica do sistema, resultando em grandes discrepâncias entre os valores previstos e os reais.
