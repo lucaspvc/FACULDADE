@@ -1,0 +1,11 @@
+Implemente um sistema de gestão de estoque de produtos de supermercado no modelo cliente/servidor.
+A comunicação entre o cliente e o servidor será feita com RMI, onde o servido armazena
+os produtos e o cliente realiza as operações.
+Operações:
+-Adicionar produtos;
+-Listar produtos;
+-remover produtos;
+-filtrar por intervalo de valores;
+
+Nome: João Paulo Martyr Ragazzo 2022.1.08.009
+Lucas Pessoa Oliveira Alves 2022.1.08.044

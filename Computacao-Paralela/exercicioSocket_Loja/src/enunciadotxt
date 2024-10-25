@@ -1,0 +1,12 @@
+Implemente um sistema de gestão de estoque de produtos de supermercado no modelo cliente/servidor.
+ A comunicação entre o cliente e o servidor será feita com Sockets, onde o servidor armazena os produtos
+ e realiza as operações que o cliente solicitou. O cliente também faz a interface com o usuário.
+
+ Operações:
+     adicionar produtos
+     listar produtos
+     remover produtos
+     filtrar por intervalo de valores
+
+
+Nome: Lucas Pessoa Oliveira Alves 2022.1.08.044
