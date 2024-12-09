@@ -1,0 +1,10 @@
+-pacote_web entrada feito
+-pacote_web saida feito
+-Coleta feito
+
+-chamada em tempo real entrada
+    -pacote_entrada
+        pacotes 64Kbps
+        intervalo entre pacotes 20ms-> 50 pactoes/s
+    -pacote_saida
+-chamada em tempo real saida

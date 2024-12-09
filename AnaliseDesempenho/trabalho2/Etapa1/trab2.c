@@ -20,6 +20,7 @@ typedef struct {
     double soma_areas;              // Soma das áreas (eventos * tempo)
 } little;
 
+
 // Função que gera um número aleatório uniforme entre 0 e 1
 double uniforme() {
     double u = rand() / ((double) RAND_MAX + 1);
@@ -134,7 +135,8 @@ int main (int argc, char *argv[ ] ) {
     char nome_arquivo[20];
 
     //Entrada por linha de comando: tempo_chegada, tempo_atendimento, tempo_simulacao e número para dados de saida
-    double taxa_chegada = atof(argv[1]);
+    double taxa_chegada;
+    taxa_chegada = atof(argv[1]);
 
     double tempo_simulacao;
     tempo_simulacao = atof(argv[2]);
