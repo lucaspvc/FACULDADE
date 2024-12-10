@@ -15,14 +15,13 @@ set ylabel "Little" font ",14"
 set style line 5 dashtype 8 linecolor rgb "black" linewidth 1 # linha pontilhada 
 
 # Definir o estilo da legenda com fonte e quadrados
-set key right inside bottom font ",19" box linestyle 5
+set key left inside top font ",19" box linestyle 5
 
 # Definir o estilo do gráfico com tics ajustados
 set tics font "Arial,10"
 
-set yrange [-0.000000001:0.000000001] 
-set ytics 0.000000001
-set mytics 2
+set yrange [-0.0000005:0.0000005] 
+
 
 set arrow from graph 0, first 0 to graph 1, first 0 nohead dashtype 2 linewidth 1.5 linecolor rgb "black"
 
@@ -33,7 +32,7 @@ set output './Graficos/little_tempo.svg'
 
 # Plotar os arquivos com quadrados na legenda
 plot "./Dados/Coleta60.txt" using 1:6 with lines linestyle 1 title "Ocupação a 60%", \
-     "./Dados/Coleta85.txt" using 1:6 with lines linestyle 2 title "Ocupação a 85%", \
+     "./Dados/Coleta80.txt" using 1:6 with lines linestyle 2 title "Ocupação a 80%", \
      "./Dados/Coleta95.txt" using 1:6 with lines linestyle 3 title "Ocupação a 95%", \
      "./Dados/Coleta99.txt" using 1:6 with lines linestyle 4 title "Ocupação a 99%"
 

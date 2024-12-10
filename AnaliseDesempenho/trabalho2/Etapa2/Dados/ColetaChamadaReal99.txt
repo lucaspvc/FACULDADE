@@ -1,4 +1,4 @@
-#Arquivo Dados/ColetaReal99.txt 
+#Arquivo Dados/ColetaChamadaReal99.txt 
 #Parâmetros(Ocupação: 99.00%, Capacidade: 356363.636 bps)
 #Coleta|Ocupação|E(n)|E(w)|lambda|Little
 

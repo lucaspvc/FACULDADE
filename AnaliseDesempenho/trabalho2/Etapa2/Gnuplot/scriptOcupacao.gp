@@ -26,12 +26,12 @@ set arrow from graph 0, first 99 to graph 1, first 99 nohead dashtype 2 linewidt
 
 # Gerar o gráfico em SVG
 set terminal svg size 1000,800
-set output './Graficos/ocupacao_tempo.svg'
+set output './Graficos/ocupacao_tempo_web.svg'
 
 # Plotar os arquivos com quadrados na legenda
-plot "./Dados/Coleta60.txt" using 1:2 with lines linestyle 1 title "Ocupação a 60%", \
-     "./Dados/Coleta80.txt" using 1:2 with lines linestyle 2 title "Ocupação a 80%", \
-     "./Dados/Coleta95.txt" using 1:2 with lines linestyle 3 title "Ocupação a 95%", \
-     "./Dados/Coleta99.txt" using 1:2 with lines linestyle 4 title "Ocupação a 99%"
+plot "./Dados/ColetaWeb60.txt" using 1:2 with lines linestyle 1 title "Ocupação a 60%", \
+     "./Dados/ColetaWeb80.txt" using 1:2 with lines linestyle 2 title "Ocupação a 80%", \
+     "./Dados/ColetaWeb95.txt" using 1:2 with lines linestyle 3 title "Ocupação a 95%", \
+     "./Dados/ColetaWeb99.txt" using 1:2 with lines linestyle 4 title "Ocupação a 99%"
 
 unset output

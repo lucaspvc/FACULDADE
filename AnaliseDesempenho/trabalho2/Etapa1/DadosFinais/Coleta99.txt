@@ -1,0 +1,5 @@
+#Arquivo DadosFinais/Coleta99.txt 
+#Parâmetros(Ocupação: 99.000%, Capacidade: 356363.636 bps)
+#Coleta|Ocupação|E(n)|E(w)|lambda|Little
+
+100100 99.00526 100.92428 1.00898 100.02648 -0.00000025196702324592

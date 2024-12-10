@@ -1,0 +1,5 @@
+#Arquivo DadosFinais/ColetaWeb95.txt 
+#Parâmetros(Ocupação: 95.000%, Capacidade: 371368.421 bps)
+#Coleta|Ocupação|E(n)|E(w)|lambda|Little
+
+100100 95.04125 18.50498 0.18503 100.01077 0.00000009024257252577

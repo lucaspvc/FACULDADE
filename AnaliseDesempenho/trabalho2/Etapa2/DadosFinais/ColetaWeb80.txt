@@ -1,0 +1,5 @@
+#Arquivo DadosFinais/ColetaWeb80.txt 
+#Parâmetros(Ocupação: 80.000%, Capacidade: 441000.000 bps)
+#Coleta|Ocupação|E(n)|E(w)|lambda|Little
+
+100100 80.03025 3.90468 0.03903 100.03735 -0.00000052946091999573

@@ -1,0 +1,5 @@
+#Arquivo DadosFinais/ColetaChamadasReal60.txt 
+#Parâmetros(Ocupação: 60.000%, Capacidade: 588000.000 bps)
+#Coleta|Ocupação|E(n)|E(w)|lambda|Little
+
+100100 10.52080 35.75617 1084.83551 0.03296 -0.00000210051883442475

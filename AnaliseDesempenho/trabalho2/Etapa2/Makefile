@@ -23,16 +23,18 @@ run1:
 
 # Regra para rodar o gnuplot com os dados colhidos anterioremente
 run2:
-	gnuplot $(TARGET2)
 	gnuplot $(TARGET3)
 	gnuplot $(TARGET4)
 	gnuplot $(TARGET5)
 	gnuplot $(TARGET6)
+	gnuplot $(TARGET2)
 
 # Regra para rodar o programa com ambos os parâmetros
-run_all: run1 
-#run2
+run_all: run1 run2
 
 # Limpa os arquivos compilados
 clean:
 	rm -f $(TARGET)
+	rm -rf ./Dados
+	rm -rf ./DadosFinais
+

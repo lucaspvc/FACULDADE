@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include <time.h>
 #include <float.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -19,7 +18,6 @@ typedef struct {
     double tempo_anterior;          // Tempo do último evento
     double soma_areas;              // Soma das áreas (eventos * tempo)
 } little;
-
 
 // Função que gera um número aleatório uniforme entre 0 e 1
 double uniforme() {
@@ -50,7 +48,6 @@ double calcula_capacidade_link(double ocupacao_desejada, double taxa_chegada) {
     // Fórmula baseada no cálculo de ocupação: Capacidade = Taxa / Ocupação
     return (taxa_chegada * (PACOTE_PEQUENO * 0.4 + PACOTE_MEDIO * 0.5 + PACOTE_GRANDE * 0.1)) / ocupacao_desejada;
 }
-
 
 double calcula_tempo_atendimento(int tamanho_pacote, double capacidade_link) {
     return (double)tamanho_pacote / capacidade_link;
@@ -129,6 +126,64 @@ double ew_final, double lambda){
     fclose(file);
 }
 
+// Função para criar e iniciar o arquivo de dados finais da simulação
+void inicia_arquivo_final(char f[], double ocupacao_desejada, double capacidade){
+    // Cria diretório "Dados" dependendo do sistema operacional (Windows/Linux)
+    #ifdef _WIN32
+        _mkdir("DadosFinais"); // No Windows
+    #else
+        mkdir("DadosFinais", 0777); // No Linux
+    #endif
+
+    // Gera o caminho do arquivo
+    char path[100] = "DadosFinais/"; 
+    strcat(path, f);
+
+    // Abre o arquivo para escrita
+    FILE *file = fopen(path, "w");
+    if(!file){
+        printf("Erro ao abrir o arquivo\n");
+        return;
+    }
+    // Escreve os cabeçalhos e parâmetros da simulação no arquivo
+    fprintf(file, "#Arquivo %s \n", path);
+    fprintf(file, "#Parâmetros(Ocupação: %.3f%%, Capacidade: %.3f bps)\n", ocupacao_desejada * 100, capacidade);
+    fprintf(file, "#Coleta|Ocupação|E(n)|E(w)|lambda|Little\n\n");
+    fclose(file);
+}
+
+// Função para escrever dados coletados no arquivo durante a simulação
+void escreve_arquivo_final(char f[], int coleta, double ocupacao, double en_final,
+double ew_final, double lambda){
+    // Cria diretórios "Dados" e "Graficos" dependendo do sistema operacional
+    #ifdef _WIN32
+        _mkdir("DadosFinais"); // No Windows
+    #else
+        mkdir("DadosFinais", 0777); // No Linux
+    #endif
+
+    // Gera o caminho do arquivo
+    char path[100] = "DadosFinais/"; 
+    strcat(path, f);
+
+    // Abre o arquivo para anexar novos dados
+    FILE *file = fopen(path, "a");
+    if(!file){
+        printf("Erro ao abrir o arquivo");
+        return;
+    }
+
+    // Escreve os dados da coleta no arquivo
+    fprintf(file, "%d ", coleta);
+    fprintf(file, "%.5f ", ocupacao);
+    fprintf(file, "%.5f ", en_final);
+    fprintf(file, "%.5f ", ew_final);
+    fprintf(file, "%.5f ", lambda);
+    fprintf(file, "%.20f\n", en_final - lambda * ew_final);
+
+    fclose(file);
+}
+
 int main (int argc, char *argv[ ] ) {
     // Inicializa o gerador de números aleatórios com base no valor de RAND_MAX
     srand(RAND_MAX);
@@ -181,6 +236,10 @@ int main (int argc, char *argv[ ] ) {
                 soma_ocupacao += tempo_saida - tempo_decorrido;
             }
             fila++;
+
+            if(fila > fila_max){
+                fila_max = fila;
+            }
 
             /**
              * little
@@ -238,6 +297,12 @@ int main (int argc, char *argv[ ] ) {
     double en_final = en.soma_areas/tempo_decorrido;
     double ew_final = (ew_chegadas.soma_areas - ew_saidas.soma_areas)/ew_chegadas.num_eventos;
     double lambda = ew_chegadas.num_eventos/tempo_decorrido;
+
+    char valores_finais[20];
+    sprintf(valores_finais, "Coleta%d.txt", atoi(argv[4]));
+    inicia_arquivo_final(valores_finais, ocupacao_desejada, capacidade_link);
+    escreve_arquivo_final(valores_finais, coleta, (soma_ocupacao/tempo_decorrido)*100,
+    en_final, ew_final, lambda);
 
     return 0;
 }

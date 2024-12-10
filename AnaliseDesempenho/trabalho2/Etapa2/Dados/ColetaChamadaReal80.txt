@@ -1,4 +1,4 @@
-#Arquivo Dados/ColetaReal80.txt 
+#Arquivo Dados/ColetaChamadaReal80.txt 
 #Parâmetros(Ocupação: 80.00%, Capacidade: 441000.000 bps)
 #Coleta|Ocupação|E(n)|E(w)|lambda|Little
 

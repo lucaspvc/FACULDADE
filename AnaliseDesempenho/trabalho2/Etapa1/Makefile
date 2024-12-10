@@ -6,13 +6,11 @@ TARGET4 = ./Gnuplot/scriptEw.gp
 TARGET5 = ./Gnuplot/scriptLambda.gp
 TARGET6 = ./Gnuplot/scriptLittle.gp
 
-
 # Parâmetros fixos
 PARAMS1 = 100 100000 60 60
 PARAMS2 = 100 100000 80 80
 PARAMS3 = 100 100000 95 95
 PARAMS4 = 100 100000 99 99
-
 
 # Regra padrão para compilar e rodar o programa duas vezes
 all: compile run_all
@@ -51,3 +49,5 @@ run_all: run1 run2 run3 run4 run5
 # Limpa os arquivos compilados
 clean:
 	rm -f $(TARGET)
+	rm -rf ./Dados
+	rm -rf ./DadosFinais
