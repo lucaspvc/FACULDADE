@@ -29,9 +29,9 @@ set terminal svg size 1000,800
 set output './Graficos/ocupacao_tempo_web.svg'
 
 # Plotar os arquivos com quadrados na legenda
-plot "./Dados/ColetaWeb60.txt" using 1:2 with lines linestyle 1 title "Ocupação a 60%", \
-     "./Dados/ColetaWeb80.txt" using 1:2 with lines linestyle 2 title "Ocupação a 80%", \
-     "./Dados/ColetaWeb95.txt" using 1:2 with lines linestyle 3 title "Ocupação a 95%", \
-     "./Dados/ColetaWeb99.txt" using 1:2 with lines linestyle 4 title "Ocupação a 99%"
+plot "./Dados/ColetaTotal60.txt" using 1:2 with lines linestyle 1 title "Ocupação a 60%", \
+     "./Dados/ColetaTotal80.txt" using 1:2 with lines linestyle 2 title "Ocupação a 80%", \
+     "./Dados/ColetaTotal95.txt" using 1:2 with lines linestyle 3 title "Ocupação a 95%", \
+     "./Dados/ColetaTotal99.txt" using 1:2 with lines linestyle 4 title "Ocupação a 99%"
 
 unset output

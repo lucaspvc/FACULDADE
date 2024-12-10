@@ -446,7 +446,7 @@ int main(int argc, char *argv[]) {
           erro_little_total = fabs(en_total - (lambda_total * ew_total));
 
           // Salvando no arquivo total
-          escreve_arquivo(nome_arquivo_total, tempo_decorrido, 0.0, en_total,
+          escreve_arquivo(nome_arquivo_total, tempo_decorrido, ocupacao, en_total,
                           ew_total, lambda_total);
 
         } else {
@@ -604,7 +604,7 @@ int main(int argc, char *argv[]) {
             ocupacao_desejada[i] * 100);
     inicia_arquivo_final(valores_finaisTotal, ocupacao_desejada[i],
                          capacidade_link);
-    escreve_arquivo_final(valores_finaisTotal, coleta, 0.0, en_total, ew_total,
+    escreve_arquivo_final(valores_finaisTotal, coleta, ocupacao, en_total, ew_total,
                           lambda_total);
 
     free(heap.data);

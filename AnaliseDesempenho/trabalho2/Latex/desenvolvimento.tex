@@ -399,29 +399,22 @@ Podemos notar no grárfico \ref{fig:ocupacaoE2Web} que as ocupações seguem o q
 
 \subsubsection{Gráficos do número médio de elementos no sistema E[n] em função do tempo (Web+Tempo Real)}
 O gráfico representado na Figura \ref{fig:eNE2Web} ilustra o número médio de elementos no sistema (\(E[N]\)) ao longo do tempo, para diferentes níveis de ocupação do link: \(60\%\), \(80\%\), \(95\%\) e \(99\%\). O comportamento de cada curva fornece informações importantes sobre a relação entre o nível de ocupação e o número médio de elementos no sistema.
-Para uma melhor visualização da variação das ocupações de 60\% e 80\%, o gráfico é ampliado na figura \ref{fig:eNE2Web2}.
+Para uma melhor visualização da variação das ocupações de 60\% e 80\%.
 
 \begin{figure}[h!]
    \centering
-   \includesvg[width=\textwidth]{Graficos2/Etapa2/eN_tempo_web.svg}
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/eN_tempo_total.svg}
    \caption{Número médio de elementos no sistema E[n] em função do tempo(Web+Tempo Real)}
    \label{fig:eNE2Web}
 \end{figure}
-\begin{figure}[h!]
-   \centering
-   \includesvg[width=\textwidth]{Graficos2/Etapa2/eN_tempo_web2.svg}
-   \caption{Número médio de elementos no sistema E[n] em função do tempo(Web+Tempo Real)}
-   \label{fig:eNE2Web2}
-\end{figure}
 
-A curva verde apresenta valores muito baixos de $E[n]$, praticamente constantes ao longo do tempo.
-Isso indica que, para uma ocupação de 60\%, o sistema opera com poucos elementos simultaneamente, mantendo-se eficiente.
+A curva verde apresenta valores baixos de $E[n]$, praticamente constantes ao longo do tempo. Isso indica que, para uma ocupação de 60\%, o sistema opera com poucos elementos simultaneamente, mantendo-se eficiente.
 
 A curva azul também exibe valores baixos de $E[n]$, com um leve aumento em relação à ocupação de 60\%. O número médio de elementos no sistema permanece estável, indicando que o impacto do aumento da ocupação é controlado.
 
-A curva vermelha apresenta um crescimento mais pronunciado de $E[n]$, estabilizando-se em torno de 20 elementos. Isso reflete um aumento significativo na carga do sistema, com mais elementos simultaneamente processados.
+A curva vermelha apresenta um crescimento mais pronunciado de $E[n]$, estabilizando-se em torno de 50 elementos. Isso reflete um aumento significativo na carga do sistema, com mais elementos simultaneamente processados.
 
-A curva rosa apresenta valores muito elevados de $E[n]$, iniciando perto de 40 e estabilizando-se próximo a 100 elementos após 20.000 segundos. O número médio de elementos no sistema cresce drasticamente devido à saturação causada pela alta ocupação.
+A curva rosa apresenta valores muito elevados de $E[n]$, iniciando perto de 40 e estabilizando-se próximo a 160 elementos após 80.000 segundos. O número médio de elementos no sistema cresce drasticamente devido à saturação causada pela alta ocupação.
 
 O gráfico demonstra que manter a ocupação do sistema abaixo de 80\% é fundamental para garantir baixos valores de $E[n]$ e a eficiência do sistema. Ocupações acima de 95\% resultam em uma carga excessiva, que pode comprometer a estabilidade e o desempenho do sistema.
 
@@ -431,25 +424,18 @@ O gráfico apresentado na Figura \ref{fig:eWE2Web} mostra a relação entre o te
 
 \begin{figure}[h!]
    \centering
-   \includesvg[width=\textwidth]{Graficos2/Etapa2/eW_tempo_web.svg}
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/eW_tempo_total.svg}
    \caption{Tempo médio de espera dos elementos no sistema E[w] em função do tempo(Web+Tempo Real)}
    \label{fig:eWE2Web}
 \end{figure}
 
-\begin{figure}[h!]
-   \centering
-   \includesvg[width=\textwidth]{Graficos2/Etapa2/eW_tempo_web2.svg}
-   \caption{Tempo médio de espera dos elementos no sistema E[w] em função do temp(Web+Tempo Real)o}
-   \label{fig:eWE2Web2}
-\end{figure}
+A curva azul representa a situação em que o sistema está 60\% ocupado. Observa-se que o tempo médio de espera começa baixo, perto de 0.01, e tem um aumento ao longo do tempo. Isso indica que, com 60\% de ocupação, o sistema tem capacidade suficiente para atender os elementos de forma eficiente, mas tendo piora no desempenho.
 
-A curva azul representa a situação em que o sistema está 60\% ocupado. Observa-se que o tempo médio de espera começa baixo, perto de 0.01, e permanece quase constante ao longo do tempo. Isso indica que, com 60\% de ocupação, o sistema tem capacidade suficiente para atender os elementos de forma eficiente, mantendo os tempos de espera baixos.
+A curva verde mostra o comportamento do sistema quando a ocupação chega a 80\%. Neste caso, o tempo médio de espera começa em cerca de 0.04 e aumenta ao longo do tempo até 0.4.
 
-A curva verde mostra o comportamento do sistema quando a ocupação chega a 80\%. Neste caso, o tempo médio de espera começa em cerca de 0.04 e aumenta lentamente ao longo do tempo.
+A curva rosa mostra o comportamento com 99\% de ocupação. Inicialmente, o tempo médio de espera está mais elevado, e tende a se estabilizar próximo de 1.6. Isso indica que, com 99\% de ocupação, o sistema começa a operar em uma região onde o congestionamento é mais significativo e o tempo de espera aumenta consideravelmente.
 
-A curva rosa mostra o comportamento com 99\% de ocupação. Inicialmente, o tempo médio de espera está mais elevado, acima de 0.8, e tende a se estabilizar próximo de 1. Isso indica que, com 99\% de ocupação, o sistema começa a operar em uma região onde o congestionamento é mais significativo e o tempo de espera aumenta consideravelmente.
-
-A curva vermelha representa a situação em que o sistema está 95\% ocupado. A curva inicia-se perto de 0,2 e mantém0-se nessa média até o fim da simulação
+A curva vermelha representa a situação em que o sistema está 95\% ocupado. A curva inicia-se perto de 0.2 e obtem um leve aumento até o fim da simulação, chegando em 1.6
 
 
 \subsubsection{Gráfico do erro de Little em função do tempo (Web+Tempo Real)}
@@ -457,7 +443,7 @@ O gráfico apresentado na Figura \ref{fig:littleE2Web} exibe o comportamento do 
 
 \begin{figure}[h!]
    \centering
-   \includesvg[width=\textwidth]{Graficos2/Etapa2/little_tempo_web.svg}
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/little_tempo_total.svg}
    \caption{Erro de Little em função do tempo(Web+Tempo Real)}
    \label{fig:littleE2Web}
 \end{figure}
