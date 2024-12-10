@@ -1,0 +1,472 @@
+\section{\large DESENVOLVIMENTO}
+\subsection{Etapa 1}
+%=====================================================================
+\subsubsection{Cálculos Matemáticos}
+Nesta seção, detalharemos o cálculo da taxa de ocupação em um sistema de filas durante a simulação. O conceito de ocupação está relacionado ao tempo em que o sistema está ocupado, ou seja, o tempo em que há clientes sendo atendidos ou aguardando atendimento na fila.
+%=====================================================================
+\subsubsection{Cálculos de Ocupação}
+
+Neste trabalho, a taxa de ocupação $\rho$ foi parametrizada diretamente, e o cálculo da capacidade do link foi implementado no código de simulação para ajustar automaticamente o sistema de acordo com a ocupação desejada. A seguir, explicamos como esses cálculos foram realizados dinamicamente no simulador.
+
+A ocupação do sistema foi determinada utilizando a fórmula:
+
+$Capacidade\ do\ Link = \frac{Taxa\ de\ Chegada * (Pacote\ Médio*0.5+Pacote\ Pequeno*0.4 +Pacote\ Grande*0.1)}{Ocupação\ Desejada}$
+
+
+O simulador recebeu como entrada a taxa de chegada de pacotes e a ocupação desejada, realizando os cálculos necessários para determinar a capacidade do link em cada cenário. Esse processo é descrito a seguir:
+
+\begin{itemize}
+\item \textbf{Parâmetros da Simulação}: Os tamanhos dos pacotes foram gerados com base nas proporções especificadas:
+\begin{itemize}
+\item 50\% dos pacotes possuem 550 bytes ou 4400 bits (Pacote Médio).
+\item 40\% dos pacotes possuem 40 bytes ou 320 bits (Pacote Pequeno).
+\item 10\% dos pacotes possuem 1500 bytes ou 12000 bits(Pacote Grande).
+\end{itemize}
+\item \textbf{Geração do Tamanho dos Pacotes}: Um número aleatório uniforme foi utilizado para determinar o tamanho de cada pacote de acordo com as proporções acima:
+\begin{verbatim}
+int gera_tamanho_pacote() {
+    double p = uniforme(); // Gera número aleatório entre 0 e 1
+    if (p <= 0.5) {
+        return PACOTE_MEDIO; // 50% dos pacotes
+    } else if (p <= 0.9) {
+        return PACOTE_PEQUENO; // 40% dos pacotes
+    } else {
+        return PACOTE_GRANDE; // 10% dos pacotes
+    }
+}
+\end{verbatim}
+\item \textbf{Cálculo da Capacidade do Link}: A fórmula acima foi implementada no código para ajustar automaticamente a capacidade do link em função da ocupação desejada e da taxa de chegada de pacotes:
+\begin{verbatim}
+double calcula_capacidade_link(double ocupacao_desejada, double taxa_chegada) {
+    return (taxa_chegada * (PACOTE_PEQUENO * 0.4
+    + PACOTE_MEDIO * 0.5 + PACOTE_GRANDE * 0.1)) / ocupacao_desejada;
+}
+\end{verbatim}
+\end{itemize}
+
+Essa abordagem permitiu que o simulador gerasse cenários de ocupação realista (60\%, 80\%, 95\%, 99\%) com precisão, ajustando automaticamente os parâmetros necessários. Assim, os resultados obtidos refletem fielmente as condições desejadas, garantindo a coerência e a confiabilidade das simulações.
+ 
+
+%=====================================================================
+\subsubsection{Resultados}
+Nesta seção, analisaremos os resultados obtidos em todos os cenários simulados para a Etapa 1. Para fins de visualização e interpretação, utilizamos as seguintes convenções para as curvas nos gráficos apresentados:
+\begin{itemize}
+    \item Curva azul: Representa a taxa de ocupação que converge para 60\%.
+    \item Curva verde: Representa a taxa de ocupação que converge para 80\%.
+    \item Curva vermelha: Representa a taxa de ocupação que converge para 95\%.
+    \item Curva rosa: Representa a taxa de ocupação que converge para 99\%.
+\end{itemize}
+Antes de apresentar os gráficos, será exibida uma tabela com os valores finais calculados para cada cenário. Esses valores incluem:
+\begin{itemize}
+    \item Ocupação: A taxa média de utilização do sistema durante a simulação.
+    \item Medidas de Little: Valores finais de $E[N]$, $E[W]$, e $\lambda$, conforme definidos pelo Teorema de Little.
+    \item Erro de Little: A diferença percentual entre os valores observados e os esperados de acordo com o Teorema.
+\end{itemize}
+Essa tabela servirá como uma referência inicial para compreender o comportamento do sistema antes de explorarmos os dados detalhados nos gráficos subsequentes.
+\subsection{Tabela de Valores Finais}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Cenário (Ocupação)} & \textbf{Ocupação Final (\%)} & \textbf{$E[N]$} & \textbf{$E[W]$ (s)} & \textbf{Erro de Little (\%)} \\ 
+        \hline
+        60\% & 59.99579 & 1.47297 & 0.01473 & 0.0000385 \\ 
+        80\% & 79.99821 & 3.92708 & 0.03927 & 0.0000315 \\ 
+        95\% & 94.97039 & 18.39079 & 0.18392 & -0.0000216 \\ 
+        99\% & 99.00526 & 100.92428 & 1.00898 & -0.0000252 \\ 
+        \hline
+    \end{tabular}
+    \caption{Resultados finais para diferentes cenários de ocupação}
+    \label{tab:resultados}
+\end{table}
+
+
+%=====================================================================
+\subsubsection{Gráfico da taxa de ocupação$(\rho)$ em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/ocupacao_tempo.svg}
+   \caption{Ocupação em função do tempo}
+   \label{fig:ocupacaoE1}
+\end{figure}
+
+O gráfico apresentado na figura \ref{fig:ocupacaoE1} ilustra a relação entre a taxa de ocupação e o tempo, evidenciando um comportamento típico de estabilização conforme o sistema evolui. Observa-se que, à medida que o tempo avança, as diferentes taxas de ocupação tendem a convergir para valores constantes, refletindo um equilíbrio dinâmico alcançado gradualmente. Esse comportamento é esperado em sistemas que operam sob condições de carga variáveis, onde a ocupação se ajusta até atingir um estado de saturação ou estabilidade.
+
+A análise detalhada permite identificar que taxas de ocupação mais elevadas, como aquelas associadas a $\rho = 95\%$ e $\rho = 99\%$, apresentam uma maior demanda, resultando em valores finais de ocupação significativamente mais altos. Esses sistemas, devido à carga intensa, tendem a atingir rapidamente seus limites teóricos, demonstrando uma convergência mais acentuada. Por outro lado, para taxas de ocupação menores, como $\rho = 60\%$ e $\rho = 80\%$, o comportamento de estabilização é igualmente evidente, embora os valores finais sejam substancialmente mais baixos, em concordância com as demandas reduzidas.
+
+%=====================================================================
+\subsubsection{Gráficos do número médio de elementos no sistema E[n] em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/eN_tempo.svg}
+   \caption{Número médio de elementos no sistema E[n] em função do tempo}
+   \label{fig:eNE1}
+\end{figure}
+O gráfico apresentado na figura \ref{fig:eNE1}ilustra a evolução de $E[n]$, o número médio de entidades no sistema, ao longo do tempo da simulação, para diferentes taxas de ocupação. Observa-se comportamentos distintos nas curvas, que refletem os diferentes níveis de carga e desempenho do sistema em cada cenário.
+Para uma melhor visualização do gráfico, dividimos em duas partes para que o intervalo de análise fique mais explícito
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/eN_tempo_iniciais.svg}
+   \caption{Número médio de elementos no sistema E[n] em função do tempo para 60\% e 80\%}
+   \label{fig:eN2E1}
+\end{figure}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/eN_tempo_finais.svg}
+   \caption{Número médio de elementos no sistema E[n] em função do tempo para 95\% e 99\%}
+   \label{fig:eN3E1}
+\end{figure}
+
+A curva correspondente à ocupação de 99\% (rosa), na figura \ref{fig:eN3E1} destaca-se por iniciar próxima de 30 e apresentar um crescimento acentuado, atingindo um pico próximo de 100 em determinado momento. Esse comportamento sugere um rápido acúmulo de eventos ou entidades no início da simulação, indicando que o sistema enfrenta alta demanda. Após esse pico, a curva apresenta uma leve redução e estabiliza-se em torno de 85. Esse decaimento pode ser atribuído a um ajuste gradual do sistema, no qual a liberação de eventos ou entidades ocorre até que um equilíbrio dinâmico seja alcançado.
+
+A curva associada à ocupação de 95\% (vermelha), na figura \ref{fig:eN3E1} a curva começa próxima de 10, mas o crescimento é menos acentuado em comparação com a curva rosa. Ela rapidamente atinge um patamar em torno de 20 e mantém-se estável ao longo do restante da simulação. Esse comportamento indica que o sistema, nesse caso, estabiliza-se em um equilíbrio relativamente baixo, possivelmente devido a uma carga moderada, onde o fluxo de entrada e saída de eventos encontra-se balanceado.
+
+A curva verde, representando a ocupação de 80\%, na figura \ref{fig:eN2E1} segue um padrão semelhante ao da curva vermelha, mas estabiliza-se em um valor ainda menor, aproximadamente 4. Isso demonstra que, neste cenário, o sistema é menos congestionado e atinge rapidamente um estado estável, com uma menor média de eventos ou entidades presentes.
+
+Por fim, a curva azul, correspondente à ocupação de 60\%, na figura \ref{fig:eN2E1} apresenta o menor valor de estabilização dentre todas. Após um breve crescimento inicial, ela rapidamente estabiliza-se em torno de 1,5. Esse comportamento reflete um sistema com baixa carga, no qual o processamento de eventos ocorre de maneira eficiente, resultando em um número médio muito baixo de entidades ao longo do tempo.
+
+O comportamento dessas curvas reflete diferentes cenários de carga e eficiência do sistema, com a curva rosa indicando um sistema próximo da saturação, enquanto as curvas azul, verde e vermelha mostram sistemas que alcançam rapidamente o equilíbrio com menor acúmulo de eventos. Esses resultados foram obtidos a partir do cálculo de $E[n]$
+$E[n]= \frac{en\_soma\_areas}{tempo\_decorrido}$
+onde a média ponderada do número de entidades foi calculada ao longo do tempo da simulação. Essa abordagem permitiu analisar a evolução dinâmica do sistema, identificando períodos de crescimento, estabilização e, em alguns casos, decaimento, resultando em valores médios que descrevem o desempenho de cada cenário simulado.
+%=====================================================================
+\subsubsection{Gráficos do tempo médio de espera dos elementos no sistema E[w] em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/eW_tempo.svg}
+   \caption{Tempo médio de espera dos elementos no sistema E[w] em função do tempo}
+   \label{fig:eWE1}
+\end{figure}
+
+O gráfico \ref{fig:eWE1}{}apresentado representa $E[w]$, o tempo médio de espera das entidades no sistema ao longo do tempo, considerando diferentes níveis de ocupação. Ele exibe quatro curvas que refletem comportamentos distintos, relacionados às condições de carga de cada cenário. PAra melhor visualização, o gráfico foi separado em duas partes, \ref{fig:eW2E1} e \ref{fig:eW3E1}.
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/eW_tempo_iniciais.svg}
+   \caption{Tempo médio de espera dos elementos no sistema E[w] em função do tempo}
+   \label{fig:eW2E1}
+\end{figure}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/eW_tempo_finais.svg}
+   \caption{Tempo médio de espera dos elementos no sistema E[w] em função do tempo}
+   \label{fig:eW3E1}
+\end{figure}
+
+. Observa-se que todas as curvas exibem padrões consistentes de estabilização, mas com valores em uma escala mais baixa, refletindo o impacto das condições de carga no tempo de espera médio.
+
+A curva correspondente à ocupação de 99\% (rosa) inicia próxima de zero e cresce rapidamente, atingindo um valor máximo ligeiramente acima de 1 nos momentos iniciais da simulação. Esse comportamento indica que, no início, as entidades enfrentam um leve acúmulo no sistema, resultando em um aumento moderado no tempo de espera. Após esse crescimento inicial, a curva estabiliza-se em torno de 0,85 e termina em 1.00898. Isso sugere que, embora o sistema opere em uma alta taxa de ocupação, ele alcança um equilíbrio com tempos de espera relativamente baixos, indicando que, mesmo sob alta demanda, há um controle efetivo sobre a espera média.
+
+A curva associada à ocupação de 95\% (vermelha) também começa próxima de zero e cresce de forma mais contida, estabilizando-se em um valor próximo de 0,2, , terminando em 0.18392. Esse padrão reflete um sistema que, embora apresente alguma espera inicial, rapidamente atinge um equilíbrio onde os tempos de espera são mínimos, evidenciando uma boa eficiência no processamento das entidades.
+
+A curva verde, representando a ocupação de 80\%, segue um padrão semelhante, mas com estabilização em valores ainda menores, ao redor de 0,04, terminando em . Esse comportamento indica um sistema menos congestionado, em que o tempo de espera médio é praticamente desprezível, refletindo uma alta capacidade de lidar com a carga de trabalho.
+
+Por fim, a curva azul, correspondente à ocupação de 60\%, apresenta o menor valor de estabilização. Após um breve crescimento inicial, a curva estabiliza-se em um valor inferior a 0,02. Isso evidencia que, nesse cenário, o sistema opera com eficiência máxima, processando as entidades quase imediatamente, sem gerar acúmulos significativos.
+
+O valor de E[w] foi calculado com base na fórmula 
+$$
+E[w] = \frac{ew\_soma\_area\_chegadas-ew\_soma\_area\_saidas}{ew\_numero\_eventos}
+$$
+que mede a diferença acumulada entre as áreas das chegadas e saídas normalizada pelo número total de eventos. Esses resultados demonstram que o tempo médio de espera é diretamente influenciado pela taxa de ocupação, com cenários de alta ocupação apresentando maiores tempos de espera médios, embora ainda em uma escala reduzida. Isso reforça a eficiência do sistema em lidar com as cargas simuladas, mesmo sob condições de alta demanda.
+
+%=====================================================================
+\subsubsection{Gráficos da taxa de chegada $(\lambda)$ em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/lambda_tempo.svg}
+   \caption{Taxa de chegada $(\lambda)$ em função do tempo}
+   \label{fig:lambdaE1}
+\end{figure}
+Na figura \ref{fig:lambdaE1} todas as quatro curvas começam em um valor entre 99 e 100, sugerindo uma taxa de chegada inicial alta, indicando que o sistema está recebendo pacotes em uma taxa elevada, mas abaixo do que será observado posteriormente.
+
+A partir de aproximadamente Tempo=20,000, as quatro curvas convergem e se estabilizam em uma taxa de chegada mais moderada, mostra na figura \ref{fig:lambda2E1}.
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/lambda_tempo_corte.svg}
+   \caption{Taxa de chegada $(\lambda)$ em função do tempo}
+   \label{fig:lambda2E1}
+\end{figure}
+
+A curva correspondente à ocupação de 99\% (rosa) apresenta os maiores picos e variações entre todas as curvas, com valores que frequentemente se desviam de 100. O comportamento é mais errático e menos estável ao longo do tempo, refletindo a dificuldade do sistema em manter a taxa de chegada consistente sob ocupação quase total.
+
+A curva associada à ocupação de 95\% (vermelha) tem as flutuações da taxa de chegada que são mais evidentes e mantêm uma amplitude maior durante o período de observação. A curva ainda converge para valores próximos de 100, mas com maior irregularidade, indicando que a alta ocupação influencia a dinâmica do sistema.
+
+A curva verde, representando a ocupação de 80\%, similar à curva de 60\%, a taxa de chegada também inicia um pouco acima de 100, mas apresenta flutuações maiores.
+
+Por fim, a curva azul, correspondente à ocupação de 60\%, possui a taxa de chegada inicial (λ) maior que 100 e apresenta oscilações significativas no início. Com o tempo, a curva tende a estabilizar em torno de 100, com menores variações, indicando uma maior regularidade no sistema com menor ocupação.
+
+
+A taxa de chegada $\lambda$ foi calculada como o número de eventos de chegada ao longo do tempo decorrido, isto é,
+$$
+\lambda=\frac{ew\_num\_eventos\_chegadas}{ew\_tempo\_decorrido}
+$$
+Este cálculo reflete a média ponderada da taxa de chegada de pacotes no sistema ao longo do tempo de simulação, sendo ajustado pelo número de eventos que realmente chegaram ao sistema em cada instante.
+%=====================================================================
+\subsubsection{Gráfico do erro de Little em função do tempo}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa1/little_tempo.svg}
+   \caption{Erro de Little em função do tempo}
+   \label{fig:littleE1}
+\end{figure}
+
+A figura \ref{fig:littleE1} ilustra a evolução do erro da Lei de Little ao longo do tempo para diferentes níveis de ocupação do sistema, sendo esses 85\%, 90\%, 95\%, e 99\%. O erro é calculado a partir da fórmula:
+$$
+erro\_little=en\_final − \lambda * ew\_final
+$$
+A curva azul apresenta oscilações contidas em torno de zero, indicando que, para este nível de ocupação, a Lei de Little é uma boa aproximação do comportamento do sistema. O erro é pequeno e relativamente estável, o que sugere que o número médio de itens no sistema (\(en\_final\)) e o tempo médio de espera (\(ew\_final\)) estão bem representados pela fórmula.
+
+Na curva verde, as oscilações tornam-se mais evidentes, embora ainda sejam moderadas. Este comportamento mostra que, com o aumento da ocupação, o erro da Lei de Little começa a crescer, mas ainda permanece dentro de limites aceitáveis. O sistema começa a demonstrar sinais de maior volatilidade, mas a previsão continua razoável.
+
+A curva vermelha exibe um erro mais pronunciado, com variações mais significativas em torno de zero. Isso indica que, para ocupações mais elevadas, a precisão da Lei de Little diminui. O aumento do erro é um reflexo da proximidade do sistema com sua capacidade máxima, o que dificulta a previsibilidade do comportamento.
+
+A curva rosa apresenta os maiores desvios e flutuações, com erros significativos ao longo do tempo. Esse comportamento sugere que o sistema está saturado, e a relação prevista pela Lei de Little (\(en\_final \approx \lambda \cdot ew\_final\)) não se aplica bem neste cenário. A saturação resulta em um aumento desproporcional no tempo de espera, comprometendo a acurácia da fórmula.
+%=====================================================================%=====================================================================%=====================================================================%=====================================================================%=====================================================================%=====================================================================%=====================================================================%=====================================================================
+
+
+
+\subsection{Etapa 2}
+%=====================================================================
+Nesta etapa do trabalho, expandiremos o simulador desenvolvido na Etapa 1 para incluir a possibilidade de realização de chamadas em tempo real. Este novo tipo de tráfego tem características distintas das operações de navegação web, introduzindo novas variáveis que impactam diretamente na ocupação do sistema. 
+
+As principais características das chamadas em tempo real são:
+\begin{itemize}
+    \item O intervalo entre o início de novas chamadas segue uma distribuição exponencial com média \(\leq 30\) segundos.
+    \item A duração de cada chamada segue uma distribuição exponencial com média \(\geq 60\) segundos.
+    \item Cada chamada utiliza o codec G.711 (u/a), cujas características são:
+    \begin{itemize}
+        \item Taxa de geração de pacotes: \(64 \, \text{Kbps}\).
+        \item Intervalo entre pacotes: \(20 \, \text{ms}\) (taxa CBR - Constant Bit Rate).
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Cálculo do Tamanho do Link}
+O link será dimensionado para que os níveis de ocupação do sistema atinjam os seguintes valores: \(60\%\), \(80\%\), \(95\%\) e \(99\%\). Para isso, consideramos o tráfego total (navegação web + chamadas em tempo real). 
+\begin{verbatim}
+double calcula_capacidade_link(double ocupacao_desejada, double taxa_chegada) {
+  double media_tamanho =
+      0.5 * PACOTE_MEDIO + 0.4 * PACOTE_PEQUENO + 0.1 * PACOTE_GRANDE;
+  return (taxa_chegada * media_tamanho) / ocupacao_desejada;
+}
+\end{verbatim}
+
+\subsubsection{Medições Realizadas}
+
+Para cada cenário de ocupação (\(60\%\), \(80\%\), \(95\%\), \(99\%\)), coletaremos as seguintes informações:
+
+\paragraph{Tráfego de Tempo Real Isolado}
+
+Considerando apenas o tráfego de chamadas em tempo real, os seguintes dados serão apresentados:
+\begin{itemize}
+    \item Valores finais das seguintes medidas:
+    \begin{itemize}
+        \item \(E[N]\) (número médio de chamadas em andamento no sistema).
+        \item \(E[W]\) (tempo médio de espera para chamadas em tempo real).
+        \item Erro da Lei de Little.
+    \end{itemize}
+    \item Tabela com os valores finais para cada cenário.
+    \item Três gráficos (um para cada medida coletada a cada \(100\) segundos):
+    \begin{itemize}
+        \item \(E[N]\).
+        \item \(E[W]\).
+        \item Erro da Lei de Little.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Tráfego Total (Web + Tempo Real)}
+
+Para o tráfego combinado de navegação web e chamadas em tempo real, os seguintes dados serão apresentados:
+\begin{itemize}
+    \item Valores finais das seguintes medidas:
+    \begin{itemize}
+        \item Ocupação final do link.
+        \item Valores de \(E[N]\) (número médio de itens no sistema) e \(E[W]\) (tempo médio de espera no sistema).
+        \item Erro da Lei de Little (\(erro\_little = en\_final - \lambda \cdot ew\_final\)).
+    \end{itemize}
+    \item Tabela com os valores finais para cada cenário.
+    \item Quatro gráficos (um para cada medida coletada a cada \(100\) segundos):
+    \begin{itemize}
+        \item Ocupação.
+        \item \(E[N]\).
+        \item \(E[W]\).
+        \item Erro da Lei de Little.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Resultados}
+\paragraph{Tráfego de Tempo Real Isolado}
+Iniciaremos mostrando a tabela com os valores finais obtidos nesta simualação:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{$E[N]$} & \textbf{$E[W]$ (s)} & \textbf{Erro de Little (\%)} \\ 
+        \hline
+          35.75617  & 1084.83551  & -0.00021005 \\ 
+          32.34678 & 962.41543 & -0.00001631 \\ 
+          33.60336 & 973.16455 & -0.00114692 \\ 
+          59.08447 & 1774.84138 & -0.00005452 \\ 
+        \hline
+    \end{tabular}
+    \caption{Resultados finais para diferentes cenários(Tráfego em Tempo Real)}
+    \label{tab:resultados}
+\end{table}
+
+\subsubsection{Gráficos do número médio de elementos no sistema E[n] em função do tempo}
+O gráfico representado na Figura \ref{fig:eNE2} ilustra o número médio de elementos no sistema (\(E[N]\)) ao longo do tempo, para diferentes níveis de ocupação do link: \(60\%\), \(80\%\), \(95\%\) e \(99\%\). O comportamento de cada curva fornece informações importantes sobre a relação entre o nível de ocupação e o número médio de elementos no sistema.
+
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/eN_tempo_chamadas.svg}
+   \caption{Número médio de elementos no sistema E[n] em função do tempo}
+   \label{fig:eNE2}
+\end{figure}
+A curva azul, correspondente a \(60\%\) de ocupação, apresenta valores relativamente baixos de \(E[N]\), oscilando em torno de 10 a 30 elementos após o início da simulação. Durante o período inicial (\(0\) a \(20.000\) segundos), observa-se um aumento no número de elementos no sistema, que estabiliza posteriormente. Este comportamento indica que, para níveis de ocupação baixos, o sistema é capaz de lidar com a demanda de forma eficiente, mantendo o número médio de elementos em níveis controlados.
+
+A curva verde, referente a \(80\%\) de ocupação, apresenta valores intermediários para \(E[N]\), com picos que chegam a aproximadamente \(40\) elementos. O comportamento oscilatório é mais evidente nesta curva, o que sugere que, com o aumento da ocupação, o sistema começa a acumular mais elementos, mas ainda consegue processá-los dentro de uma janela de tempo razoável.
+A curva vermelha, para \(95\%\) de ocupação, evidencia um aumento considerável no número médio de elementos no sistema. Durante os primeiros \(20.000\) segundos, observa-se um crescimento rápido de \(E[N]\), seguido de flutuações em torno de \(30\) a \(50\) elementos. Este comportamento reflete um sistema em um estado próximo à saturação, onde a capacidade de processar as requisições começa a se aproximar do limite do sistema.
+
+A curva rosa, que representa o cenário com \(99\%\) de ocupação, mostra os maiores valores de \(E[N]\), atingindo picos superiores a \(60\) elementos no sistema. Neste cenário, o número médio de elementos continua a crescer ao longo do tempo, indicando que o sistema está saturado e incapaz de processar as requisições de forma eficiente. Este comportamento evidencia o impacto da alta ocupação na formação de filas e no aumento do tempo de espera.
+
+Ao comparar as curvas, observa-se que o aumento do nível de ocupação do link está diretamente relacionado ao crescimento do número médio de elementos no sistema. Para ocupações mais baixas (\(60\%\) e \(80\%\)), o sistema mantém o controle sobre o número de elementos, enquanto para ocupações elevadas (\(95\%\) e \(99\%\)), o sistema apresenta sinais claros de sobrecarga.
+
+O comportamento de \(E[N]\) ao longo do tempo destaca a importância de manter o nível de ocupação do sistema abaixo de \(80\%\) para evitar saturação e garantir tempos de resposta aceitáveis. Ocupações superiores a \(95\%\) resultam em um sistema instável, com aumento significativo do número médio de elementos, o que pode levar a degradações severas na qualidade do serviço.
+
+
+\subsubsection{Gráficos do tempo médio de espera dos elementos no sistema E[w] em função do tempo}
+O gráfico apresentado na Figura \ref{fig:eWE2} mostra a relação entre o tempo médio de espera $E[w]$ e o tempo ($Tempo$), considerando diferentes níveis de ocupação do sistema: 60\%, 80\%, 95\% e 99\%. A análise detalhada do gráfico é realizada a seguir.
+
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/eW_tempo_chamadas.svg}
+   \caption{Tempo médio de espera dos elementos no sistema E[w] em função do tempo}
+   \label{fig:eWE2}
+\end{figure}
+A curva vermelha apresenta o menor valor de $E[w]$ ao longo do tempo, indicando que o sistema mantém um baixo tempo médio de espera. Após um pequeno aumento inicial, o tempo médio de espera estabiliza-se e apresenta pequenas oscilações ao longo do período.
+
+A curva verde exibe valores intermediários de $E[w]$, mostrando um aumento mais significativo em comparação à ocupação de 60\%. O comportamento é relativamente estável, com uma leve tendência de crescimento após 60.000 segundos.
+
+A curva azul indica um aumento acentuado de $E[w]$ em relação às ocupações mais baixas, refletindo uma maior saturação do sistema. O tempo médio de espera é visivelmente maior a partir de 50.000 segundos, com um comportamento irregular.
+
+A curva rosa apresenta os valores mais altos de $E[w]$, evidenciando o impacto extremo de um sistema próximo à sua capacidade máxima. Há um crescimento significativo no tempo médio de espera a partir de 50.000 segundos, com picos que ultrapassam 1.800 unidades de $E[w]$ próximo de 90.000 segundos.
+
+À medida que o nível de ocupação aumenta, o tempo médio de espera também cresce de forma acentuada. Isso está relacionado à redução na capacidade do sistema de lidar com a carga crescente de trabalho.
+
+\subsubsection{Gráfico do erro de Little em função do tempo}
+O gráfico apresentado na Figura \ref{fig:littleE2} exibe o comportamento do erro da Lei de Little ao longo do tempo para diferentes níveis de ocupação do sistema: 60\%, 80\%, 95\% e 99\%. A análise detalhada é descrita a seguir.
+
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/little_tempo_chamadas.svg}
+   \caption{Erro de Little em função do tempo}
+   \label{fig:littleE2}
+\end{figure}
+
+A curva vermelha exibe pequenas variações em torno do valor 0 ao longo do tempo. Os desvios são limitados e permanecem dentro de um intervalo estreito, indicando uma boa precisão da Lei de Little neste cenário de baixa ocupação.
+
+A curva verde também apresenta variações próximas de 0, tendo menores desvios no sistema, com um desvio significativo no final .Pequenos desvios positivos e negativos são visíveis, mas ainda controlados.
+
+ A curva azul mostra um comportamento mais irregular, com maiores desvios tanto para valores positivos quanto negativos. O erro de Little apresenta maior instabilidade, especialmente após 50.000 segundos, onde os desvios negativos chegam próximos de $-1\times10^{-11}$.
+
+A curva rosa é a mais oscilatória entre todas, com grandes variações. Após 70.000 segundos, a amplitude das variações aumenta significativamente, indicando que o sistema está em uma condição crítica onde a precisão da Lei de Little se deteriora.
+
+
+%=============================================================================================================
+\paragraph{Tráfego Total (Web + Tempo Real)}
+Iniciaremos mostrando a tabela com os valores finais obtidos nesta simualação:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Cenário (Ocupação)} & \textbf{Ocupação Final (\%)} & \textbf{$E[N]$} & \textbf{$E[W]$ (s)} & \textbf{Erro de Little (\%)} \\ 
+        \hline
+        60\% & 59.99320 & 37.22573  & 0.37222  & -0.0001178 \\ 
+        80\% & 80.03025 & 36.25147 & 0.36226 & -0.0000693 \\ 
+        95\% & 95.04125 & 52.10834 & 0.52085 & -0.0011379 \\ 
+        99\% & 99.04147 & 161.03201 &1.60977 & -0.0000496 \\ 
+        \hline
+    \end{tabular}
+    \caption{Resultados finais para diferentes cenários de ocupação(Tráfego Web + Tempo Real}
+    \label{tab:resultados}
+\end{table}
+
+\subsubsection{Gráfico da taxa de ocupação$(\rho)$ em função do tempo(Web+Tempo Real)}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/ocupacao_tempo_web.svg}
+   \caption{Ocupação em função do tempo}
+   \label{fig:ocupacaoE2Web}
+\end{figure}
+Podemos notar no grárfico \ref{fig:ocupacaoE2Web} que as ocupações seguem o que desejamos, tendo uma pequena variação no início da simulação.
+
+\subsubsection{Gráficos do número médio de elementos no sistema E[n] em função do tempo (Web+Tempo Real)}
+O gráfico representado na Figura \ref{fig:eNE2Web} ilustra o número médio de elementos no sistema (\(E[N]\)) ao longo do tempo, para diferentes níveis de ocupação do link: \(60\%\), \(80\%\), \(95\%\) e \(99\%\). O comportamento de cada curva fornece informações importantes sobre a relação entre o nível de ocupação e o número médio de elementos no sistema.
+Para uma melhor visualização da variação das ocupações de 60\% e 80\%, o gráfico é ampliado na figura \ref{fig:eNE2Web2}.
+
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/eN_tempo_web.svg}
+   \caption{Número médio de elementos no sistema E[n] em função do tempo(Web+Tempo Real)}
+   \label{fig:eNE2Web}
+\end{figure}
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/eN_tempo_web2.svg}
+   \caption{Número médio de elementos no sistema E[n] em função do tempo(Web+Tempo Real)}
+   \label{fig:eNE2Web2}
+\end{figure}
+
+A curva verde apresenta valores muito baixos de $E[n]$, praticamente constantes ao longo do tempo.
+Isso indica que, para uma ocupação de 60\%, o sistema opera com poucos elementos simultaneamente, mantendo-se eficiente.
+
+A curva azul também exibe valores baixos de $E[n]$, com um leve aumento em relação à ocupação de 60\%. O número médio de elementos no sistema permanece estável, indicando que o impacto do aumento da ocupação é controlado.
+
+A curva vermelha apresenta um crescimento mais pronunciado de $E[n]$, estabilizando-se em torno de 20 elementos. Isso reflete um aumento significativo na carga do sistema, com mais elementos simultaneamente processados.
+
+A curva rosa apresenta valores muito elevados de $E[n]$, iniciando perto de 40 e estabilizando-se próximo a 100 elementos após 20.000 segundos. O número médio de elementos no sistema cresce drasticamente devido à saturação causada pela alta ocupação.
+
+O gráfico demonstra que manter a ocupação do sistema abaixo de 80\% é fundamental para garantir baixos valores de $E[n]$ e a eficiência do sistema. Ocupações acima de 95\% resultam em uma carga excessiva, que pode comprometer a estabilidade e o desempenho do sistema.
+
+
+\subsubsection{Gráficos do tempo médio de espera dos elementos no sistema E[w] em função do tempo(Web+Tempo Real)}
+O gráfico apresentado na Figura \ref{fig:eWE2Web} mostra a relação entre o tempo médio de espera $E[w]$ e o tempo ($Tempo$), considerando diferentes níveis de ocupação do sistema: 60\%, 80\%, 95\% e 99\%. A análise detalhada do gráfico é realizada a seguir. Para uma melhor visualização, ampliamos o gráfico \ref{fig:eWE2Web2}.
+
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/eW_tempo_web.svg}
+   \caption{Tempo médio de espera dos elementos no sistema E[w] em função do tempo(Web+Tempo Real)}
+   \label{fig:eWE2Web}
+\end{figure}
+
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/eW_tempo_web2.svg}
+   \caption{Tempo médio de espera dos elementos no sistema E[w] em função do temp(Web+Tempo Real)o}
+   \label{fig:eWE2Web2}
+\end{figure}
+
+A curva azul representa a situação em que o sistema está 60\% ocupado. Observa-se que o tempo médio de espera começa baixo, perto de 0.01, e permanece quase constante ao longo do tempo. Isso indica que, com 60\% de ocupação, o sistema tem capacidade suficiente para atender os elementos de forma eficiente, mantendo os tempos de espera baixos.
+
+A curva verde mostra o comportamento do sistema quando a ocupação chega a 80\%. Neste caso, o tempo médio de espera começa em cerca de 0.04 e aumenta lentamente ao longo do tempo.
+
+A curva rosa mostra o comportamento com 99\% de ocupação. Inicialmente, o tempo médio de espera está mais elevado, acima de 0.8, e tende a se estabilizar próximo de 1. Isso indica que, com 99\% de ocupação, o sistema começa a operar em uma região onde o congestionamento é mais significativo e o tempo de espera aumenta consideravelmente.
+
+A curva vermelha representa a situação em que o sistema está 95\% ocupado. A curva inicia-se perto de 0,2 e mantém0-se nessa média até o fim da simulação
+
+
+\subsubsection{Gráfico do erro de Little em função do tempo (Web+Tempo Real)}
+O gráfico apresentado na Figura \ref{fig:littleE2Web} exibe o comportamento do erro da Lei de Little ao longo do tempo para diferentes níveis de ocupação do sistema: 60\%, 80\%, 95\% e 99\%. A análise detalhada é descrita a seguir.
+
+\begin{figure}[h!]
+   \centering
+   \includesvg[width=\textwidth]{Graficos2/Etapa2/little_tempo_web.svg}
+   \caption{Erro de Little em função do tempo(Web+Tempo Real)}
+   \label{fig:littleE2Web}
+\end{figure}
+
+A curva verde representa a situação em que o sistema está 80\% ocupado. O erro de Little começa em um valor igual a 0 e permanece relativamente estável ao longo do tempo, com pequenas flutuações. Isso sugere que, com 80\% de ocupação, o modelo de fila está bastante preciso, com erro pequeno e estável.
+
+A curva azul, para uma ocupação de 60\%, mostra um erro de Little ligeiramente maior, e apresenta um aumento gradual ao longo do tempo. Esse comportamento indica que, com 60\% de ocupação, o sistema começa a mostrar uma leve piora na precisão do modelo, tendo a pior desestabilidade.
+
+A curva rosa indica uma ocupação de 99\%. O erro de Little é mais alto e cresce de forma mais pronunciada ao longo do tempo. Isso sugere que, com 99\% de ocupação, o modelo de fila começa a perder precisão.
+
+A curva vermelha mostra o comportamento com uma ocupação de 95\%. O erro de Little começa em um valor negativo (
+ ) e aumenta ao longo do tempo, com flutuações mais evidentes. O erro alcança o valor mais alto, indicando que o modelo de fila sofre grandes imprecisões em altas taxas de ocupação, provavelmente devido a congestionamentos severos no sistema.

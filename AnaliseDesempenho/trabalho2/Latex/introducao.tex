@@ -1,0 +1,14 @@
+\section{\large INTRODUÇÃO}  
+
+Este relatório apresenta uma análise detalhada do desempenho de um sistema de comunicação baseado em filas, realizado por meio de uma simulação computacional ao longo de 100.000 segundos. O estudo é dividido em duas etapas, cada uma abordando cenários específicos que simulam tráfegos distintos: navegação web e chamadas em tempo real. O principal objetivo é avaliar o comportamento do sistema sob diferentes taxas de ocupação (60\%, 80\%, 95\% e 99\%), utilizando parâmetros matematicamente calculados para garantir que essas condições sejam precisamente atendidas.  
+
+Ao longo da simulação, dados acumulados foram coletados em intervalos regulares de 100 segundos, permitindo uma análise detalhada das seguintes métricas de desempenho:  
+\begin{itemize}  
+    \item \textbf{Ocupação em função do tempo}: Monitoramento da utilização do sistema em cada cenário avaliado.  
+    \item \textbf{$E[N]$ em função do tempo}: Número médio de pacotes ou clientes no sistema durante os intervalos.  
+    \item \textbf{$E[W]$ em função do tempo}: Tempo médio de espera dos pacotes no sistema, determinante para a avaliação do desempenho.  
+    \item \textbf{$\lambda$ em função do tempo}: Taxa de chegada de pacotes, essencial para a validação dos cálculos de ocupação.  
+    \item \textbf{Erro do Teorema de Little em função do tempo}: Análise da precisão das medições acumuladas com base nos parâmetros teóricos do sistema.  
+\end{itemize}  
+
+A coleta consistente de informações permite a análise cumulativa e a comparação com os resultados teóricos previamente calculados, garantindo a validade das conclusões. Além disso, a segunda etapa do estudo explora as interações entre tráfegos de diferentes naturezas, oferecendo uma visão mais abrangente do comportamento do sistema em cenários de uso misto.

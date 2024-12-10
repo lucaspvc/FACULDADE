@@ -49,10 +49,6 @@ double calcula_capacidade_link(double ocupacao_desejada, double taxa_chegada) {
     return (taxa_chegada * (PACOTE_PEQUENO * 0.4 + PACOTE_MEDIO * 0.5 + PACOTE_GRANDE * 0.1)) / ocupacao_desejada;
 }
 
-double calcula_tempo_atendimento(int tamanho_pacote, double capacidade_link) {
-    return (double)tamanho_pacote / capacidade_link;
-}
-
 // Retorna o menor valor entre dois números
 double min(double n1, double n2) {
     if (n1 < n2) return n1;
@@ -189,7 +185,7 @@ int main (int argc, char *argv[ ] ) {
     srand(RAND_MAX);
     char nome_arquivo[20];
 
-    //Entrada por linha de comando: tempo_chegada, tempo_atendimento, tempo_simulacao e número para dados de saida
+    //Entrada por linha de comando: tempo_chegada, tempo_simulacao e número para dados de saida
     double taxa_chegada;
     taxa_chegada = atof(argv[1]);
 
